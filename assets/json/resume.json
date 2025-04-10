@@ -25,7 +25,8 @@
   "education": [
     {
       "institution": "Korea Advanced Institute of Science and Technology (KAIST)",
-      "location": "Daejeon, Republic of Korea",
+      "location": "Daejeon, 
+      Republic of Korea",
       "url": "https://kaist.ac.kr/",
       "area": "",
       "studyType": "Baechelor",
@@ -35,18 +36,14 @@
       "courses": [""]
     }
   ],
+
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
+      "name": "To be refined",
+      "level": "",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "To be refined"
       ]
     }
   ],
@@ -64,22 +61,18 @@
   ],
   "interests": [
     {
-      "name": "Physics",
+      "name": "To be refined",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "",
+        ""
       ]
     }
   ],
 
   "projects": [
     {
-      "name": "",
+      "name": "To be refined",
       "summary": "",
       "highlights": ["", ""],
       "startDate": "2020-03-02",
