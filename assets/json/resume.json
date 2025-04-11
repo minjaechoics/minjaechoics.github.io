@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "MinJae Choi",
-    "label": "Undergraduate Student at Korea Advanced Institute of Science and Technology (KAIST)",
+    "label": "Undergraduate Student at KAIST",
     "image": "",
     "email": "minjaechoi.cs@gmail.com",
     "phone": "",
@@ -25,7 +25,7 @@
   "education": [
     {
       "institution": "Korea Advanced Institute of Science and Technology (KAIST)",
-      "location": "Daejeon, \nRepublic of Korea",
+      "location": "Daejeon, Korea",
       "url": "https://kaist.ac.kr/",
       "area": "",
       "studyType": "Baechelor",
