@@ -261,7 +261,7 @@ defaults:
       comments: true
   # _publications
   - scope:
-      path: ""
+      path: "/projects"
       type: publications
     values:
       layout: single
