@@ -270,7 +270,7 @@ defaults:
       comments: true
   # _portfolio
   - scope:
-      path: ""
+      path: "/study"
       type: portfolio
     values:
       layout: single
