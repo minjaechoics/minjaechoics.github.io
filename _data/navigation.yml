@@ -20,8 +20,8 @@ main:
   - title: "Study Notes"
     url: /study/
     
-  - title: "CV"
-    url: /cv/
+  #- title: "CV"
+  #  url: /cv/
     
   # - title: "CV"
   #   url: /cv-json/
