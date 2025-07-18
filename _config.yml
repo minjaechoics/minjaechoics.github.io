@@ -14,7 +14,7 @@ title_separator          : "-"
 name                     : &name "MinJae Choi"
 description              : &description "Student @ KAIST"
 url                      : https://minjaechoics.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
-baseurl                  : "/home" # the subpath of your site, e.g. "/blog"
+baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "minjaechoics/minjaechoics.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
@@ -23,13 +23,13 @@ repository               : "minjaechoics/minjaechoics.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "MinJae Choi"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "Student @ KAIST"
+  location         : "Daejeon, Republic of Korea"
+  employer         : "Korea Advanced Institute of Science & Technology (KAIST)"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "minjaechoi.cs@gmail.com" 
 
   # Academic websites
   academia         : # URL
@@ -61,7 +61,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : minjae-choi-7a9160346 # Username
+  linkedin         : "minjae-choi-7a9160346" # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
