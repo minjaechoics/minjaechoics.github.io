@@ -9,16 +9,16 @@
 
 main:
   - title: "Projects"
-    url: /projects/
+    url: /publications/
 
   - title: "Paper Reviews"
-    url: /paperreview/    
+    url: /talks/    
 
   - title: "Blogs"
-    url: /blogs/    
+    url: /teaching/    
     
   - title: "Study Notes"
-    url: /note/
+    url: /portfolio/
     
   - title: "CV"
     url: /cv/
