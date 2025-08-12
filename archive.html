@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MinJae Choi</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter','맑은 고딕',Arial,sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background: #eee;
+    padding: 10px 20px;
+  }
+  .menu nav ul {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .menu nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    padding: 20px 40px;
+    background: #f9f9f9;
+    gap: 40px;
+    flex-direction: row;
+  }
+  aside.sidemenu {
+    flex: 0 0 200px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  article.contents {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  .gradient-text {
+    background: linear-gradient(90deg,#0010c0,#060156 50%,#0010c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    display: inline-block;
+  }
+  footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  /* 내부 탭 메뉴 */
+  .inner-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .inner-tab {
+    padding: 6px 14px;
+    background: #f2f2f2;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .inner-tab.active {
+    background: #3341b7;
+    color: white;
+  }
+
+  /* 리스트 공통 */
+  .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  /* Books 카드 */
+  .item-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    width: 180px;
+  }
+  .item-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+  .item-info {
+    padding: 8px 10px;
+  }
+  .item-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #222;
+  }
+  .item-sub { font-size: 12px; color: #555; margin-bottom: 3px; }
+  .item-meta { font-size: 12px; color: #777; }
+
+  /* Classes 카드 (얇게) */
+  .class-card {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px; /* 패딩 축소 */
+    box-sizing: border-box;
+    background: #fff;
+    gap: 2px; /* 요소 간격 축소 */
+  }
+  .class-title { font-weight: 700; font-size: 15px; margin: 0; color: #222; }
+  .class-sub { font-size: 13px; color: #555; }
+  .class-meta { font-size: 12px; color: #777; }
+
+  /* 수강시점 태그 */
+  .term-tag {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ffeb99;
+    color: #333;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width:768px){
+    main { flex-direction: column; }
+    article.contents { order: 1; }
+    aside.sidemenu { order: 2; width: 100%; margin-top: 20px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="menu">
+    <nav>
+      <ul>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="archive.html">Archive</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+    <aside class="sidemenu">
+      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
+      <h4>Welcome to my homepage!</h4>
+      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
+      <p>Social Media</p>
+      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
+          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
+      </a>
+    </aside>
+
+  <article class="contents">
+    <h1 class="gradient-text" style="margin-bottom: 20px; font-size: 30px;">Archive</h1>
+
+    <!-- 내부 탭 -->
+    <div class="inner-tabs">
+      <div class="inner-tab active" data-target="books">Reading List</div>
+      <div class="inner-tab" data-target="classes">Course History</div>
+    </div>
+
+    <!-- Books 리스트 -->
+    <div id="books" class="item-list section">
+      <div class="item-card">
+        <img src="book1.jpg" alt="Book 1">
+        <div class="item-info">
+          <div class="item-title">The Pragmatic Programmer</div>
+          <div class="item-sub">Andrew Hunt, David Thomas</div>
+          <div class="item-meta">Your Journey to Mastery</div>
+          <div class="item-meta">ISBN: 978-0135957059</div>
+        </div>
+      </div>
+      <!-- 추가 책 카드 -->
+    </div>
+
+    <!-- Classes 리스트 -->
+    <div id="classes" class="item-list section" style="display:none; flex-direction: column; gap: 10px;">
+      <div class="class-card">
+        <span class="term-tag">2025 Spring</span>
+        <h2 class="class-title">Introduction to Machine Learning</h2>
+        <p class="class-sub">KAIST · CS229</p>
+        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
+      </div>
+      <!-- 추가 클래스 카드 -->
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.inner-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.inner-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.section').forEach(sec=>sec.style.display='none');
+      document.getElementById(tab.dataset.target).style.display='flex';
+    });
+  });
+</script>
+</body>
+</html>

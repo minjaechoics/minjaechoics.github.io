@@ -1,11 +1,198 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Test Page</title>
-    </head>
-    <body>
-        <h1>Welcome to the Test Page</h1>
-        <p>This is a simple HTML document.</p>
-    </body>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MinJae Choi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #eee;
+      padding: 10px 20px;
+    }
+    .menu nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .menu nav ul li {
+      margin: 0 15px;
+    }
+    .menu nav ul li a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: 600;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      padding: 20px 40px;
+      background: #f9f9f9;
+      box-sizing: border-box;
+      gap: 40px;
+      flex-direction: row; /* 기본: 가로 배치 */
+    }
+    aside.sidemenu {
+      flex: 0 0 200px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    article.contents {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      
+      font-weight: bold;
+      
+    }
+    p.indent {
+      text-indent: 7px;
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+    .hoveringicon img[title^="skill"]:hover {
+      border: 2px solid rgba(128, 127, 127, 0.7);
+      border-radius: 4px;
+    }
+    .imgindent img {
+      margin: 2px;
+      border: 2px solid transparent;
+      vertical-align: middle;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+
+    /* 모바일 화면 (가로폭 768px 이하)에서 레이아웃 변경 */
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column; /* 위-아래 배치 */
+      }
+      article.contents {
+        order: 1; /* 본문 먼저 */
+      }
+      aside.sidemenu {
+        order: 2; /* 본문 다음, footer 위에 */
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu">
+      <nav>
+        <ul>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="archive.html">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <aside class="sidemenu">
+      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
+      <h4>Welcome to my homepage!</h4>
+      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
+      <p>Social Media</p>
+      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
+          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
+      </a>
+    </aside>
+    <article class="contents">
+      <h1 class="gradient-text" style="margin-bottom: 10px; font-size: 30px;">MinJae Choi (최민재)</h1>
+      <h2>Introduction</h2>
+      <p class="indent">
+        Hello!😄 I’m <b class="gradient-text">MinJae Choi</b>, an undergraduate student at the Korea Advanced Institute of Science and Technology (<a href="https://kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">KAIST</span></b></a>). I’m planning to major in
+        <a href="https://cs.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Computer Science</span></b></a> and <a href="https://ee.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Electrical Engineering</span></b></a>, and to minor in <a href="https://mathsci.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Mathematical Sciences</span></b></a> and
+        <a href="https://id.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Industrial Design.</span></b></a>
+      </p>
+      <p class="indent">
+        I’m passionate about <b>Machine Learning</b>, <b>Deep Learning</b>, and <b>Database Systems</b> — currently with a strong interest in graph databases. I enjoy exploring how algorithms and AI models work together to solve real-world problems, and turning those insights into practical, working systems. 
+      </p>
+      <p class="indent">
+        With a strong dedication to personal and professional growth, I continuously seek to learn, develop my skills, and become a better engineer.
+      </p>
+
+      <footer style="margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; color: #333; background: transparent; text-align: left;">
+        <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
+        <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
+          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
+        </a>
+      </footer>
+
+      <hr />
+
+      <div class="hoveringicon">
+        <h2>Skills</h2>
+        <div class="imgindent">
+          <h3>Programming Languages</h3>
+          <a href="https://www.python.org/"><img title="skill_python" src="logo/Python.svg" alt="Python logo" width="50" height="50" /></a>
+          <a href="https://www.c-language.org/"><img title="skill_c" src="logo/C.svg" alt="C logo" width="50" height="50" /></a>
+          <a href="https://isocpp.org/"><img title="skill_cpp" src="logo/C++ (CPlusPlus).svg" alt="C++ logo" width="50" height="50" /></a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img title="skill_javascript" src="logo/JavaScript.svg" alt="JavaScript logo" width="50" height="50" /></a>
+          <h3>Machine Learning / Deep Learning</h3>
+          <img src="logo/scikit-learn.svg" title="skill_scikitlearn" alt="Scikit-learn logo" width="50" height="50" />
+          <img src="logo/PyTorch.svg" title="skill_pytorch" alt="PyTorch logo" width="50" height="50" />
+          <h3>Database Systems</h3>
+          <img src="logo/MySQL.svg" title="skill_mysql" alt="MySQL logo" width="50" height="50" />
+          <img src="logo/New4j.svg" title="skill_neo4j" alt="Neo4j logo" width="50" height="50" />
+          <h3>Data Analysis</h3>
+          <img src="logo/Numpy.svg" title="skill_numpy" alt="Numpy logo" width="50" height="50" />
+          <img src="logo/Pandas.svg" title="skill_pandas" alt="Pandas logo" width="50" height="50" />
+          <img src="logo/Matplotlib.svg" title="skill_matplotlib" alt="Matplotlib logo" width="50" height="50" />
+          <h3>Web Development</h3>
+          <img src="logo/HTML5.svg" title="skill_html" alt="HTML5 logo" width="50" height="50" />
+          <img src="logo/CSS3.svg" title="skill_css" alt="CSS3 logo" width="50" height="50" />
+          <img src="logo/jQuery.svg" title="skill_jquery" alt="jQuery logo" width="50" height="50" />
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+  </footer>
+</body>
 </html>

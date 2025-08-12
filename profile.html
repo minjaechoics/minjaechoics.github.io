@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MinJae Choi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #eee;
+      padding: 10px 20px;
+    }
+    .menu nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .menu nav ul li {
+      margin: 0 15px;
+    }
+    .menu nav ul li a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: 600;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      padding: 20px 40px;
+      background: #f9f9f9;
+      box-sizing: border-box;
+      gap: 40px;
+      flex-direction: row;
+    }
+    aside.sidemenu {
+      flex: 0 0 200px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    article.contents {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      display: inline-block;
+    }
+    p.indent {
+      text-indent: 7px;
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    /* 교육 카드 스타일 */
+    .edu-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border-left: 5px solid #3341b7;
+    }
+    .edu-card h3 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+    .edu-card p {
+      margin: 4px 0;
+    }
+
+    /* 모바일 레이아웃 */
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      article.contents {
+        order: 1;
+      }
+      aside.sidemenu {
+        order: 2;
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu">
+      <nav>
+        <ul>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="posts.html">Posts</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="archive.html">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidemenu">
+      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
+      <h4>Welcome to my homepage!</h4>
+      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
+      <p>Social Media</p>
+      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
+          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
+      </a>
+    </aside>
+
+    <article class="contents">
+      <h1 class="gradient-text" style="margin-bottom: 10px; font-size: 30px;">Profile</h1>
+      <p><h2 class="gradient-text" style="margin-bottom: 10px; font-size: 25px;">MinJae Choi (최민재)</h2></p>
+      <h2>Technical Interests</h2>
+      <ul>
+        <li>Artificial Intelligence</li>
+        <li>Machine Learning</li>
+        <li>Data Science</li>
+        <li>Database System</li>
+      </ul>
+      <h2>Educational Background</h2>
+      <div class="edu-card">
+        <h3>Korea Advanced Institute of Science and Technology (KAIST)</h3>
+        <p>2025.03 ~ Now</p>
+        <p>An undergraduate student planning to major in Computer Science and Electrical Engineering, with a minor in Mathematical Sciences and Industrial Design.</p>
+      </div>
+      <div class="edu-card">
+        <h3>Soongmoon High School</h3>
+        <p>2021.03 ~ 2024.02</p>
+        <p>Graduated as valedictorian of the school, specializing in Science, Mathematics, and Computer Science.</p>
+      </div>
+      <div class="hoveringicon">
+        <h2>Skills</h2>
+        <div class="imgindent">
+          <h3>Programming Languages</h3>
+          <a href="https://www.python.org/"><img title="skill_python" src="logo/Python.svg" alt="Python logo" width="50" height="50" /></a>
+          <a href="https://www.c-language.org/"><img title="skill_c" src="logo/C.svg" alt="C logo" width="50" height="50" /></a>
+          <a href="https://isocpp.org/"><img title="skill_cpp" src="logo/C++ (CPlusPlus).svg" alt="C++ logo" width="50" height="50" /></a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img title="skill_javascript" src="logo/JavaScript.svg" alt="JavaScript logo" width="50" height="50" /></a>
+          <h3>Machine Learning / Deep Learning</h3>
+          <img src="logo/scikit-learn.svg" title="skill_scikitlearn" alt="Scikit-learn logo" width="50" height="50" />
+          <img src="logo/PyTorch.svg" title="skill_pytorch" alt="PyTorch logo" width="50" height="50" />
+          <h3>Database Systems</h3>
+          <img src="logo/MySQL.svg" title="skill_mysql" alt="MySQL logo" width="50" height="50" />
+          <img src="logo/New4j.svg" title="skill_neo4j" alt="Neo4j logo" width="50" height="50" />
+          <h3>Data Analysis</h3>
+          <img src="logo/Numpy.svg" title="skill_numpy" alt="Numpy logo" width="50" height="50" />
+          <img src="logo/Pandas.svg" title="skill_pandas" alt="Pandas logo" width="50" height="50" />
+          <img src="logo/Matplotlib.svg" title="skill_matplotlib" alt="Matplotlib logo" width="50" height="50" />
+          <h3>Web Development</h3>
+          <img src="logo/HTML5.svg" title="skill_html" alt="HTML5 logo" width="50" height="50" />
+          <img src="logo/CSS3.svg" title="skill_css" alt="CSS3 logo" width="50" height="50" />
+          <img src="logo/jQuery.svg" title="skill_jquery" alt="jQuery logo" width="50" height="50" />
+        </div>
+      </div>
+
+
+      <!-- 다른 학력도 같은 edu-card 사용 -->
+      <!--
+      <div class="edu-card">
+        <h3>대학교 이름</h3>
+        <p>YYYY.MM ~ YYYY.MM</p>
+        <p>전공/활동 내용</p>
+      </div>
+      -->
+
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+  </footer>
+</body>
+</html>
