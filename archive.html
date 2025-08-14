@@ -78,8 +78,18 @@
       font-size: 14px;
     }
     @media (max-width: 768px) {
+      .menu nav ul {
+        flex-wrap: nowrap;       /* 줄바꿈 안 함 */
+        overflow-x: auto;        /* 가로 스크롤 허용 */
+        -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
+      }
       .menu nav ul li {
-        margin: 0 0; /* 기존 15px → 절반 7px */
+        flex: 1 0 auto;          /* 자동 너비 */
+        margin: 0 4px;           /* 화면 맞춰서 간격 최소화 */
+      }
+      .menu nav ul li a {
+        font-size: 14px;         /* 필요하면 글씨 크기 축소 */
+        white-space: nowrap;     /* 줄바꿈 방지 */
       }
     }
 
@@ -515,6 +525,7 @@
 </script>
 </body>
 </html>
+
 
 
 
