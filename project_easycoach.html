@@ -10,114 +10,138 @@
 
   gtag('config', 'G-MFJMFV4JJE');
 </script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project : Easy Coach</title>
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-html, body {
-  margin: 0; height: 100%;
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-  scroll-behavior: smooth;
-}
-body { display: flex; flex-direction: column; min-height: 100vh; }
-header { background: #eee; padding: 10px 20px; }
-.menu nav ul { list-style: none; display: flex; justify-content: center; padding: 0; margin: 0; }
-.menu nav ul li { margin: 0 15px; }
-.menu nav ul li a { text-decoration: none; color: #000; font-weight: 600; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MinJae Choi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #eee;
+      padding: 10px 20px;
+    }
+    .menu nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .menu nav ul li {
+      margin: 0 15px;
+    }
+    .menu nav ul li a {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: 600;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      padding: 20px 40px;
+      background: #f9f9f9;
+      box-sizing: border-box;
+      gap: 40px;
+      flex-direction: row; /* 기본: 가로 배치 */
+    }
+    aside.sidemenu {
+      flex: 0 0 200px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    article.contents {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      
+      font-weight: bold;
+      
+    }
+    p.indent {
+      text-indent: 7px;
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+    .hoveringicon img[title^="skill"]:hover {
+      border: 2px solid rgba(128, 127, 127, 0.7);
+      border-radius: 4px;
+    }
+    .imgindent img {
+      margin: 2px;
+      border: 2px solid transparent;
+      vertical-align: middle;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
 
-main { flex: 1; display: flex; padding: 20px 40px; gap: 40px; background: #f9f9f9; box-sizing: border-box; }
-aside.sidemenu {
-  order: 2;
-  flex: 0 0 200px; background: #fff; padding: 20px;
-  border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-article.contents {
-  order: 1;
-  flex: 1; background: #fff; padding: 20px;
-  border-radius: 8px; box-sizing: border-box;
-}
-
-/* 제목 스타일 */
-h1.page-title {
-  font-size: 32px; font-weight: 800; margin-bottom: 20px;
-  background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-h2.section-title {
-  font-size: 22px; font-weight: 700;
-  margin: 28px 0 15px; color: #0010c0;
-}
-h3.sub-title {
-  font-size: 18px; font-weight: 600;
-  margin: 20px 0 10px; color: #333;
-}
-
-/* 본문 스타일 */
-p.indent { text-indent: 8px; line-height: 1.6; margin-bottom: 12px; }
-ul.custom-list { padding-left: 20px; list-style-type: square; }
-ul.custom-list li { margin-bottom: 6px; }
-table.project-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
-table.project-table th, table.project-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
-table.project-table th { background: #f5f6fa; font-weight: 700; }
-
-/* 이미지 */
-.img-group { display: flex; flex-wrap: wrap; gap: 12px; }
-.img-group img {
-  flex: 1 1 calc(50% - 12px); max-width: calc(50% - 12px);
-  border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-@media (max-width: 768px) {
-  .img-group img { flex: 1 1 100%; max-width: 100%; }
-  main { flex-direction: column; }
-  aside.sidemenu { width: 100%; margin-top: 20px; }
-}
-
-/* 세련된 목차 */
-.toc {
-  background: #fff;
-  border-left: 4px solid #0010c0;
-  padding: 16px 20px;
-  margin-bottom: 25px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-}
-.toc ul { list-style: none; padding: 0; margin: 0; }
-.toc ul li {
-  margin-bottom: 6px;
-  font-size: 15px;
-  font-weight: 500;
-}
-.toc ul li a {
-  color: #333;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.toc ul li a:hover {
-  color: #0010c0;
-  padding-left: 4px;
-}
-.toc ul li ul { margin-top: 4px; margin-left: 16px; font-size: 14px; }
-footer { background: #222; color: #fff; text-align: center; padding: 15px; font-size: 14px; }
-</style>
+    /* 모바일 화면 (가로폭 768px 이하)에서 레이아웃 변경 */
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column; /* 위-아래 배치 */
+      }
+      article.contents {
+        order: 1; /* 본문 먼저 */
+      }
+      aside.sidemenu {
+        order: 2; /* 본문 다음, footer 위에 */
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div class="menu">
-    <nav>
-      <ul>
+  <header>
+    <div class="menu">
+      <nav>
+        <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="profile.html">Profile</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="posts.html">Posts</a></li>
         <li><a href="blogs.html">Blogs</a></li>
         <li><a href="archive.html">Archive</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
     <aside class="sidemenu">
       <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
       <h4>Welcome to my homepage!</h4>
@@ -130,129 +154,66 @@ footer { background: #222; color: #fff; text-align: center; padding: 15px; font-
       <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
           <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
       </a>
+
     </aside>
+    <article class="contents">
+      <h1 class="gradient-text" style="margin-bottom: 10px; font-size: 30px;">MinJae Choi (최민재)</h1>
+      <h2>Introduction</h2>
+      <p class="indent">
+        Hello!😄 I’m <b class="gradient-text">MinJae Choi</b>, an undergraduate student at the Korea Advanced Institute of Science and Technology (<a href="https://kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">KAIST</span></b></a>). I’m planning to major in
+        <a href="https://cs.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Computer Science(전산학부)</span></b></a> and <a href="https://ee.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Electrical Engineering(전기및전자공학부)</span></b></a>, and to minor in <a href="https://mathsci.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Mathematical Sciences(수리과학과)</span></b></a> and
+        <a href="https://id.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Industrial Design(산업디자인학과).</span></b></a>
+      </p>
+      <p class="indent">
+        I’m passionate about <b>Machine Learning</b>, <b>Deep Learning</b>, and <b>Database Systems</b> — currently with a strong interest in graph databases. I enjoy exploring how algorithms and AI models work together to solve real-world problems, and turning those insights into practical, working systems. 
+      </p>
+      <p class="indent">
+        Driven by an unwavering commitment to growth, I continuously push myself to learn, improve my skills, and evolve into a better engineer.
+      </p>
 
-  <article class="contents">
-    <h1 id="title" class="gradient-text" style="margin-bottom: 20px; font-size: 30px;">
-      Easy Coach
-      <span style="font-size: 14px; margin-left: 5px; vertical-align: super;">2022</span>
-    </h1>
-    <p style="font-size:20px; font-weight: bold;">! Code will be uploaded to GitHub soon !</p>
-    <!-- 목차 -->
-    <nav class="toc">
-      <ul>
-        <li><a href="#necessary">1. Why I started this project</a></li>
-        <li><a href="#uioverview">2. What Easy Coach can do</a></li>
-        <li><a href="#maincoachingalg">3. Main Coaching Algorithms</a>
-          <ul>
-            <li><a href="#algoverview">4-1. Overview</a></li>
-            <li><a href="#datacollect">4-2. What data should be collected?</a></li>
-            <li><a href="#openpose">4-3. What is OpenPose?</a></li>
-            <li><a href="#minmaxcalc">4-4. Calculating maximum and minimum angles</a></li>
-            <li><a href="#stoprcd">4-5. An algorithm for identifying which specific exercise movement the user is performing</a></li>
-          </ul>
-        </li>
-        <li><a href="#feedback">5. Algorithms for More Accurate Coaching</a>
-          <ul>
-            <li><a href="#causes">5-1. Causes of coaching inaccuracies</a></li>
-            <li><a href="#discard">5-2. Discarding Inaccurate Measurements</a></li>
-          </ul>
-        </li>
-        <li><a href="#feedback">6. Feedback from Specialists</a></li>
+      <footer style="margin-top: 40px; padding-top: 10px; border-top: 1px solid #ccc; color: #333; background: transparent; text-align: left;">
+        <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
+        <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
+          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
+        </a>
+        <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
+          <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
+       </a>
+      </footer>
 
-      </ul>
-    </nav>
+      <hr />
 
-    <!-- 본문 -->
-    <p>This post is an expanded version of my 2022 project presentation, incorporating the development process in more detail(including troubleshooting).</p>
-    
-    <h2 id="necessary" class="section-title">Why I started this project</h2>
-    
-    <p class="indent"><span>From 2019 to 2022, normal outdoor activities became difficult due to the COVID-19 pandemic, which claimed countless lives. To prevent the spread of the virus, the government advised people to stay at home, making it hard to meet others in person. The decline in social activities was a problem, but an equally serious issue was the deterioration of people’s health caused by the lack of outdoor physical activity.</span>
-<br><span> To address this, the government and health experts encouraged people to maintain their health through indoor exercise, also known as home training. However, unlike physical education classes at school or workouts at the gym, there were no instructors or trainers at home to correct one’s posture. Proper posture requires personalized coaching.</span>
-<span>While some personal coaching devices do exist, they are often high-end equipment used by professional athletes, involving numerous sensors attached to the body — far too expensive and impractical for the general public.</span>
-<br><span class="indent"> To solve this problem, I initiated a project called Easy Coach — software that provides posture coaching using only a computer’s built-in camera, offering a simple and affordable way for anyone to receive exercise guidance.</span></p>
-    <h2 id="uioverview" class="section-title">What Easy Coach can do</h2>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/promotion_pic.png" alt="">
-    <p class="indent">Simply speaking, Easy Coach provides individual coaching in a way that is easy, fast, simple, and precise. Since it is designed for the general public, Easy Coach places a strong emphasis on ease of use. Users only need to select an exercise and perform it in front of the camera built into their laptop — personalized coaching will then be provided instantly.</p></p>
-    
-    <h2 id="maincoachingalg" class="section-title">Main Coaching Algorithms</h2>
-    <h3 id="algoverview" class="section-title">Overview</h3>
+      <div class="hoveringicon">
+        <h2>Skills</h2>
+        <div class="imgindent">
+          <h3>Programming Languages</h3>
+          <a href="https://www.python.org/"><img title="skill_python" src="logo/Python.svg" alt="Python logo" width="50" height="50" /></a>
+          <a href="https://www.c-language.org/"><img title="skill_c" src="logo/C.svg" alt="C logo" width="50" height="50" /></a>
+          <a href="https://isocpp.org/"><img title="skill_cpp" src="logo/C++ (CPlusPlus).svg" alt="C++ logo" width="50" height="50" /></a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img title="skill_javascript" src="logo/JavaScript.svg" alt="JavaScript logo" width="50" height="50" /></a>
+          <h3>Machine Learning / Deep Learning</h3>
+          <a href="https://scikit-learn.org/stable/index.html"><img src="logo/scikit-learn.svg" title="skill_scikitlearn" alt="Scikit-learn logo" width="50" height="50" /></a>
+          <a href="https://pytorch.org/"><img src="logo/PyTorch.svg" title="skill_pytorch" alt="PyTorch logo" width="50" height="50" /></a>
+          <h3>Database Systems</h3>
+          <a href="https://www.mysql.com/"><img src="logo/MySQL.svg" title="skill_mysql" alt="MySQL logo" width="50" height="50" /></a>
+          <a href="https://neo4j.com/"><img src="logo/New4j.svg" title="skill_neo4j" alt="Neo4j logo" width="50" height="50" /></a>
+          <h3>Data Analysis</h3>
+          <a href="https://numpy.org/"><img src="logo/NumPy.svg" title="skill_numpy" alt="Numpy logo" width="50" height="50" /></a>
+          <a href="https://pandas.pydata.org/"><img src="logo/Pandas.svg" title="skill_pandas" alt="Pandas logo" width="50" height="50" /></a>
+          <a href="https://matplotlib.org/"><img src="logo/Matplotlib.svg" title="skill_matplotlib" alt="Matplotlib logo" width="50" height="50" /></a>
+          <a href="https://networkx.org/"><img src="logo/NetworkX.svg" title="skill_networkx" alt="NetworkX logo" width="50" height="50" /></a>
+          <h3>Web Development</h3>
+          <a href="https://en.wikipedia.org/wiki/HTML5"><img src="logo/HTML5.svg" title="skill_html" alt="HTML5 logo" width="50" height="50" /></a>
+          <a href="https://en.wikipedia.org/wiki/CSS"><img src="logo/CSS3.svg" title="skill_css" alt="CSS3 logo" width="50" height="50" /></a>
+          <h3>Robotics</h3>
+          <a href="https://www.arduino.cc/"><img src="logo/Arduino.svg" title="skill_arduino" alt="Arduino logo" width="50" height="50" /></a>
 
-
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/structure_pic.png" alt="">
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/iostructure_pic.png" alt="">
-    <h3 id="datacollect" class="section-title">What data should be collected?</h3>
-    <ul>
-      <li>Squats</li>
-      <li>Push-ups</li>
-      <li>Lunges</li>
-      <li>Shoulder Press</li>
-      <li>Overhead Tricep Extensions</li>
-    </ul>
-    <p class="indent">The exercises in the above list share two key characteristics. First, they are all home workouts that can be done indoors, and for them to be effective, the angles of certain body parts are important. In other words, to perform the exercises correctly, specific joints must be bent beyond or below certain angles. Second, each exercise can be broken down into discrete movement phases, which are repeated continuously.</p>
-    <p class="indent">Easy Coach needs to determine which movement phase of which exercise the user is currently performing, and based on this, provide coaching to ensure correct form. But how can we identify which movement phase the user is in? We need to know the criteria that separate one movement phase from another in a given exercise.</p>
-    <p class="indent">While I am not a sports major, it is clear that in most home workout postures, the boundary between two movement phases coincides with a local extremum in the joint-angle vs. time graph for certain joints. This means we can determine the current phase and the number of repetitions by identifying these extrema. Such joint-angle vs. time graphs can be obtained using the OpenPose API (explained in more detail later).</p>
-    <p class="indent">So, at which points should we base our coaching? Think of a gym: coaches often give advice about joint angles at specific phases and about the time taken between phases. (For example, in weight training, it is known that lifting slowly while feeling the weight is more effective for strength building than lifting quickly.)</p>
-    <p class="indent">As mentioned earlier, we can obtain a joint-angle vs. time graph for each joint while recording the user’s movements. From the extrema in these graphs, we can measure the time between phases, and from the joint angles at these extrema, we can determine the joint positions at the phase boundaries. In other words, the data we need to extract from the joint-angle vs. time graph are:</p>
-    <ul>
-      <li>the joint angles at extrema,</li>
-      <li>the time intervals between extrema (movement speed), and</li>
-      <li>the repeating pattern of extrema (number of repetitions).</li>
-    </ul>
-    <h3 id="openpose" class="section-title">What is OpenPose and how to calculate angles?</h3>
-    <p class="indent">OpenPose is an open-source library developed by the Carnegie Mellon Perceptual Computing Lab that can detect and track human body keypoints—such as joints, limbs, and facial landmarks—from images or video in real time. It uses deep learning–based computer vision models to estimate a person’s pose by outputting the 2D coordinates of these keypoints. This allows applications like motion analysis, gesture recognition, fitness coaching, and animation to be built without requiring wearable sensors.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/openpose_pic.png" alt="">
-    <p class="indent">I used an API that returns the coordinates of 15 joints. By selecting any three joints, we can form a triangle. Since we know the coordinates of these three points, we can calculate the length of each side of the triangle. Using the law of cosines, we can easily determine the cosine value of each angle, which is convenient because the angle is always between 0 and π.</p>
-    <h3 id="minmaxcalc" class="section-title">Calculating maximum and minimum angles</h3>
-    <p class="indent">To provide coaching, a representative value of the user’s posture needs to be determined after recording. This raised an important question: should we calculate this representative data during recording or after recording? Initially, I tried calculating the maximum and minimum joint angles after recording, but I found that memory overflow occurred just about two minutes into the recording.</p>
-    <p class="indent">The issue was that the program had to store the angle values for every joint in every frame, which quickly became too large to fit into memory. I then attempted to save this data to the file system instead. However, this introduced another critical problem: file input/output operations are relatively slow. Since my program wrote data to a file on every frame, each frame took too long to process, which made it impossible to accurately capture local maximum and minimum values for each angle.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/cpuvsgpu_graph.png" alt="">
-    <p class="indent">To address this, I took a different approach — calculating during recording. For the representative data, I used the average of the local maximums and minimums. Since only local maximum and minimum values are needed, the program simply adds data whenever a particular frame contains one of these points. Adding values and performing simple conditional checks take constant time in terms of time complexity, and the calculations are light enough that they don’t slow down each frame.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/flwchart_pic.png" alt="">
-    <p class="indent">Local maxima and minima can be detected by checking when the sign of the derivative of the time–angle function changes. By leveraging this fact, I was able to identify these points in real time and resolve the performance issues.</p>
-    <h3 id="stoprcd" class="section-title">An algorithm for identifying which specific exercise movement the user is performing</h3>
-    <p class="indent">To provide coaching, an algorithm is required to determine which repetition of which exercise movement the user is performing and how many repetitions have been completed. As mentioned above, this can be achieved based on the repetition pattern of extrema.</p>
-    <p class="indent">For example, in the case of squats—one type of home workout—the graph below shows the measured angle of the right knee joint over time during a squat. Differentiating this graph reveals that the sign of the derivative repeatedly forms a pattern of negative → positive → zero or negative (see the color change pattern).</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/derivative_graph.png" alt="">
-    <p class="indent">Exercises with consistent, repetitive motions, such as home workouts, display patterns similar to those of squats. The algorithm uses this repetition pattern of extrema to determine the progress and count of the user’s movements. This enables the system to automatically decide when to stop recording and to identify which specific repetition of an exercise movement a measured extremum corresponds to.</p>
-
-    <h2 id="algacc" class="section-title">Algorithms for More Accurate Coaching</h2>
-    <h3 id="causes" class="section-title">Causes of coaching inaccuracies</h3>
-    <p class="indent">While beta testing Easy Coach, I found that measurement errors from the OpenPose API occurred frequently. This was largely due to filming in the confined space of a home environment, where numerous surrounding objects interfered with skeleton detection. These sources of measurement error can be broadly classified into two categories:</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/cause_pic.png" alt="">
-    <ul>
-      <li>When there is another person or a moving obstacle behind the user (for example, at home a family member might walk by, or a box might suddenly fall).</li>
-      <li>When part of the body is blocked by an obstacle (for instance, during a workout at home, a small bookshelf in front of the camera might prevent the full body from being detected).</li>
-    </ul>
-    <p>Since these situations occur frequently, I realized the need to design a separate algorithm to compensate for them and improve accuracy.</p>
-    <h3 id="discard" class="section-title">Discarding Inaccurate Measurements</h3>
-    <p class="indent">In the OpenPose API, if the angle of a specific joint cannot be measured, the angle is represented as “-1”. This value indicates missing data, and any data obtained from frames containing “-1” is discarded to ensure it does not affect coaching.</p>
-    <p class="indent">However, the real problem arises when an obstacle—rather than the user—is mistakenly recognized as part of the user’s body, resulting in an incorrect angle measurement. Since this value falls within the actual range of 0–180 degrees (and not “-1”), it is difficult to identify it as an error based solely on the number itself. Determining whether such a value is incorrect requires examining both its relationship to previous and subsequent values and whether the value is physically plausible for the human body. To address this, the Easy Coach program uses the following two criteria to detect erroneous measurements:</p>
-    <ul>
-      <li>Criterion 1: If the measured angle of a joint is smaller than the lower limit defined for that joint in a given exercise, the frame is classified as containing an erroneous measurement.</li>
-      <li>Criterion 2: If the change in angle between consecutive frames is significantly large (based on the derivative of the angle–time graph), the value is treated as an error.</li>
-    </ul>
-    <p class="indent">For Criterion 1, repeated observations of obstacle-induced misrecognition revealed that the affected joint was often measured at an abnormally low angle. Therefore, for each exercise type, an error correction threshold was defined—representing the lower bound of angles considered physically valid for each joint. If a joint angle falls below this threshold, the frame is deemed erroneous, and the value is replaced with the average from the user’s previous valid data.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/errorcorrection_graph.png" alt="">
-    <p class="indent"></p>
-    <p>Criterion 2 identifies errors when the detected movement speed is physically unrealistic for the human body. The use of the derivative (rate of change) from the previous measurement as the benchmark is straightforward to understand. For example, imagine a user lifting a dumbbell with one hand during a home workout. Is it realistic for the user to lift the dumbbell slowly at first and then suddenly accelerate the movement drastically midway? In most cases, such abrupt changes in joint angular velocity are physically implausible. Hence, this became the basis for error detection.</p>
-    <p class="indent">As a result, erroneous measurements are automatically corrected, enabling far more accurate coaching outcomes.</p>
-    <h2 id="feedback" class="section-title">Feedback from Specialists</h2>
-    <p class="indent">Thankfully, I had the opportunity to present this project to Jaeman An, CEO of VESSEL AI, Youngju Lee, Professor in the Department of Artificial Intelligence Software at Korea Polytechnics University, and Hyeong Min Lee, a researcher at Yonsei University. I received two main pieces of feedback: <br><br> (1) the importance of UI design and the need to add engaging features—such as gamification elements—to attract and retain users <br> (2) the necessity of researching whether similar ideas already exist before launching a startup. This research not only helps defend one’s own idea but can also lead to new insights. <br><br>It was a valuable opportunity to learn, from active professionals, what must be considered when transitioning a solution into an actual product from a startup operation perspective.</p>
-
-
-    <!---
-    <div class="img-group">
-      <img style="width: 100%; height:auto" src="resources/project_easycoach/promotion_pic.png" alt="">
-    </div>
-  -->
-  </article>
-</main>
-
-<footer>
-  <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
-</footer>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+  </footer>
 </body>
 </html>
-
