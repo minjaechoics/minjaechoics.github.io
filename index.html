@@ -20,6 +20,27 @@
       margin: 0;
       font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
     }
+    @media (max-width: 768px) {
+      .menu nav ul {
+        display: flex;
+        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
+        justify-content: space-between; /* 양 끝까지 균등 배치 */
+        padding: 0;
+        margin: 0;
+      }
+      .menu nav ul li {
+        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
+        margin: 0;                  /* 간격 제거 */
+        text-align: center;
+      }
+      .menu nav ul li a {
+        display: block;
+        padding: 8px 0;
+        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
+        font-size: clamp(12px, 2.5vw, 16px);
+        white-space: nowrap;        /* 줄바꿈 방지 */
+      }
+    }
     body {
       display: flex;
       flex-direction: column;
@@ -165,7 +186,7 @@
         <a href="https://id.kaist.ac.kr/" target="_blank"><b><span style="color: rgb(5, 5, 90); text-decoration: underline;">Industrial Design(산업디자인학과).</span></b></a>
       </p>
       <p class="indent">
-        I’m passionate about <b>Machine Learning</b>, <b>Deep Learning</b>, and <b>Algorithms</b> — currently with a strong interest in graph algorithms. I enjoy exploring how algorithms and AI models work together to solve real-world problems, and turning those insights into practical, working systems. 
+        I’m passionate about <b>Machine Learning</b>, <b>Deep Learning</b>, and <b>Database Systems</b> — currently with a strong interest in graph databases. I enjoy exploring how algorithms and AI models work together to solve real-world problems, and turning those insights into practical, working systems. 
       </p>
       <p class="indent">
         Driven by an unwavering commitment to growth, I continuously push myself to learn, improve my skills, and evolve into a better engineer.
@@ -217,4 +238,3 @@
   </footer>
 </body>
 </html>
-

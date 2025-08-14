@@ -149,6 +149,27 @@
       font-weight: 700;
       color: #222;
     }
+    @media (max-width: 768px) {
+      .menu nav ul {
+        display: flex;
+        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
+        justify-content: space-between; /* 양 끝까지 균등 배치 */
+        padding: 0;
+        margin: 0;
+      }
+      .menu nav ul li {
+        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
+        margin: 0;                  /* 간격 제거 */
+        text-align: center;
+      }
+      .menu nav ul li a {
+        display: block;
+        padding: 8px 0;
+        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
+        font-size: clamp(12px, 2.5vw, 16px);
+        white-space: nowrap;        /* 줄바꿈 방지 */
+      }
+    }
     .post-date {
       font-size: 13px;
       color: #888;

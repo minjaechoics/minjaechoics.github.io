@@ -113,7 +113,27 @@
     .edu-card p {
       margin: 4px 0;
     }
-
+    @media (max-width: 768px) {
+      .menu nav ul {
+        display: flex;
+        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
+        justify-content: space-between; /* 양 끝까지 균등 배치 */
+        padding: 0;
+        margin: 0;
+      }
+      .menu nav ul li {
+        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
+        margin: 0;                  /* 간격 제거 */
+        text-align: center;
+      }
+      .menu nav ul li a {
+        display: block;
+        padding: 8px 0;
+        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
+        font-size: clamp(12px, 2.5vw, 16px);
+        white-space: nowrap;        /* 줄바꿈 방지 */
+      }
+    }
     /* 모바일 레이아웃 */
     @media (max-width: 768px) {
       main {
@@ -170,7 +190,7 @@
         <li>Artificial Intelligence</li>
         <li>Machine Learning</li>
         <li>Data Science</li>
-        <li>(Graph) Algorithms</li>
+        <li>Database System</li>
       </ul>
       <h2>Educational Background</h2>
       <div class="edu-card">
@@ -204,9 +224,6 @@
           <h3>Web Development</h3>
           <img src="logo/HTML5.svg" title="skill_html" alt="HTML5 logo" width="50" height="50" />
           <img src="logo/CSS3.svg" title="skill_css" alt="CSS3 logo" width="50" height="50" />
-          <h3>Robotics</h3>
-          <a href="https://www.arduino.cc/"><img src="logo/Arduino.svg" title="skill_arduino" alt="Arduino logo" width="50" height="50" /></a>
-
         </div>
       </div>
 
@@ -228,6 +245,3 @@
   </footer>
 </body>
 </html>
-
-
-

@@ -35,27 +35,6 @@
       color: rgb(0, 0, 0);
       font-weight: 600;
     }
-    @media (max-width: 768px) {
-      .menu nav ul {
-        display: flex;
-        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-        justify-content: space-between; /* 양 끝까지 균등 배치 */
-        padding: 0;
-        margin: 0;
-      }
-      .menu nav ul li {
-        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-        margin: 0;                  /* 간격 제거 */
-        text-align: center;
-      }
-      .menu nav ul li a {
-        display: block;
-        padding: 8px 0;
-        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-        font-size: clamp(12px, 2.5vw, 16px);
-        white-space: nowrap;        /* 줄바꿈 방지 */
-      }
-    }
     main {
       flex: 1;
       display: flex;
@@ -159,7 +138,27 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
-
+    @media (max-width: 768px) {
+      .menu nav ul {
+        display: flex;
+        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
+        justify-content: space-between; /* 양 끝까지 균등 배치 */
+        padding: 0;
+        margin: 0;
+      }
+      .menu nav ul li {
+        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
+        margin: 0;                  /* 간격 제거 */
+        text-align: center;
+      }
+      .menu nav ul li a {
+        display: block;
+        padding: 8px 0;
+        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
+        font-size: clamp(12px, 2.5vw, 16px);
+        white-space: nowrap;        /* 줄바꿈 방지 */
+      }
+    }
     /* 모바일 레이아웃: 세로로 쌓임, 이미지 위 텍스트 아래 배치 */
     @media (max-width: 768px) {
       main {
@@ -181,6 +180,7 @@
       .post-item {
         flex-direction: column;
       }
+
       .post-item img {
         width: 100%;
         aspect-ratio: 4 / 3;
@@ -250,4 +250,3 @@
   </footer>
 </body>
 </html>
-
