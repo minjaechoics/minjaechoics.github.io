@@ -79,19 +79,26 @@
     }
     @media (max-width: 768px) {
       .menu nav ul {
-        flex-wrap: nowrap;       /* 줄바꿈 안 함 */
-        overflow-x: auto;        /* 가로 스크롤 허용 */
-        -webkit-overflow-scrolling: touch; /* 모바일 부드러운 스크롤 */
+        display: flex;
+        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
+        justify-content: space-between; /* 양 끝까지 균등 배치 */
+        padding: 0;
+        margin: 0;
       }
       .menu nav ul li {
-        flex: 1 0 auto;          /* 자동 너비 */
-        margin: 0 4px;           /* 화면 맞춰서 간격 최소화 */
+        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
+        margin: 0;                  /* 간격 제거 */
+        text-align: center;
       }
       .menu nav ul li a {
-        font-size: 14px;         /* 필요하면 글씨 크기 축소 */
-        white-space: nowrap;     /* 줄바꿈 방지 */
+        display: block;
+        padding: 8px 0;
+        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
+        font-size: clamp(12px, 2.5vw, 16px);
+        white-space: nowrap;        /* 줄바꿈 방지 */
       }
     }
+
 
     /* 내부 탭 메뉴 */
     .inner-tabs {
@@ -525,6 +532,7 @@
 </script>
 </body>
 </html>
+
 
 
 
