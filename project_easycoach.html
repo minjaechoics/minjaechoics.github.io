@@ -1,141 +1,142 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-MFJMFV4JJE');
-</script>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Project : Easy Coach</title>
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-html, body {
-  margin: 0; height: 100%;
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-  scroll-behavior: smooth;
-}
-body { display: flex; flex-direction: column; min-height: 100vh; }
-header { background: #eee; padding: 10px 20px; }
-.menu nav ul { list-style: none; display: flex; justify-content: center; padding: 0; margin: 0; }
-.menu nav ul li { margin: 0 15px; }
-.menu nav ul li a { text-decoration: none; color: #000; font-weight: 600; }
+    gtag('config', 'G-MFJMFV4JJE');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project : Easy Coach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; height: 100%;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    header { background: #eee; padding: 10px 20px; }
+    .menu nav ul { list-style: none; display: flex; justify-content: center; padding: 0; margin: 0; }
+    .menu nav ul li { margin: 0 15px; }
+    .menu nav ul li a { text-decoration: none; color: #000; font-weight: 600; }
 
-main { flex: 1; display: flex; padding: 20px 40px; gap: 40px; background: #f9f9f9; box-sizing: border-box; }
-aside.sidemenu {
-  flex: 0 0 200px; background: #fff; padding: 20px;
-  border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-article.contents {
-  flex: 1; background: #fff; padding: 20px;
-  border-radius: 8px; box-sizing: border-box;
-}
+    main { flex: 1; display: flex; padding: 20px 40px; gap: 40px; background: #f9f9f9; box-sizing: border-box; }
+    aside.sidemenu {
+      flex: 0 0 200px; background: #fff; padding: 20px;
+      border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    article.contents {
+      flex: 1; background: #fff; padding: 20px;
+      border-radius: 8px; box-sizing: border-box;
+    }
 
-/* 제목 스타일 */
-h1.page-title {
-  font-size: 32px; font-weight: 800; margin-bottom: 20px;
-  background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-h2.section-title {
-  font-size: 22px; font-weight: 700;
-  margin: 28px 0 15px; color: #0010c0;
-}
-h3.sub-title {
-  font-size: 18px; font-weight: 600;
-  margin: 20px 0 10px; color: #333;
-}
+    /* 제목 스타일 */
+    h1.page-title {
+      font-size: 32px; font-weight: 800; margin-bottom: 20px;
+      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    h2.section-title {
+      font-size: 22px; font-weight: 700;
+      margin: 28px 0 15px; color: #0010c0;
+    }
+    h3.sub-title {
+      font-size: 18px; font-weight: 600;
+      margin: 20px 0 10px; color: #333;
+    }
 
-/* 본문 스타일 */
-p.indent { text-indent: 8px; line-height: 1.6; margin-bottom: 12px; }
-ul.custom-list { padding-left: 20px; list-style-type: square; }
-ul.custom-list li { margin-bottom: 6px; }
-table.project-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
-table.project-table th, table.project-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
-table.project-table th { background: #f5f6fa; font-weight: 700; }
+    /* 본문 스타일 */
+    p.indent { text-indent: 8px; line-height: 1.6; margin-bottom: 12px; }
+    ul.custom-list { padding-left: 20px; list-style-type: square; }
+    ul.custom-list li { margin-bottom: 6px; }
+    table.project-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
+    table.project-table th, table.project-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
+    table.project-table th { background: #f5f6fa; font-weight: 700; }
 
-/* 이미지 */
-.img-group { display: flex; flex-wrap: wrap; gap: 12px; }
-.img-group img {
-  flex: 1 1 calc(50% - 12px); max-width: calc(50% - 12px);
-  border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-  }
-  article.contents {
-    order: 1; /* 본문 먼저 표시 */
-  }
-  aside.sidemenu {
-    order: 2; /* 사이드바를 본문 뒤로 */
-    width: 100%;
-    margin-top: 20px;
-  }
-  .menu nav ul {
-    display: flex;
-    flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-    justify-content: space-between; /* 양 끝까지 균등 배치 */
-    padding: 0;
-    margin: 0;
-  }
-  .menu nav ul li {
-    flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-    margin: 0;                  /* 간격 제거 */
-    text-align: center;
-  }
-  .menu nav ul li a {
-    display: block;
-    padding: 8px 0;
-    /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-    font-size: clamp(12px, 2.5vw, 16px);
-    white-space: nowrap;        /* 줄바꿈 방지 */
-  }
-}
-@media (min-width: 769px) {
-  main {
-    flex-direction: row; /* 좌우 배치 */
-  }
-  aside.sidemenu {
-    order: 1; /* 사이드바 먼저: 왼쪽 */
-  }
-  article.contents {
-    order: 2; /* 본문: 오른쪽 */
-  }
-}
+    /* 이미지 */
+    .img-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .img-group img {
+      flex: 1 1 calc(50% - 12px); max-width: calc(50% - 12px);
+      border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    }
 
-/* 세련된 목차 */
-.toc {
-  background: #fff;
-  border-left: 4px solid #0010c0;
-  padding: 16px 20px;
-  margin-bottom: 25px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-}
-.toc ul { list-style: none; padding: 0; margin: 0; }
-.toc ul li {
-  margin-bottom: 6px;
-  font-size: 15px;
-  font-weight: 500;
-}
-.toc ul li a {
-  color: #333;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.toc ul li a:hover {
-  color: #0010c0;
-  padding-left: 4px;
-}
-.toc ul li ul { margin-top: 4px; margin-left: 16px; font-size: 14px; }
-footer { background: #222; color: #fff; text-align: center; padding: 15px; font-size: 14px; }
-</style>
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      article.contents {
+        order: 1; /* 본문 먼저 표시 */
+      }
+      aside.sidemenu {
+        order: 2; /* 사이드바를 본문 뒤로 */
+        width: 100%;
+        margin-top: 20px;
+      }
+      .menu nav ul {
+        display: flex;
+        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
+        justify-content: space-between; /* 양 끝까지 균등 배치 */
+        padding: 0;
+        margin: 0;
+      }
+      .menu nav ul li {
+        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
+        margin: 0;                  /* 간격 제거 */
+        text-align: center;
+      }
+      .menu nav ul li a {
+        display: block;
+        padding: 8px 0;
+        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
+        font-size: clamp(12px, 2.5vw, 16px);
+        white-space: nowrap;        /* 줄바꿈 방지 */
+      }
+    }
+    @media (min-width: 769px) {
+      main {
+        flex-direction: row; /* 좌우 배치 */
+      }
+      aside.sidemenu {
+        order: 1; /* 사이드바 먼저: 왼쪽 */
+      }
+      article.contents {
+        order: 2; /* 본문: 오른쪽 */
+      }
+    }
+
+    /* 세련된 목차 */
+    .toc {
+      background: #fff;
+      border-left: 4px solid #0010c0;
+      padding: 16px 20px;
+      margin-bottom: 25px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .toc ul { list-style: none; padding: 0; margin: 0; }
+    .toc ul li {
+      margin-bottom: 6px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .toc ul li a {
+      color: #333;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .toc ul li a:hover {
+      color: #0010c0;
+      padding-left: 4px;
+    }
+    .toc ul li ul { margin-top: 4px; margin-left: 16px; font-size: 14px; }
+    footer { background: #222; color: #fff; text-align: center; padding: 15px; font-size: 14px; }
+  </style>
 </head>
 <body>
 <header>
