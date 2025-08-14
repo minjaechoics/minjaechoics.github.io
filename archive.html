@@ -166,7 +166,11 @@
       border-radius: 6px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    @media (max-width: 768px) {
+
+    @media (max-width:768px){
+      main { flex-direction: column; }
+      article.contents { order: 1; }
+      aside.sidemenu { order: 2; width: 100%; margin-top: 20px; }
       .menu nav ul {
         display: flex;
         flex-wrap: nowrap;          /* 줄바꿈 안 함 */
@@ -186,11 +190,6 @@
         font-size: clamp(12px, 2.5vw, 16px);
         white-space: nowrap;        /* 줄바꿈 방지 */
       }
-    }
-    @media (max-width:768px){
-      main { flex-direction: column; }
-      article.contents { order: 1; }
-      aside.sidemenu { order: 2; width: 100%; margin-top: 20px; }
     }
   </style>
 </head>

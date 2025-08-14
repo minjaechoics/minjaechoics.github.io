@@ -113,7 +113,21 @@
     .edu-card p {
       margin: 4px 0;
     }
+
+    /* 모바일 레이아웃 */
     @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      article.contents {
+        order: 1;
+      }
+      aside.sidemenu {
+        order: 2;
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+      }
       .menu nav ul {
         display: flex;
         flex-wrap: nowrap;          /* 줄바꿈 안 함 */
@@ -132,21 +146,6 @@
         /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
         font-size: clamp(12px, 2.5vw, 16px);
         white-space: nowrap;        /* 줄바꿈 방지 */
-      }
-    }
-    /* 모바일 레이아웃 */
-    @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-      }
-      article.contents {
-        order: 1;
-      }
-      aside.sidemenu {
-        order: 2;
-        flex: none;
-        width: 100%;
-        margin-top: 20px;
       }
     }
   </style>
