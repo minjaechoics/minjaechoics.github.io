@@ -2,251 +2,284 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MinJae Choi - Blogs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>MinJae Choi - Posts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
+    :root {
+      --primary: #0a0f8f;
+      --accent: #4e6bff;
+      --bg: #f8faff;
+      --text: #111;
+      --text-light: #555;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      font-family: 'Inter', '맑은 고딕', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
+    a { text-decoration: none; color: inherit; }
+
     header {
-      background: #eee;
-      padding: 10px 20px;
-    }
-    .menu nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-    }
-    .menu nav ul li {
-      margin: 0 15px;
-    }
-    .menu nav ul li a {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-      font-weight: 600;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      padding: 20px 40px;
-      background: #f9f9f9;
-      box-sizing: border-box;
-      gap: 40px;
-      flex-direction: row;
-    }
-    aside.sidemenu {
-      flex: 0 0 200px;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    article.contents {
-      flex: 1;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      display: inline-block;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    footer {
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
     }
 
-    /* 블로그 글 목록을 가로형으로 */
-    .post-list {
+    nav {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 16px;
     }
 
-    .post-item {
-      display: flex;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    /* 이미지 영역 - 4:3 비율 유지, 고정 너비 */
-    .post-item img {
-      width: 240px; /* 원하는 적당한 고정 너비 */
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    /* 텍스트 영역 */
-    .post-text {
-      padding: 15px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex: 1; /* 남은 공간 모두 차지 */
-    }
-
-    .post-title {
-      margin: 0 0 8px;
+    .logo {
       font-size: 20px;
       font-weight: 700;
-      color: #222;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .post-subtitle {
-      margin: 0 0 10px;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.4;
-      flex-grow: 1;
+    .nav-links {
+      display: flex;
+      gap: 16px;
     }
 
-    .post-date {
-      font-size: 13px;
-      color: #888;
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s ease;
     }
 
-    .post-item:hover {
+    .nav-links a:hover { color: var(--accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 0;
+      background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      width: 90%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .filter-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .filter-button {
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    .filter-button.active, .filter-button:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
-    @media (max-width: 768px) {
-      .menu nav ul {
-        display: flex;
-        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-        justify-content: space-between; /* 양 끝까지 균등 배치 */
-        padding: 0;
-        margin: 0;
-      }
-      .menu nav ul li {
-        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-        margin: 0;                  /* 간격 제거 */
-        text-align: center;
-      }
-      .menu nav ul li a {
-        display: block;
-        padding: 8px 0;
-        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-        font-size: clamp(12px, 2.5vw, 16px);
-        white-space: nowrap;        /* 줄바꿈 방지 */
-      }
+
+    .card h2 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 8px;
     }
-    /* 모바일 레이아웃: 세로로 쌓임, 이미지 위 텍스트 아래 배치 */
+
+    .card p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .card .hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card .hashtag {
+      background: #e0e0e0;
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 16px;
+      font-size: 14px;
+      width: 100%;
+    }
+
     @media (max-width: 768px) {
-      main {
+      .nav-links {
+        position: fixed;
+        top: 56px;
+        right: -100%;
+        background: white;
         flex-direction: column;
+        width: 60%;
+        height: calc(100% - 56px);
+        gap: 16px;
+        padding: 20px;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
       }
-      article.contents {
-        order: 1;
-      }
-      aside.sidemenu {
-        order: 2;
-        flex: none;
-        width: 100%;
-        margin-top: 20px;
-      }
+      .nav-links.show { right: 0; }
+      .hamburger { display: flex; }
+    }
 
-      .post-list {
-        gap: 20px;
-      }
-      .post-item {
-        flex-direction: column;
-      }
-
-      .post-item img {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-      }
-      .post-text {
-        padding: 10px 15px;
-        justify-content: flex-start;
-      }
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 24px; }
+      .hero p { font-size: 14px; max-width: 95%; }
+      .card h2 { font-size: 16px; }
+      .card p { font-size: 13px; }
+      .card { padding: 16px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="menu">
-      <nav>
-        <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="posts.html">Posts</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="archive.html">Archive</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav>
+      <div class="logo">MinJae Choi</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="projects.html">Projects</a>
+        <a href="posts.html">Posts</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="archive.html">Archive</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <aside class="sidemenu">
-      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
-      <h4>Welcome to my homepage!</h4>
-      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
-      <p>Social Media</p>
-      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
-          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
-      </a>
-      <p>GitHub</p>
-      <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
-          <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
-      </a>
-    </aside>
+  <section class="hero">
+    <h1>Blog Posts</h1>
+    <p>Deep dives into AI, Algorithms, Graph Theory, and more</p>
+  </section>
 
-    <article class="contents">
-      <h1 class="gradient-text" style="margin-bottom: 20px; font-size: 30px;">Blogs</h1>
+  <div class="filter-menu">
+    <button class="filter-button active" data-category="All">All</button>
+    <button class="filter-button" data-category="Speech">Speech</button>
+  </div>
 
-      <div class="post-list">
-        <p>The post has not been published yet</p>
-        <!-- 블로그 글 1 -->
-         <!--
-        <div class="post-item">
-          <img src="blog1.jpg" alt="Understanding Graph Databases">
-          <div class="post-text">
-            <h2 class="post-title">Understanding Graph Databases</h2>
-            <p class="post-subtitle">An introduction to graph databases, their structure, and why they're powerful for certain types of data.</p>
-            <p class="post-date">2025-08-10</p>
-          </div>
-        </div>-->
-
-
-
+  <section class="sections">
+    <a href="blogs/251029.html" class="card" data-category="Speech">
+      <h2>KAIST Include 2025 Fall Graph AI Seminar: Expressiveness, Link Prediction and Generation in Graph AI</h2>
+      <p>Slides from the GraphAI seminar hosted by Include, KAIST’s AI club.</p>
+      <div class="hashtags">
+        <span class="hashtag">Speech</span>
+        <span class="hashtag">Graph AI</span>
       </div>
-    </article>
-  </main>
+      <p>2025-10-29</p>
+    </a>
+
+    <!-- 더 많은 블로그 카드 추가 가능 -->
+  </section>
 
   <footer>
-    <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+    © 2025 MinJae Choi. All rights reserved.<br>Last update: 2025.10.29
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+
+    const buttons = document.querySelectorAll('.filter-button');
+    const cards = document.querySelectorAll('.card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const category = btn.dataset.category;
+
+        cards.forEach(card => {
+          if (category === 'All' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

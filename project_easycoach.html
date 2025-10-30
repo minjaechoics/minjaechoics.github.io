@@ -1,295 +1,470 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <!-- Google tag (gtag.js) -->
+<head>
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-MFJMFV4JJE');
   </script>
-  <meta charset="UTF-8" />
+
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project : Easy Coach</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Project · Easy Coach — MinJae Choi</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    html, body {
-      margin: 0; height: 100%;
-      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-      scroll-behavior: smooth;
+    /* ===========================
+       Variables & Base
+       =========================== */
+    :root{
+      --bg: #f8fbff;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0b1220;
+      --primary: #0a0f8f;
+      --accent: #4e6bff;
+      --glass: rgba(255,255,255,0.7);
+      --radius: 12px;
+      --max-width: 1100px;
+      --container-gap: 24px;
     }
-    body { display: flex; flex-direction: column; min-height: 100vh; }
-    header { background: #eee; padding: 10px 20px; }
-    .menu nav ul { list-style: none; display: flex; justify-content: center; padding: 0; margin: 0; }
-    .menu nav ul li { margin: 0 15px; }
-    .menu nav ul li a { text-decoration: none; color: #000; font-weight: 600; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #fbfcff 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block;border-radius:8px}
 
-    main { flex: 1; display: flex; padding: 20px 40px; gap: 40px; background: #f9f9f9; box-sizing: border-box; }
-    aside.sidemenu {
-      flex: 0 0 200px; background: #fff; padding: 20px;
-      border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    /* ===========================
+       Header / Nav
+       =========================== */
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(15,23,42,0.04);
     }
-    article.contents {
-      flex: 1; background: #fff; padding: 20px;
-      border-radius: 8px; box-sizing: border-box;
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px var(--container-gap);
+      gap:12px;
     }
+    .logo{
+      font-weight:800;
+      font-size:18px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .nav-links{display:flex;gap:14px;align-items:center}
+    .nav-links a{font-weight:600;color:var(--muted);padding:8px;border-radius:8px}
+    .nav-links a:hover{color:var(--primary); background: rgba(14,20,143,0.04)}
+    
+    /* Hamburger Menu */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--primary);transition:all 0.3s;border-radius:2px}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(7px, 7px)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px, -7px)}
 
-    /* 제목 스타일 */
-    h1.page-title {
-      font-size: 32px; font-weight: 800; margin-bottom: 20px;
-      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    h2.section-title {
-      font-size: 22px; font-weight: 700;
-      margin: 28px 0 15px; color: #0010c0;
-    }
-    h3.sub-title {
-      font-size: 18px; font-weight: 600;
-      margin: 20px 0 10px; color: #333;
-    }
-
-    /* 본문 스타일 */
-    p.indent { text-indent: 8px; line-height: 1.6; margin-bottom: 12px; }
-    ul.custom-list { padding-left: 20px; list-style-type: square; }
-    ul.custom-list li { margin-bottom: 6px; }
-    table.project-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; }
-    table.project-table th, table.project-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; }
-    table.project-table th { background: #f5f6fa; font-weight: 700; }
-
-    /* 이미지 */
-    .img-group { display: flex; flex-wrap: wrap; gap: 12px; }
-    .img-group img {
-      flex: 1 1 calc(50% - 12px); max-width: calc(50% - 12px);
-      border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-      }
-      article.contents {
-        order: 1; /* 본문 먼저 표시 */
-      }
-      aside.sidemenu {
-        order: 2; /* 사이드바를 본문 뒤로 */
-        width: 100%;
-        margin-top: 20px;
-      }
-      .menu nav ul {
-        display: flex;
-        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-        justify-content: space-between; /* 양 끝까지 균등 배치 */
-        padding: 0;
-        margin: 0;
-      }
-      .menu nav ul li {
-        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-        margin: 0;                  /* 간격 제거 */
-        text-align: center;
-      }
-      .menu nav ul li a {
-        display: block;
-        padding: 8px 0;
-        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-        font-size: clamp(12px, 2.5vw, 16px);
-        white-space: nowrap;        /* 줄바꿈 방지 */
-      }
-    }
-    @media (min-width: 769px) {
-      main {
-        flex-direction: row; /* 좌우 배치 */
-      }
-      aside.sidemenu {
-        order: 1; /* 사이드바 먼저: 왼쪽 */
-      }
-      article.contents {
-        order: 2; /* 본문: 오른쪽 */
-      }
+    /* ===========================
+       Layout container
+       =========================== */
+    main {
+      max-width: var(--max-width);
+      margin: 28px auto;
+      padding: 0 var(--container-gap) 80px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items:start;
     }
 
-    /* 세련된 목차 */
-    .toc {
-      background: #fff;
-      border-left: 4px solid #0010c0;
-      padding: 16px 20px;
-      margin-bottom: 25px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    /* ===========================
+       Sidebar (TOC / profile)
+       =========================== */
+    aside.sidemenu{
+      position:sticky;
+      top:80px;
+      align-self:start;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 6px 18px rgba(12,20,55,0.06);
+      border:1px solid rgba(11,18,32,0.04);
+      min-height: 200px;
     }
-    .toc ul { list-style: none; padding: 0; margin: 0; }
-    .toc ul li {
-      margin-bottom: 6px;
-      font-size: 15px;
-      font-weight: 500;
+    .profile-title{font-weight:700;color:var(--primary);margin-bottom:8px}
+    .contact{font-size:13px;color:var(--muted);margin-bottom:12px}
+    .socials{display:flex;gap:8px;margin-bottom:12px}
+    .toc{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px dashed rgba(11,18,32,0.04);
+      font-size:14px;
     }
-    .toc ul li a {
-      color: #333;
-      text-decoration: none;
-      transition: all 0.2s ease;
+    .toc a{display:block;padding:6px 0;color:var(--muted);border-left:3px solid transparent;transition:all .16s}
+    .toc a:hover{color:var(--primary);padding-left:6px;border-left-color:var(--accent)}
+
+    /* ===========================
+       Article content
+       =========================== */
+    article.contents{
+      background:transparent;
+      display:block;
+      min-width:0;
     }
-    .toc ul li a:hover {
-      color: #0010c0;
-      padding-left: 4px;
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(12,20,55,0.06);
+      border:1px solid rgba(11,18,32,0.04);
     }
-    .toc ul li ul { margin-top: 4px; margin-left: 16px; font-size: 14px; }
-    footer { background: #222; color: #fff; text-align: center; padding: 15px; font-size: 14px; }
+
+    .hero {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .page-title{
+      font-size:28px;
+      margin:0;
+      font-weight:800;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .meta{
+      display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14px;
+    }
+    .badge{background:linear-gradient(90deg, rgba(78,107,255,0.12), rgba(10,15,143,0.06));padding:6px 10px;border-radius:999px;font-weight:600;color:var(--primary);font-size:13px}
+
+    h2.section-title{
+      color:var(--primary); margin:22px 0 12px; font-size:18px; font-weight:700;
+    }
+    h3.sub-title{font-size:16px;margin:16px 0 8px;color:#12203a;font-weight:700}
+    p, li{color: #15212d; font-size:15px}
+    p.lead{font-size:15.5px;color:var(--muted)}
+
+    .img-full{border-radius:10px;box-shadow: 0 6px 18px rgba(8,12,40,0.06);margin:14px 0}
+
+    .list{padding-left:18px;margin:10px 0}
+    table.project-table { width:100%; border-collapse: collapse; margin:14px 0; font-size:14px; }
+    table.project-table th, table.project-table td { border:1px solid rgba(11,18,32,0.06); padding:10px; text-align:left; }
+    table.project-table th{background:linear-gradient(90deg, rgba(10,15,143,0.03), rgba(78,107,255,0.02));font-weight:700}
+
+    /* Code / flow images row */
+    .flow-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+    .flow-row .flow-img{border-radius:10px;overflow:hidden}
+
+    /* small helper */
+    .muted{color:var(--muted);font-size:13px}
+
+    /* ===========================
+       Footer
+       =========================== */
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px;background:transparent}
+
+    /* ===========================
+       Responsiveness
+       =========================== */
+    @media (max-width: 980px){
+      main{grid-template-columns: 1fr; padding:0 18px 80px; gap:18px}
+      aside.sidemenu{position:relative;top:auto;}
+      .flow-row{grid-template-columns:1fr}
+    }
+    
+    @media (max-width: 768px){
+      .nav-links{
+        position:fixed;
+        top:56px;
+        right:-100%;
+        width:240px;
+        height:calc(100vh - 56px);
+        background:var(--card);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        box-shadow:-4px 0 24px rgba(12,20,55,0.12);
+        transition:right 0.3s ease;
+        gap:4px;
+      }
+      .nav-links.active{right:0}
+      .nav-links a{width:100%;padding:12px 16px;display:block}
+      .hamburger{display:flex}
+    }
+    
+    @media (max-width: 520px){
+      .page-title{font-size:22px}
+      .hero{gap:6px}
+      .card{padding:16px}
+      .nav{padding:12px}
+    }
+
+    /* ===========================
+       Accessibility / small touches
+       =========================== */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
-<body>
-<header>
-  <div class="menu">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="posts.html">Posts</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="archive.html">Archive</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
-<main>
-    <aside class="sidemenu">
-      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
-      <h4>Welcome to my homepage!</h4>
-      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
-      <p>Social Media</p>
-      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
-          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
-      </a>
-      <p>GitHub</p>
-      <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
-          <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
-      </a>
+<body>
+  <header>
+    <div class="nav" role="navigation" aria-label="Main Navigation">
+      <div class="logo">MinJae Choi</div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" aria-label="Site Links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="projects.html">Projects</a>
+        <a href="posts.html">Posts</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="archive.html">Archive</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- SIDEBAR -->
+    <aside class="sidemenu" aria-label="Project Sidebar">
+      <div class="profile-title">Easy Coach</div>
+
+      <nav class="toc" aria-label="Table of contents" style="margin-top:14px">
+        <div style="font-weight:700;margin-bottom:8px;color:#12203a">Contents</div>
+        <a href="#necessary">1. Why I started this project</a>
+        <a href="#uioverview">2. What Easy Coach can do</a>
+        <a href="#maincoachingalg">3. Main Coaching Algorithms</a>
+        <a href="#algoverview">4-1. Overview</a>
+        <a href="#datacollect">4-2. What data should be collected?</a>
+        <a href="#openpose">4-3. What is OpenPose?</a>
+        <a href="#minmaxcalc">4-4. Calculating maximum and minimum angles</a>
+        <a href="#stoprcd">4-5. Movement identification algorithm</a>
+        <a href="#algacc">5. Algorithms for More Accurate Coaching</a>
+        <a href="#causes">5-1. Causes of inaccuracies</a>
+        <a href="#discard">5-2. Discarding inaccurate measurements</a>
+        <a href="#feedback">6. Feedback from Specialists</a>
+      </nav>
     </aside>
 
-  <article class="contents">
-    <h1 id="title" class="gradient-text" style="margin-bottom: 20px; font-size: 30px;">
-      Easy Coach
-      <span style="font-size: 14px; margin-left: 5px; vertical-align: super;">2022</span>
-    </h1>
-    <p style="font-size:20px; font-weight: bold;">! Code will be uploaded to GitHub soon !</p>
-    <!-- 목차 -->
-    <nav class="toc">
-      <ul>
-        <li><a href="#necessary">1. Why I started this project</a></li>
-        <li><a href="#uioverview">2. What Easy Coach can do</a></li>
-        <li><a href="#maincoachingalg">3. Main Coaching Algorithms</a>
-          <ul>
-            <li><a href="#algoverview">4-1. Overview</a></li>
-            <li><a href="#datacollect">4-2. What data should be collected?</a></li>
-            <li><a href="#openpose">4-3. What is OpenPose?</a></li>
-            <li><a href="#minmaxcalc">4-4. Calculating maximum and minimum angles</a></li>
-            <li><a href="#stoprcd">4-5. An algorithm for identifying which specific exercise movement the user is performing</a></li>
+    <!-- ARTICLE -->
+    <article class="contents" id="content">
+      <div class="card">
+        <header class="hero" aria-labelledby="title">
+          <h1 id="title" class="page-title">Easy Coach <span style="font-size:14px;font-weight:600;color:var(--muted);margin-left:8px">· 2022</span></h1>
+          <div class="meta">
+            <div class="badge">Computer Vision</div>
+            <div class="muted">OpenPose · Real-time · Lightweight</div>
+            <div style="margin-left:auto;font-size:13px;color:var(--muted)">Last update: 2025.10.29</div>
+          </div>
+        </header>
+
+        <!-- INTRO -->
+        <section aria-labelledby="necessary">
+          <h2 id="necessary" class="section-title">Why I started this project</h2>
+          <p class="lead">From 2019 to 2022, normal outdoor activities became difficult due to the COVID-19 pandemic. To maintain physical health at home, people needed accessible posture coaching without expensive sensors — so I built Easy Coach: a webcam-only posture coach.</p>
+
+          <p class="muted">This post expands my 2022 project presentation and includes implementation details and troubleshooting notes.</p>
+        </section>
+
+        <!-- WHAT IT DOES -->
+        <section aria-labelledby="uioverview" style="margin-top:18px">
+          <h2 id="uioverview" class="section-title">What Easy Coach can do</h2>
+
+          <img class="img-full" src="resources/project_easycoach/promotion_pic.png" alt="Easy Coach Promotion">
+
+          <p>Easy Coach offers simple, fast, and precise posture feedback. Users select an exercise and perform it in front of a laptop camera — the system returns real-time coaching based on extracted joint angles.</p>
+        </section>
+
+        <!-- MAIN ALGORITHMS -->
+        <section aria-labelledby="maincoachingalg" style="margin-top:18px">
+          <h2 id="maincoachingalg" class="section-title">Main Coaching Algorithms</h2>
+
+          <h3 id="algoverview" class="sub-title">Overview</h3>
+          <div class="flow-row" role="figure" aria-label="system structure">
+            <div class="flow-img"><img src="resources/project_easycoach/structure_pic.png" alt="system structure"></div>
+            <div class="flow-img"><img src="resources/project_easycoach/iostructure_pic.png" alt="IO structure"></div>
+          </div>
+
+          <h3 id="datacollect" class="sub-title">What data should be collected?</h3>
+          <ul class="list">
+            <li>Squats</li>
+            <li>Push-ups</li>
+            <li>Lunges</li>
+            <li>Shoulder Press</li>
+            <li>Overhead Tricep Extensions</li>
           </ul>
-        </li>
-        <li><a href="#feedback">5. Algorithms for More Accurate Coaching</a>
-          <ul>
-            <li><a href="#causes">5-1. Causes of coaching inaccuracies</a></li>
-            <li><a href="#discard">5-2. Discarding Inaccurate Measurements</a></li>
+
+          <p>These home workouts require monitoring of joint angles and identification of repeated movement phases. We use extrema in joint-angle vs time graphs (from OpenPose keypoints) to find phases, measure repetition counts, and compute movement speed.</p>
+
+          <h3 id="openpose" class="sub-title">What is OpenPose and how to calculate angles?</h3>
+          <p>OpenPose outputs 2D coordinates of keypoints. By choosing three joints we form a triangle and compute side lengths; using the law of cosines we obtain joint angles (range 0 to π), which are robust for further processing.</p>
+
+          <img class="img-full" src="resources/project_easycoach/openpose_pic.png" alt="OpenPose example">
+
+          <h3 id="minmaxcalc" class="sub-title">Calculating maximum and minimum angles</h3>
+          <p>Recording and storing per-frame angles caused memory overhead and slow IO. The practical solution was to compute representative statistics online: detect local maxima/minima in-stream and aggregate only those values (constant time per frame), preventing memory and IO bottlenecks.</p>
+
+          <img class="img-full" src="resources/project_easycoach/cpuvsgpu_graph.png" alt="CPU vs GPU performance">
+
+          <p>Local extrema detection relies on sign changes of the derivative of angle-time signals — a light-weight, real-time-friendly approach.</p>
+
+          <h3 id="stoprcd" class="sub-title">Movement identification algorithm</h3>
+          <p>Repetitive exercises show repeating extremum patterns (e.g., knee angle during squats). By tracking derivative sign patterns and aligning extrema, we determine current movement phase, repetition index, and decide when to stop recording.</p>
+
+          <img class="img-full" src="resources/project_easycoach/derivative_graph.png" alt="derivative of joint-angle">
+        </section>
+
+        <!-- ACCURACY -->
+        <section aria-labelledby="algacc" style="margin-top:18px">
+          <h2 id="algacc" class="section-title">Algorithms for More Accurate Coaching</h2>
+
+          <h3 id="causes" class="sub-title">Causes of coaching inaccuracies</h3>
+          <p>During beta testing, OpenPose misdetections occurred mostly because of occlusions or moving background objects. Typical causes:</p>
+          <ul class="list">
+            <li>Another person or moving object behind the user</li>
+            <li>Partial occlusion of body parts by furniture or objects</li>
           </ul>
-        </li>
-        <li><a href="#feedback">6. Feedback from Specialists</a></li>
 
-      </ul>
-    </nav>
+          <img class="img-full" src="resources/project_easycoach/cause_pic.png" alt="causes of error">
 
-    <!-- 본문 -->
-    <p>This post is an expanded version of my 2022 project presentation, incorporating the development process in more detail(including troubleshooting).</p>
-    
-    <h2 id="necessary" class="section-title">Why I started this project</h2>
-    
-    <p class="indent"><span>From 2019 to 2022, normal outdoor activities became difficult due to the COVID-19 pandemic, which claimed countless lives. To prevent the spread of the virus, the government advised people to stay at home, making it hard to meet others in person. The decline in social activities was a problem, but an equally serious issue was the deterioration of people’s health caused by the lack of outdoor physical activity.</span>
-<br><span> To address this, the government and health experts encouraged people to maintain their health through indoor exercise, also known as home training. However, unlike physical education classes at school or workouts at the gym, there were no instructors or trainers at home to correct one’s posture. Proper posture requires personalized coaching.</span>
-<span>While some personal coaching devices do exist, they are often high-end equipment used by professional athletes, involving numerous sensors attached to the body — far too expensive and impractical for the general public.</span>
-<br><span class="indent"> To solve this problem, I initiated a project called Easy Coach — software that provides posture coaching using only a computer’s built-in camera, offering a simple and affordable way for anyone to receive exercise guidance.</span></p>
-    <h2 id="uioverview" class="section-title">What Easy Coach can do</h2>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/promotion_pic.png" alt="">
-    <p class="indent">Simply speaking, Easy Coach provides individual coaching in a way that is easy, fast, simple, and precise. Since it is designed for the general public, Easy Coach places a strong emphasis on ease of use. Users only need to select an exercise and perform it in front of the camera built into their laptop — personalized coaching will then be provided instantly.</p></p>
-    
-    <h2 id="maincoachingalg" class="section-title">Main Coaching Algorithms</h2>
-    <h3 id="algoverview" class="section-title">Overview</h3>
+          <h3 id="discard" class="sub-title">Discarding & correcting inaccurate measurements</h3>
+          <p>OpenPose uses -1 to indicate missing values — those are discarded. The harder case is when an obstacle is mistaken for a body part and generates a plausible angle (within 0–180°). To detect and correct such errors, Easy Coach uses:</p>
+          <ul class="list">
+            <li><strong>Criterion 1</strong>: If an angle is below an exercise-specific physical lower bound, mark frame as erroneous.</li>
+            <li><strong>Criterion 2</strong>: If the angular change between consecutive frames exceeds a plausible physical threshold (derivative-based), mark it as erroneous.</li>
+          </ul>
+          <p>When erroneous frames are detected, the angle is replaced by the average of previous valid observations, smoothing the signal and improving coaching reliability.</p>
 
+          <img class="img-full" src="resources/project_easycoach/errorcorrection_graph.png" alt="error correction example">
 
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/structure_pic.png" alt="">
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/iostructure_pic.png" alt="">
-    <h3 id="datacollect" class="section-title">What data should be collected?</h3>
-    <ul>
-      <li>Squats</li>
-      <li>Push-ups</li>
-      <li>Lunges</li>
-      <li>Shoulder Press</li>
-      <li>Overhead Tricep Extensions</li>
-    </ul>
-    <p class="indent">The exercises in the above list share two key characteristics. First, they are all home workouts that can be done indoors, and for them to be effective, the angles of certain body parts are important. In other words, to perform the exercises correctly, specific joints must be bent beyond or below certain angles. Second, each exercise can be broken down into discrete movement phases, which are repeated continuously.</p>
-    <p class="indent">Easy Coach needs to determine which movement phase of which exercise the user is currently performing, and based on this, provide coaching to ensure correct form. But how can we identify which movement phase the user is in? We need to know the criteria that separate one movement phase from another in a given exercise.</p>
-    <p class="indent">While I am not a sports major, it is clear that in most home workout postures, the boundary between two movement phases coincides with a local extremum in the joint-angle vs. time graph for certain joints. This means we can determine the current phase and the number of repetitions by identifying these extrema. Such joint-angle vs. time graphs can be obtained using the OpenPose API (explained in more detail later).</p>
-    <p class="indent">So, at which points should we base our coaching? Think of a gym: coaches often give advice about joint angles at specific phases and about the time taken between phases. (For example, in weight training, it is known that lifting slowly while feeling the weight is more effective for strength building than lifting quickly.)</p>
-    <p class="indent">As mentioned earlier, we can obtain a joint-angle vs. time graph for each joint while recording the user’s movements. From the extrema in these graphs, we can measure the time between phases, and from the joint angles at these extrema, we can determine the joint positions at the phase boundaries. In other words, the data we need to extract from the joint-angle vs. time graph are:</p>
-    <ul>
-      <li>the joint angles at extrema,</li>
-      <li>the time intervals between extrema (movement speed), and</li>
-      <li>the repeating pattern of extrema (number of repetitions).</li>
-    </ul>
-    <h3 id="openpose" class="section-title">What is OpenPose and how to calculate angles?</h3>
-    <p class="indent">OpenPose is an open-source library developed by the Carnegie Mellon Perceptual Computing Lab that can detect and track human body keypoints—such as joints, limbs, and facial landmarks—from images or video in real time. It uses deep learning–based computer vision models to estimate a person’s pose by outputting the 2D coordinates of these keypoints. This allows applications like motion analysis, gesture recognition, fitness coaching, and animation to be built without requiring wearable sensors.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/openpose_pic.png" alt="">
-    <p class="indent">I used an API that returns the coordinates of 15 joints. By selecting any three joints, we can form a triangle. Since we know the coordinates of these three points, we can calculate the length of each side of the triangle. Using the law of cosines, we can easily determine the cosine value of each angle, which is convenient because the angle is always between 0 and π.</p>
-    <h3 id="minmaxcalc" class="section-title">Calculating maximum and minimum angles</h3>
-    <p class="indent">To provide coaching, a representative value of the user’s posture needs to be determined after recording. For the representative data, I used the average of the local maximums and minimums. This raised an important question: should we calculate this representative data during recording or after recording? Initially, I tried calculating the maximum and minimum joint angles after recording, but I found that memory overflow occurred just about two minutes into the recording.</p>
-    <p class="indent">The issue was that the program had to store the angle values for every joint in every frame, which quickly became too large to fit into memory. I then attempted to save this data to the file system instead. However, this introduced another critical problem: file input/output operations are relatively slow. Since my program wrote data to a file on every frame, each frame took too long to process, which made it impossible to accurately capture local maximum and minimum values for each angle.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/cpuvsgpu_graph.png" alt="">
-    <p class="indent">To address this, I took a different approach — calculating during recording. Since only local maximum and minimum values are needed, the program simply adds data whenever a particular frame contains one of these points. Adding values and performing simple conditional checks take constant time in terms of time complexity, and the calculations are light enough that they don’t slow down each frame.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/flwchart_pic.png" alt="">
-    <p class="indent">Local maxima and minima can be detected by checking when the sign of the derivative of the time–angle function changes. By leveraging this fact, I was able to identify these points in real time and resolve the performance issues.</p>
-    <h3 id="stoprcd" class="section-title">An algorithm for identifying which specific exercise movement the user is performing</h3>
-    <p class="indent">To provide coaching, an algorithm is required to determine which repetition of which exercise movement the user is performing and how many repetitions have been completed. As mentioned above, this can be achieved based on the repetition pattern of extrema.</p>
-    <p class="indent">For example, in the case of squats—one type of home workout—the graph below shows the measured angle of the right knee joint over time during a squat. Differentiating this graph reveals that the sign of the derivative repeatedly forms a pattern of negative → positive → zero or negative (see the color change pattern).</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/derivative_graph.png" alt="">
-    <p class="indent">Exercises with consistent, repetitive motions, such as home workouts, display patterns similar to those of squats. The algorithm uses this repetition pattern of extrema to determine the progress and count of the user’s movements. This enables the system to automatically decide when to stop recording and to identify which specific repetition of an exercise movement a measured extremum corresponds to.</p>
+        </section>
 
-    <h2 id="algacc" class="section-title">Algorithms for More Accurate Coaching</h2>
-    <h3 id="causes" class="section-title">Causes of coaching inaccuracies</h3>
-    <p class="indent">While beta testing Easy Coach, I found that measurement errors from the OpenPose API occurred frequently. This was largely due to filming in the confined space of a home environment, where numerous surrounding objects interfered with skeleton detection. These sources of measurement error can be broadly classified into two categories:</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/cause_pic.png" alt="">
-    <ul>
-      <li>When there is another person or a moving obstacle behind the user (for example, at home a family member might walk by, or a box might suddenly fall).</li>
-      <li>When part of the body is blocked by an obstacle (for instance, during a workout at home, a small bookshelf in front of the camera might prevent the full body from being detected).</li>
-    </ul>
-    <p>Since these situations occur frequently, I realized the need to design a separate algorithm to compensate for them and improve accuracy.</p>
-    <h3 id="discard" class="section-title">Discarding Inaccurate Measurements</h3>
-    <p class="indent">In the OpenPose API, if the angle of a specific joint cannot be measured, the angle is represented as “-1”. This value indicates missing data, and any data obtained from frames containing “-1” is discarded to ensure it does not affect coaching.</p>
-    <p class="indent">However, the real problem arises when an obstacle—rather than the user—is mistakenly recognized as part of the user’s body, resulting in an incorrect angle measurement. Since this value falls within the actual range of 0–180 degrees (and not “-1”), it is difficult to identify it as an error based solely on the number itself. Determining whether such a value is incorrect requires examining both its relationship to previous and subsequent values and whether the value is physically plausible for the human body. To address this, the Easy Coach program uses the following two criteria to detect erroneous measurements:</p>
-    <ul>
-      <li>Criterion 1: If the measured angle of a joint is smaller than the lower limit defined for that joint in a given exercise, the frame is classified as containing an erroneous measurement.</li>
-      <li>Criterion 2: If the change in angle between consecutive frames is significantly large (based on the derivative of the angle–time graph), the value is treated as an error.</li>
-    </ul>
-    <p class="indent">For Criterion 1, repeated observations of obstacle-induced misrecognition revealed that the affected joint was often measured at an abnormally low angle. Therefore, for each exercise type, an error correction threshold was defined—representing the lower bound of angles considered physically valid for each joint. If a joint angle falls below this threshold, the frame is deemed erroneous, and the value is replaced with the average from the user’s previous valid data.</p>
-    <img style="width: 100%; height:auto" src="resources/project_easycoach/errorcorrection_graph.png" alt="">
-    <p class="indent"></p>
-    <p>Criterion 2 identifies errors when the detected movement speed is physically unrealistic for the human body. The use of the derivative (rate of change) from the previous measurement as the benchmark is straightforward to understand. For example, imagine a user lifting a dumbbell with one hand during a home workout. Is it realistic for the user to lift the dumbbell slowly at first and then suddenly accelerate the movement drastically midway? In most cases, such abrupt changes in joint angular velocity are physically implausible. Hence, this became the basis for error detection.</p>
-    <p class="indent">As a result, erroneous measurements are automatically corrected, enabling far more accurate coaching outcomes.</p>
-    <h2 id="feedback" class="section-title">Feedback from Specialists</h2>
-    <p class="indent">Thankfully, I had the opportunity to present this project to Jaeman An, CEO of VESSEL AI, Youngju Lee, Professor in the Department of Artificial Intelligence Software at Korea Polytechnics University, and Hyeong Min Lee, a researcher at Yonsei University. I received two main pieces of feedback: <br><br> (1) the importance of UI design and the need to add engaging features—such as gamification elements—to attract and retain users <br> (2) the necessity of researching whether similar ideas already exist before launching a startup. This research not only helps defend one’s own idea but can also lead to new insights. <br><br>It was a valuable opportunity to learn, from active professionals, what must be considered when transitioning a solution into an actual product from a startup operation perspective.</p>
+        <!-- FEEDBACK -->
+        <section aria-labelledby="feedback" style="margin-top:18px">
+          <h2 id="feedback" class="section-title">Feedback from Specialists</h2>
+          <p class="indent">Presentation feedback from industry and academia emphasized two main points:</p>
+          <ol class="list">
+            <li>UI/UX importance — add gamification and engagement features to retain users.</li>
+            <li>Prior art research — investigate existing solutions to refine differentiation and product strategy.</li>
+          </ol>
+          <p>These insights guided subsequent UI improvements and the roadmap toward a productized solution.</p>
+        </section>
 
+        <!-- OPTIONAL: Technical table / resources -->
+        <section style="margin-top:18px">
+          <h3 class="sub-title">Technical notes</h3>
+          <table class="project-table" aria-label="Technical details">
+            <thead>
+              <tr><th>Component</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pose estimation</td><td>OpenPose-based 2D keypoint extraction (15 joints)</td></tr>
+              <tr><td>Angle calc</td><td>Form triangles — law of cosines to compute joint angles</td></tr>
+              <tr><td>Realtime</td><td>Online extrema detection + streaming aggregation</td></tr>
+              <tr><td>Error handling</td><td>Value thresholds + derivative checks + fallback averaging</td></tr>
+            </tbody>
+          </table>
+        </section>
 
-    <!---
-    <div class="img-group">
-      <img style="width: 100%; height:auto" src="resources/project_easycoach/promotion_pic.png" alt="">
+      </div> <!-- /.card -->
+
+      <!-- Image gallery card -->
+      <div class="card" style="margin-top:18px">
+        <h3 class="sub-title">Images & Flow</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <img src="resources/project_easycoach/promotion_pic.png" alt="promotion" style="border-radius:10px">
+          <img src="resources/project_easycoach/flwchart_pic.png" alt="flow chart" style="border-radius:10px">
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div style="max-width:var(--max-width);margin:0 auto;padding:18px 20px;color:var(--muted)">
+      © 2025 MinJae Choi. All rights reserved.
     </div>
-  -->
-  </article>
-</main>
+  </footer>
 
-<footer>
-  <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
-</footer>
+  <!-- Small script for smooth TOC scrolling (progressively-enhanced) -->
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      const isExpanded = hamburger.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', isExpanded);
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // Smooth scroll for TOC links
+    document.querySelectorAll('.toc a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Optional: highlight current TOC entry on scroll (simple)
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(l => document.getElementById(l.getAttribute('href').slice(1)));
+    function onScroll(){
+      const fromTop = window.scrollY + 100;
+      sections.forEach((sec,i)=>{
+        if(sec){
+          if(sec.offsetTop <= fromTop && sec.offsetTop + sec.offsetHeight > fromTop){
+            tocLinks.forEach(x=>x.style.color='var(--muted)');
+            tocLinks[i].style.color = 'var(--primary)';
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  </script>
 </body>
 </html>
-

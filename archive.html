@@ -1,531 +1,365 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MFJMFV4JJE');
-  </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>MinJae Choi - Archive</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Inter','맑은 고딕',Arial,sans-serif;
+    :root {
+      --primary: #0a0f8f;
+      --accent: #4e6bff;
+      --bg: #f8faff;
+      --text: #111;
+      --text-light: #555;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      font-family: 'Inter', '맑은 고딕', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
+    a { text-decoration: none; color: inherit; }
+
     header {
-      background: #eee;
-      padding: 10px 20px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
     }
-    .menu nav ul {
-      list-style: none;
-      padding: 0; margin: 0;
+
+    nav {
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 16px;
     }
-    .menu nav ul li a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 600;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      padding: 20px 40px;
-      background: #f9f9f9;
-      gap: 40px;
-      flex-direction: row;
-    }
-    aside.sidemenu {
-      flex: 0 0 200px;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    article.contents {
-      flex: 1;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg,#0010c0,#060156 50%,#0010c0);
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      display: inline-block;
     }
-    footer {
-      background-color: #222;
-      color: #fff;
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+    }
+
+    .hero {
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-
-    /* 내부 탭 메뉴 */
-    .inner-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .inner-tab {
-      padding: 6px 14px;
-      background: #f2f2f2;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .inner-tab.active {
-      background: #3341b7;
-      color: white;
-    }
-
-    /* 리스트 공통 */
-    .item-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    /* Books 카드 (a 태그로 링크 처리) */
-    .item-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      font-size: 14px;
-      width: 180px;
-      box-sizing: border-box;
-      padding: 10px;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-    }
-    .item-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .item-info {
-      padding: 4px 0;
-    }
-    .item-title {
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 4px;
-      color: #222;
-    }
-    .item-sub { font-size: 12px; color: #555; margin-bottom: 3px; }
-    .item-meta { font-size: 12px; color: #777; }
-
-    /* Classes 카드 (얇게) */
-    .class-card {
-      position: relative;
+      padding: 40px 0;
+      background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
       width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      width: 90%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sections {
       display: flex;
       flex-direction: column;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px 15px; /* 패딩 축소 */
-      box-sizing: border-box;
-      background: #fff;
-      gap: 2px; /* 요소 간격 축소 */
+      width: 100%;
+      gap: 16px;
+      padding: 16px;
     }
-    .class-title { font-weight: 700; font-size: 15px; margin: 0; color: #222; }
-    .class-sub { font-size: 13px; color: #555; }
-    .class-meta { font-size: 12px; color: #777; }
 
-    /* 수강시점 태그 */
-    .term-tag {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: #ffeb99;
-      color: #333;
-      padding: 3px 8px;
-      font-size: 11px;
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .card h2 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
       font-weight: 600;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    @media (max-width:768px){
-      main { flex-direction: column; }
-      article.contents { order: 1; }
-      aside.sidemenu { order: 2; width: 100%; margin-top: 20px; }
-      .menu nav ul {
-        display: flex;
-        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-        justify-content: space-between; /* 양 끝까지 균등 배치 */
-        padding: 0;
-        margin: 0;
+    .course-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .course-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .course-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 2px;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 16px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    /* 모바일 햄버거 메뉴 */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 56px;
+        right: -100%;
+        background: white;
+        flex-direction: column;
+        width: 60%;
+        height: calc(100% - 56px);
+        gap: 16px;
+        padding: 20px;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
       }
-      .menu nav ul li {
-        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-        margin: 0;                  /* 간격 제거 */
-        text-align: center;
-      }
-      .menu nav ul li a {
-        display: block;
-        padding: 8px 0;
-        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-        font-size: clamp(12px, 2.5vw, 16px);
-        white-space: nowrap;        /* 줄바꿈 방지 */
-      }
+      .nav-links.show { right: 0; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 24px; }
+      .hero p { font-size: 14px; max-width: 95%; }
+      .card h2 { font-size: 16px; }
+      .card p { font-size: 13px; }
+      .course-card h3 { font-size: 14px; }
+      .course-card p { font-size: 12px; }
+      .card { padding: 16px; }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="menu">
+  <header>
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="posts.html">Posts</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="archive.html">Archive</a></li>
-      </ul>
+      <div class="logo">MinJae Choi</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="projects.html">Projects</a>
+        <a href="posts.html">Posts</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="archive.html">Archive</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
-    <aside class="sidemenu">
-      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
-      <h4>Welcome to my homepage!</h4>
-      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
-      <p>Social Media</p>
-      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
-          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
-      </a>
-      <p>GitHub</p>
-      <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
-          <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
-      </a>
-    </aside>
+  <section class="hero">
+    <h1>Archive</h1>
+  </section>
 
-  <article class="contents">
-    <h1 class="gradient-text" style="margin-bottom: 20px; font-size: 30px;">Archive</h1>
+  <section class="sections">
+    <div class="card">
+      <h2>Courses</h2>
 
-    <!-- 내부 탭 -->
-    <div class="inner-tabs">
-      <div class="inner-tab active" data-target="books">Reading List</div>
-      <div class="inner-tab" data-target="classes">Course History</div>
+      <div class="course-card">
+        <h3>Algorithmic Graph Structure Theory</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+      <div class="course-card">
+        <h3>Programming Languages</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Problem Solving</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+      <div class="course-card">
+        <h3>Introduction to Hacking</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Digital Humanities and Computational Social Sciences</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Introduction to Algorithms</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+      <div class="course-card">
+        <h3>Calculus II</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Introduction to Graph Theory</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+      </div>
+      <div class="course-card">
+        <h3>General Chemistry I</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Chemistry</p>
+      </div>
+
+      <div class="course-card">
+        <h3>General Physics II</h3>
+        <p><strong>Semester:</strong> Fall 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Physics</p>
+      </div>
+      <div class="course-card">
+        <h3>Discrete Structures</h3>
+        <p><strong>Semester:</strong> Summer 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+
+      <div class="course-card">
+        <h3>System Programming</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+      <div class="course-card">
+        <h3>Introduction to Database</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Introduction to Programming</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Data Structures</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Computing</p>
+      </div>
+
+      <div class="course-card">
+        <h3>General Physics Laboratory I</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Physics</p>
+      </div>
+
+      <div class="course-card">
+        <h3>General Physics I</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Physics</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Introduction to Linear Algebra</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Calculus I</h3>
+        <p><strong>Semester:</strong> Spring 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Books 리스트 -->
-    <div id="books" class="item-list section">
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">마스터링 트랜스포머</div>
-          <div class="item-sub">사바슈 이을드름</div>
-          <div class="item-meta">ISBN 9791158395636</div>
-        </div>
-      </div>
+  <footer>
+    © 2025 MinJae Choi. All rights reserved.<br>Last update: 2025.10.29
+  </footer>
 
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Discrete Mathematics and Its Applications</div>
-          <div class="item-sub">Kenneth Rosen</div>
-          <div class="item-meta">ISBN 9781260091991</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">랭체인과 랭그래프로 구현하는 RAG AI에이전트 실전 입문</div>
-          <div class="item-sub">니시미 마사히로</div>
-          <div class="item-meta">ISBN 9791158396107</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Hands-On Generative AI with Transformers and Diffusion Models</div>
-          <div class="item-sub">Sanseviero, Omar</div>
-          <div class="item-meta">ISBN 9781098149246</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">단단한 머신러닝</div>
-          <div class="item-sub">조우쯔화 저</div>
-          <div class="item-meta">ISBN 9791188621989</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Data Structures and Algorithms in JAVA</div>
-          <div class="item-sub">Michael T. Goodrich</div>
-          <div class="item-meta">ISBN 9781118771334</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Algorithms</div>
-          <div class="item-sub">Robert Sedgewick</div>
-          <div class="item-meta">ISBN 9780321573513</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Computer Systems : A Programmer's Perspective</div>
-          <div class="item-sub">Randal E. Bryant</div>
-          <div class="item-meta">ISBN 9780130340740</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Introduction to Algorithms</div>
-          <div class="item-sub">Thomas H Cormen</div>
-          <div class="item-meta">ISBN 9780262033848</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Database Systems: The Complete Book</div>
-          <div class="item-sub">Hector Garcia-Molina</div>
-          <div class="item-meta">ISBN 9780131873254</div>
-        </div>
-      </div>
-      
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">딥러닝 파이토치 교과서</div>
-          <div class="item-sub">서지영 저</div>
-          <div class="item-meta">ISBN 9791165218942</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Mastering Machine Learning with Scikit-learn</div>
-          <div class="item-sub">Hackeling, Gavin</div>
-          <div class="item-meta">ISBN 9781788299879</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Graph Machine Learning</div>
-          <div class="item-sub">Stamile, Claudio</div>
-          <div class="item-meta">ISBN 9781800204492</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Math for Deep Learning</div>
-          <div class="item-sub">Kneusel, Ronald T.</div>
-          <div class="item-meta">ISBN 9781718501904</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Contemporary Linear Algebra</div>
-          <div class="item-sub">Howard Anton, Robert C. Busby</div>
-          <div class="item-meta">ISBN 9780471163626</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Deep Learning with PyTorch</div>
-          <div class="item-sub">Eli Stevens</div>
-          <div class="item-meta">ISBN 9781617295263</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">Machine Learning with Python for Everyone</div>
-          <div class="item-sub">Fenner, Mark</div>
-          <div class="item-meta">ISBN 9780134845623</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">파이썬 머신러닝 완벽 가이드</div>
-          <div class="item-sub">권철민 저</div>
-          <div class="item-meta">ISBN 9791158393229</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">HTML5 + CSS + 자바스크립트 웹 표준의 정석</div>
-          <div class="item-sub">고경희 저</div>
-          <div class="item-meta">ISBN 9791163032212</div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="item-info">
-          <div class="item-title">자바스크립트 + 제이쿼리 입문</div>
-          <div class="item-sub">정인용 저</div>
-          <div class="item-meta">ISBN 9791163036623</div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Classes 리스트 -->
-    <div id="classes" class="item-list section" style="display:none; flex-direction: column; gap: 10px;">
-      <div class="class-card">
-        <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Introduction to Graph Theory</h2>
-        <p class="class-sub">KAIST · MAS40077</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-     <div class="class-card">
-       <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Programming Language</h2>
-        <p class="class-sub">KAIST · CS30200</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-       <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Special Topics in Computer Science : Algorithmic Graph Structure Theory</h2>
-        <p class="class-sub">KAIST · CS49900</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Problem Solving</h2>
-        <p class="class-sub">KAIST · CS20002</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Introduction to Algorithms</h2>
-        <p class="class-sub">KAIST · CS30000</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-     <div class="class-card">
-       <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">General Chemistry I</h2>
-        <p class="class-sub">KAIST · CH10001</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-       <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">General Physics II</h2>
-        <p class="class-sub">KAIST · PH10042</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Probability and Statistics</h2>
-        <p class="class-sub">KAIST · MAS20050</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Fall</span>
-        <h2 class="class-title">Calculus II</h2>
-        <p class="class-sub">KAIST · MAS10002</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Summer</span>
-        <h2 class="class-title">Discrete Mathematics</h2>
-        <p class="class-sub">KAIST · CS20004</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">Introduction to Database</h2>
-        <p class="class-sub">KAIST · CS30600</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">System Programming</h2>
-        <p class="class-sub">KAIST · CS20006</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">Data Structures</h2>
-        <p class="class-sub">KAIST · CS20300</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">Introduction to Linear Algebra</h2>
-        <p class="class-sub">KAIST · MAS10009</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">General Physics Lab I</h2>
-        <p class="class-sub">KAIST · PH10051</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">General Physics I</h2>
-        <p class="class-sub">KAIST · PH10041</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">Calculus I</h2>
-        <p class="class-sub">KAIST · MAS10001</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <div class="class-card">
-        <span class="term-tag">2025 Spring</span>
-        <h2 class="class-title">Introduction to Programming</h2>
-        <p class="class-sub">KAIST · CS10001</p>
-        <p class="class-meta">Korea Advanced Institute of Science and Technology</p>
-      </div>
-      <!-- 추가 클래스 카드 -->
-      <!-- 나머지 클래스 카드들도 동일 -->
-    </div>
-  </article>
-</main>
-
-<footer>
-  <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
-</footer>
-
-<script>
-  document.querySelectorAll('.inner-tab').forEach(tab=>{
-    tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.inner-tab').forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelectorAll('.section').forEach(sec=>sec.style.display='none');
-      document.getElementById(tab.dataset.target).style.display='flex';
-    });
-  });
-</script>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+  </script>
 </body>
 </html>

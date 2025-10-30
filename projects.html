@@ -2,260 +2,260 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>MinJae Choi - Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
+    :root {
+      --primary: #0a0f8f;
+      --accent: #4e6bff;
+      --bg: #f8faff;
+      --text: #111;
+      --text-light: #555;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      font-family: 'Inter', '맑은 고딕', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
+    a { text-decoration: none; color: inherit; }
+
     header {
-      background: #eee;
-      padding: 10px 20px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
     }
-    .menu nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+
+    nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 16px;
     }
-    .menu nav ul li {
-      margin: 0 15px;
-    }
-    .menu nav ul li a {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-      font-weight: 600;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      padding: 20px 40px;
-      background: #f9f9f9;
-      box-sizing: border-box;
-      gap: 40px;
-      flex-direction: row;
-    }
-    aside.sidemenu {
-      flex: 0 0 200px;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    article.contents {
-      flex: 1;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
-      color: transparent;
-      background-clip: text;
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      display: inline-block;
     }
-    p.indent {
-      text-indent: 7px;
-      line-height: 1.5;
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s ease;
     }
-    footer {
-      background-color: #222;
-      color: #fff;
+    .nav-links a:hover { color: var(--accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+    }
+
+    .hero {
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
+      padding: 40px 0;
+      background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
+      width: 100%;
     }
-    .hoveringicon img[title^="skill"]:hover {
-      border: 2px solid rgba(128, 127, 127, 0.7);
-      border-radius: 4px;
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .imgindent img {
-      margin: 2px;
-      border: 2px solid transparent;
-      vertical-align: middle;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
-    }
-
-    /* 모바일 변경 */
-    @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-      }
-      article.contents {
-        order: 1;
-      }
-      aside.sidemenu {
-        order: 2;
-        flex: none;
-        width: 100%;
-        margin-top: 20px;
-      }
+    .hero p {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      width: 90%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* 포스트 리스트 */
-    .post-list {
+    .projects {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
+      padding: 20px;
+      width: 100%;
     }
 
-    /* 카드 */
-    .post-item {
-      background: #fff;
-      border-radius: 10px;
+    .card {
+      background: white;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
 
-    /* 이미지 4:3 비율 유지 */
-    .post-item img {
+    .card img {
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
       display: block;
     }
 
-    .post-text {
-      padding: 15px;
-    }
-    .post-title {
-      margin: 0 0 8px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #222;
+    .card-content {
+      padding: 16px;
     }
 
-    .post-date {
-      font-size: 13px;
-      color: #888;
-      margin: 0 0 10px;
-    }
-    .post-tags span {
-      display: inline-block;
-      background: #eef2ff;
-      color: #3341b7;
-      padding: 4px 9px;
-      border-radius: 6px;
-      font-size: 12px;
-      margin-right: 6px;
+    .card h2 {
+      font-size: 18px;
+      color: var(--primary);
       margin-bottom: 6px;
     }
-    .post-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    .card p {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .hashtags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .hashtag {
+      background: #e0e0e0;
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-size: 12px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 16px;
+      font-size: 14px;
+      width: 100%;
     }
 
     @media (max-width: 768px) {
-      .post-list {
-        grid-template-columns: 1fr;
+      .nav-links {
+        position: fixed;
+        top: 56px;
+        right: -100%;
+        background: white;
+        flex-direction: column;
+        width: 60%;
+        height: calc(100% - 56px);
+        gap: 16px;
+        padding: 20px;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
       }
-      .menu nav ul {
-        display: flex;
-        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-        justify-content: space-between; /* 양 끝까지 균등 배치 */
-        padding: 0;
-        margin: 0;
-      }
-      .menu nav ul li {
-        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-        margin: 0;                  /* 간격 제거 */
-        text-align: center;
-      }
-      .menu nav ul li a {
-        display: block;
-        padding: 8px 0;
-        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-        font-size: clamp(12px, 2.5vw, 16px);
-        white-space: nowrap;        /* 줄바꿈 방지 */
-      }
+      .nav-links.show { right: 0; }
+      .hamburger { display: flex; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="menu">
-      <nav>
-        <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="posts.html">Posts</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="archive.html">Archive</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav>
+      <div class="logo">MinJae Choi</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="projects.html">Projects</a>
+        <a href="posts.html">Posts</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="archive.html">Archive</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <aside class="sidemenu">
-      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
-      <h4>Welcome to my homepage!</h4>
-      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
-      <p>Social Media</p>
-      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
-          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
-      </a>
-      <p>GitHub</p>
-      <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
-          <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
-      </a>
-    </aside>
-    <article class="contents">
-      <h1 class="gradient-text" style="margin-bottom: 20px; font-size: 30px;">Projects</h1>
-      <div class="post-list">
+  <section class="hero">
+    <h1>Projects</h1>
+    <p>Works across AI, Software Engineering, and Computational Design</p>
+  </section>
 
-        <a href="project_easycoach.html" class="post-item">
-          <img src="promotionvideo_easycoach.gif" alt="Easy Coach">
-          <div class="post-text">
-            <h2 class="post-title">Easy Coach</h2>
-            <p class="post-date">2022</p>
-            <div class="post-tags">
-              <span>#CV</span><span>#Python</span>
-            </div>
-          </div>
-        </a>
-        <div class="post-item">
-          <img src="resources/personal_homepage/promo_pic.png" alt="Personal Homepage">
-          <div class="post-text">
-            <h2 class="post-title">Personal Homepage</h2>
-            <p class="post-date">2025</p>
-            <div class="post-tags">
-              <span>#Html5</span><span>#CSS3</span>
-            </div>
-          </div>
+  <section class="projects">
+
+    <a href="project_easycoach.html" class="card">
+      <img src="promotionvideo_easycoach.gif" alt="Easy Coach Thumbnail">
+      <div class="card-content">
+        <h2>Easy Coach</h2>
+        <p>A computer vision–based posture correction tool that automatically analyzes and coaches exercise form.</p>
+        <div class="hashtags">
+          <span class="hashtag">#CV</span>
+          <span class="hashtag">#Python</span>
         </div>
+        <div class="date">2022</div>
       </div>
-    </article>
-  </main>
+    </a>
+
+    <div class="card">
+      <img src="resources/personal_homepage/promo_pic.png" alt="Personal Homepage Thumbnail">
+      <div class="card-content">
+        <h2>Personal Homepage</h2>
+        <p>Personal Webpage</p>
+        <div class="hashtags">
+          <span class="hashtag">#HTML5</span>
+          <span class="hashtag">#CSS3</span>
+        </div>
+        <div class="date">2025</div>
+      </div>
+    </div>
+
+  </section>
 
   <footer>
-    <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+    © 2025 MinJae Choi. All rights reserved.<br>Last update: 2025.10.29
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+  </script>
+
 </body>
 </html>

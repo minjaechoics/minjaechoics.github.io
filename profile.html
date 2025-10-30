@@ -1,249 +1,251 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MFJMFV4JJE');
-</script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MinJae Choi - Profile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>MinJae Choi - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Inter', '맑은 고딕', Arial, sans-serif;
+    :root {
+      --primary: #0a0f8f;
+      --accent: #4e6bff;
+      --bg: #f8faff;
+      --text: #111;
+      --text-light: #555;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      font-family: 'Inter', '맑은 고딕', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
+    a { text-decoration: none; color: inherit; }
+
     header {
-      background: #eee;
-      padding: 10px 20px;
-    }
-    .menu nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-    }
-    .menu nav ul li {
-      margin: 0 15px;
-    }
-    .menu nav ul li a {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-      font-weight: 600;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      padding: 20px 40px;
-      background: #f9f9f9;
-      box-sizing: border-box;
-      gap: 40px;
-      flex-direction: row;
-    }
-    aside.sidemenu {
-      flex: 0 0 200px;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    article.contents {
-      flex: 1;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, #0010c0, #060156 50%, #0010c0);
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      display: inline-block;
-    }
-    p.indent {
-      text-indent: 7px;
-      line-height: 1.5;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    footer {
-      background-color: #222;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
-    }
-    /* 교육 카드 스타일 */
-    .edu-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      border-left: 5px solid #3341b7;
-    }
-    .edu-card h3 {
-      margin-top: 0;
-      margin-bottom: 5px;
-    }
-    .edu-card p {
-      margin: 4px 0;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
     }
 
-    /* 모바일 레이아웃 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 16px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 0;
+      background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+      width: 90%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .social-icons {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icons img:hover { transform: scale(1.1); }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 16px; /* 카드 간 간격 */
+      padding: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px; /* 모서리 둥글게 */
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .card h2 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 16px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    /* 모바일 햄버거 메뉴 */
     @media (max-width: 768px) {
-      main {
+      .nav-links {
+        position: fixed;
+        top: 56px;
+        right: -100%;
+        background: white;
         flex-direction: column;
+        width: 60%;
+        height: calc(100% - 56px);
+        gap: 16px;
+        padding: 20px;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
       }
-      article.contents {
-        order: 1;
-      }
-      aside.sidemenu {
-        order: 2;
-        flex: none;
-        width: 100%;
-        margin-top: 20px;
-      }
-      .menu nav ul {
-        display: flex;
-        flex-wrap: nowrap;          /* 줄바꿈 안 함 */
-        justify-content: space-between; /* 양 끝까지 균등 배치 */
-        padding: 0;
-        margin: 0;
-      }
-      .menu nav ul li {
-        flex: 1 1 auto;             /* 비율에 맞춰 자동 폭 배분 */
-        margin: 0;                  /* 간격 제거 */
-        text-align: center;
-      }
-      .menu nav ul li a {
-        display: block;
-        padding: 8px 0;
-        /* 화면 폭에 비례해서 폰트 크기 자동 조정 (최소 12px ~ 최대 16px) */
-        font-size: clamp(12px, 2.5vw, 16px);
-        white-space: nowrap;        /* 줄바꿈 방지 */
-      }
+      .nav-links.show { right: 0; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 24px; }
+      .hero p { font-size: 14px; max-width: 95%; }
+      .social-icons img { width: 24px; height: 24px; }
+      .card h2 { font-size: 16px; }
+      .card p { font-size: 13px; }
+      .card { padding: 16px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="menu">
-      <nav>
-        <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="posts.html">Posts</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="archive.html">Archive</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav>
+      <div class="logo">MinJae Choi</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="projects.html">Projects</a>
+        <a href="posts.html">Posts</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="archive.html">Archive</a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <aside class="sidemenu">
-      <h2><a href="index.html" class="gradient-text" style="text-decoration: none;">MinJae Choi</a></h2>
-      <h4>Welcome to my homepage!</h4>
-      <p>Contact me at: <a href="mailto:minjaechoi.cs@gmail.com" style="color: blue;">minjaechoi.cs@gmail.com</a></p>
-      <p>Social Media</p>
-      <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" target="_blank" rel="noopener">
-          <img src="logo/LinkedIn.svg" alt="LinkedIn" width="30" height="30" />
-      </a>
-      <p>GitHub</p>
-      <a href="https://github.com/minjaechoics" target="_blank" rel="noopener">
-          <img src="logo/GitHub.svg" alt="GitHub" width="30" height="30" />
-      </a>
-    </aside>
+  <section class="hero">
+    <h1>Profile</h1>
+  </section>
 
-    <article class="contents">
-      <h1 class="gradient-text" style="margin-bottom: 10px; font-size: 30px;">Profile</h1>
-      <p><h2 class="gradient-text" style="margin-bottom: 10px; font-size: 25px;">MinJae Choi</h2></p>
+  <section class="sections">
+    <div class="card">
       <h2>Technical Interests</h2>
-      <ul>
-        <li>Artificial Intelligence</li>
-        <li>Machine Learning</li>
-        <li>Data Science</li>
-        <li>(Graph) Algorithms</li>
-      </ul>
-      <h2>Educational Background</h2>
-      <div class="edu-card">
-        <h3>Korea Advanced Institute of Science and Technology (KAIST)</h3>
-        <p>2025.03 ~ Now</p>
-        <p>An undergraduate student planning to major in Computer Science and Electrical Engineering, with a minor in Mathematical Sciences and Industrial Design.</p>
-      </div>
-      <div class="edu-card">
-        <h3>Soongmoon High School</h3>
-        <p>2021.03 ~ 2024.02</p>
-        <p>Graduated as valedictorian of the school, specializing in Science, Mathematics, and Computer Science.</p>
-      </div>
-      <div class="hoveringicon">
-        <h2>Skills</h2>
-        <div class="imgindent">
-          <h3>Programming Languages</h3>
-          <img title="skill_python" src="logo/Python.svg" alt="Python" width="50" height="50" />
-          <img title="skill_c" src="logo/C.svg" alt="C Language" width="50" height="50" />
-          <img title="skill_cpp" src="logo/C++ (CPlusPlus).svg" alt="C++" width="50" height="50" />
-          <img title="skill_javascript" src="logo/JavaScript.svg" alt="JavaScript" width="50" height="50" />
-          <h3>Machine Learning / Deep Learning</h3>
-          <img src="logo/scikit-learn.svg" title="skill_scikitlearn" alt="Scikit-learn" width="50" height="50" />
-          <img src="logo/PyTorch.svg" title="skill_pytorch" alt="PyTorch" width="50" height="50" />
-          <h3>Database Systems</h3>
-          <img src="logo/MySQL.svg" title="skill_mysql" alt="MySQL" width="50" height="50" />
-          <img src="logo/New4j.svg" title="skill_neo4j" alt="Neo4j" width="50" height="50" />
-          <h3>Data Analysis</h3>
-          <img src="logo/NumPy.svg" title="skill_numpy" alt="NumPy" width="50" height="50" />
-          <img src="logo/Pandas.svg" title="skill_pandas" alt="Pandas" width="50" height="50" />
-          <img src="logo/Matplotlib.svg" title="skill_matplotlib" alt="Matplotlib" width="50" height="50" />
-          <h3>Web Development</h3>
-          <img src="logo/HTML5.svg" title="skill_html" alt="HTML5" width="50" height="50" />
-          <img src="logo/CSS3.svg" title="skill_css" alt="CSS3" width="50" height="50" />
-        </div>
-      </div>
-
-
-      <!-- 다른 학력도 같은 edu-card 사용 -->
-      <!--
-      <div class="edu-card">
-        <h3>대학교 이름</h3>
-        <p>YYYY.MM ~ YYYY.MM</p>
-        <p>전공/활동 내용</p>
-      </div>
-      -->
-
-    </article>
-  </main>
+      <p>Artificial Intelligence, Data Science, Graph Algorithms(Algorithmic Graph Structure Theory)</p>
+    </div>
+    <div class="card">
+      <h2>Skills</h2>
+      <p>Programming Languages: Python, C, C++, JavaScript</p>
+      <p>ML/DL: PyTorch, Scikit-learn</p>
+      <p>Database: MySQL, Neo4j</p>
+      <p>Data Analysis: NumPy, Pandas, Matplotlib</p>
+      <p>Web: HTML5, CSS3</p>
+    </div>
+    <div class="card">
+      <h2>Education</h2>
+      <p><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> (2025.03 ~ Now) - Undergraduate<br>Major: <a href="https://cs.kaist.ac.kr" target="_blank"><span style="text-decoration: underline;">Computer Science</span></a><br>Double Major: <a href="https://ee.kaist.ac.kr/en/" target="_blank"><span style="text-decoration: underline;">Electrical Engineering</span></a><br>Minor: <a href="https://mathsci.kaist.ac.kr/home/en/" target="_blank"><span style="text-decoration: underline;">Mathematical Sciences</span></a> <a href="https://id.kaist.ac.kr/" target="_blank"><span style="text-decoration: underline;">Industrial Design</span></a></p>
+      <p><strong>Soongmoon High School</strong> (2021.03 ~ 2024.02) - Graduated top of the class</p>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 MinJae Choi. All rights reserved.</p>
+    © 2025 MinJae Choi. All rights reserved.<br>Last update: 2025.10.29
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
-
-
-
