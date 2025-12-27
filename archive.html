@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>MinJae Choi - Archive</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     :root {
       --primary: #0a0f8f;
@@ -127,38 +129,36 @@
       margin-bottom: 12px;
     }
 
-    .card p {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
     .course-card {
       background: #fff;
       border-radius: 12px;
-      padding: 12px 16px;
-      margin-bottom: 12px;
+      padding: 16px; /* 패딩을 조금 늘렸습니다 */
+      margin-bottom: 16px; /* 카드 간 간격 조정 */
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.05);
     }
 
     .course-card h3 {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .course-card p {
       font-size: 13px;
       color: var(--text-light);
       margin-bottom: 2px;
+    }
+
+    /* 새로 추가된 설명란 스타일 */
+    .course-description {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #e0e0e0; /* 위쪽 점선 구분선 */
+      font-size: 14px !important; /* 글자 크기 약간 키움 */
+      color: #333 !important; /* 글자색 조금 더 진하게 */
+      line-height: 1.6;
     }
 
     footer {
@@ -171,7 +171,6 @@
       width: 100%;
     }
 
-    /* 모바일 햄버거 메뉴 */
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
@@ -194,8 +193,7 @@
       .hero h1 { font-size: 24px; }
       .hero p { font-size: 14px; max-width: 95%; }
       .card h2 { font-size: 16px; }
-      .card p { font-size: 13px; }
-      .course-card h3 { font-size: 14px; }
+      .course-card h3 { font-size: 15px; }
       .course-card p { font-size: 12px; }
       .card { padding: 16px; }
     }
@@ -223,23 +221,38 @@
 
   <section class="hero">
     <h1>Archive</h1>
+    <p>List of courses taken at KAIST.</p>
   </section>
 
   <section class="sections">
     <div class="card">
       <h2>Courses</h2>
+      
+      <div class="course-card">
+        <h3>Analysis of the Modern Economy</h3>
+        <p><strong>Semester:</strong> Winter 2025</p>
+        <p><strong>Institution:</strong> KAIST</p>
+        <p><strong>Department:</strong> School of Digital Humanities and Computational Social Sciences</p>
+      </div>
 
       <div class="course-card">
         <h3>Algorithmic Graph Structure Theory</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Parameterized Algorithms #Treewidth #Brambles #Tree-Independence Number #Abstract \(\mu\)-treewidth #Intersection Graphs #Clique-cover-treewidth #Branchwidth #Tangle #Abstract Separtion Systems #Abstract Tangle Duality
+        </p>
       </div>
+
       <div class="course-card">
         <h3>Programming Languages</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Functional Programming #Scala #First-Class & First-Order Functions #Closures #Pattern Matching #Identifiers #Recursion #Garbage Collection #Lazy Evaluation #Continuations #Type Systems #Polymorphism
+        </p>
       </div>
 
       <div class="course-card">
@@ -247,12 +260,19 @@
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Advanced Data Structures #Dynamic Programming #Number Theory #Combinatorics #Sweeping #Two Pointers #Greedy
+        </p>
       </div>
+
       <div class="course-card">
         <h3>Introduction to Hacking</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Digital Humanities and Computational Social Sciences</p>
+        <p class="course-description">
+          #Linux #Cryptography #Web Hacking #SQL Injection #Buffer Overflow #PHP Exploitation
+        </p>
       </div>
 
       <div class="course-card">
@@ -260,12 +280,19 @@
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Time Complexity #Asymptotic Notation #Divide and Conquer #Dynamic Programming #Greedy Algorithms #Graph Algorithms #Sorting Algorithms #NP-Completeness #Approximation Algorithms
+        </p>
       </div>
+
       <div class="course-card">
         <h3>Calculus II</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+        <p class="course-description">
+          #Vectors and Linear Functions #Derivative of Multivariable Functions #Multi-variable Function Integration #Integration of Vector Fields
+        </p>
       </div>
 
       <div class="course-card">
@@ -273,12 +300,19 @@
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+        <p class="course-description">
+          #Connection #Matching #Cycles #Connectivity #Coloring #Planar Graphs #Ramsey Theory #Probabilistic Method #Extremal Problems #Spectrum
+        </p>
       </div>
+
       <div class="course-card">
         <h3>General Chemistry I</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Chemistry</p>
+        <p class="course-description">
+          
+        </p>
       </div>
 
       <div class="course-card">
@@ -286,12 +320,19 @@
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Physics</p>
+        <p class="course-description">
+          #Gauss's Law #Electric Potential #Capacitors #Electric Circuits #Magnetism #Electromagnetic Induction #Alternating-Current Circuits #Electromagnetic Waves #Reflection & Refraction #Optical Instruments #Relativity #Quantum Mechanics
+        </p>
       </div>
+
       <div class="course-card">
         <h3>Discrete Structures</h3>
         <p><strong>Semester:</strong> Summer 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Logic #Proof #Set #Relations #Number Theory #Algorithm #Combinatorics #Boolean Algebra #Discrete Probability
+        </p>
       </div>
 
       <div class="course-card">
@@ -299,12 +340,19 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Data representation #Machine language #Processor Architecture #Code Optimization #Memory Hierarchy #Linking #Exceptional Control Flow #Performance Measurement #Virtual Memory #System-level I/O #Network Programming #Concurrent Programming
+        </p>
       </div>
+
       <div class="course-card">
         <h3>Introduction to Database</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Relational Model #SQL #ER Model #Normalization #Transactions #Indexing #Query Processing #Query Optimization #NoSQL
+        </p>
       </div>
 
       <div class="course-card">
@@ -312,6 +360,9 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #Python #Basic Graphics #File Format
+        </p>
       </div>
 
       <div class="course-card">
@@ -319,6 +370,9 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <p class="course-description">
+          #JAVA #ADT #Data Abstraction #Stack #Queue #Recursion #Dynamic Arrays #Amortized Arrays #Iterators #Binary Search Tree #Priority Queues #Heaps #Map ADT #Hash Tables #Set ADT #Tries #Sorting Algorithms
+        </p>
       </div>
 
       <div class="course-card">
@@ -326,6 +380,9 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Physics</p>
+        <p class="course-description">
+          #Dynamics #Electromagnetism #Thermodynamics #Optics
+        </p>
       </div>
 
       <div class="course-card">
@@ -333,6 +390,9 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Physics</p>
+        <p class="course-description">
+          #1D~3D Motion #Force #Newton's Law #Work #Conservative of Energy #Graivty #System of Particles #Rotational Motions #Angular Momentum #Oscillatory Motion #Wave Motion #Fluid Motion #Temperature&Heat #Thermal Dynamics
+        </p>
       </div>
 
       <div class="course-card">
@@ -340,6 +400,9 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+        <p class="course-description">
+          #Vector Space #Matrix #Determinants #Linear Transformation #Dimension & Strucutre #Diagonalization
+        </p>
       </div>
 
       <div class="course-card">
@@ -347,6 +410,9 @@
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Mathematical Sciences</p>
+        <p class="course-description">
+          #Limits & Continuity #Differentiation #Integration #Vector Calculus #Curves in Space #Particle Motion #Polar Coordinates #Differential Equations #Approximation Methods #Sequences and Series #Taylor Series
+        </p>
       </div>
 
     </div>
