@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MFJMFV4JJE');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>Growing a Language</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+  <style>
+    /* --- 디자인 스타일 (수정 불필요) --- */
+    :root{ --bg: #f8fbff; --muted: #6b7280; --text: #1f2937; --primary: #0a0f8f; --accent: #4e6bff; --content-width: 768px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Pretendard', sans-serif; background: linear-gradient(180deg, #f8fbff 0%, #fbfcff 100%); color: var(--text); line-height: 1.75; }
+    a { color: inherit; text-decoration: none; transition: 0.2s; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; margin: 30px auto; }
+    
+    /* 헤더 스타일 */
+    header { position: sticky; top: 0; z-index: 60; backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(15,23,42,0.06); }
+    .nav { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
+    .logo { font-weight: 800; font-size: 18px; background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { font-weight: 600; color: var(--muted); font-size: 15px; }
+    .nav-links a:hover { color: var(--primary); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; }
+    .hamburger span { width: 24px; height: 2px; background: var(--primary); }
+
+    /* 본문 레이아웃 */
+    main { width: 100%; max-width: var(--content-width); margin: 0 auto; padding: 40px 24px 100px; }
+    .back-link { display: inline-flex; margin-bottom: 32px; color: var(--muted); font-weight: 600; font-size: 14px; }
+    .back-link:hover { color: var(--primary); }
+
+    /* 게시글 스타일 */
+    .post-header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .post-category { display: inline-block; background: rgba(78, 107, 255, 0.1); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; }
+    .post-title { font-size: 32px; font-weight: 800; margin: 0 0 16px; line-height: 1.3; color: #111; }
+    .post-meta { color: var(--muted); font-size: 15px; display: flex; justify-content: center; gap: 16px; }
+    
+    .post-content { font-size: 17px; color: #374151; }
+    .post-content h2 { font-size: 26px; color: var(--primary); margin-top: 56px; margin-bottom: 20px; font-weight: 700; }
+    .post-content h3 { font-size: 20px; color: #111; margin-top: 40px; margin-bottom: 16px; font-weight: 700; }
+    .post-content p { margin-bottom: 1.6em; }
+    .post-content ul, .post-content ol { margin-bottom: 1.6em; padding-left: 1.5em; }
+    .post-content blockquote { border-left: 4px solid var(--accent); background: #f1f5f9; margin: 32px 0; padding: 24px; font-style: italic; color: #555; }
+    pre[class*="language-"] { border-radius: 8px; margin: 32px 0 !important; font-size: 14px; }
+
+    /* 태그 스타일 */
+    .tags-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(0,0,0,0.05); }
+    .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+    .tag { background: white; border: 1px solid #e5e7eb; padding: 6px 14px; border-radius: 6px; font-size: 14px; color: var(--muted); }
+
+    /* 푸터 & 반응형 */
+    footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 14px; border-top: 1px solid rgba(0,0,0,0.05); background: white; }
+    @media (max-width: 768px) {
+      .nav-links { position: fixed; top: 56px; right: -100%; width: 260px; height: 100vh; background: white; flex-direction: column; padding: 24px; transition: 0.3s; box-shadow: -4px 0 20px rgba(0,0,0,0.1); }
+      .nav-links.active { right: 0; }
+      .hamburger { display: flex; }
+      .post-title { font-size: 26px; }
+    }
+    /* 유튜브 반응형 컨테이너 */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 비율 유지 */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 30px 0; /* 위아래 여백 */
+      border-radius: 8px; /* 모서리 둥글게 */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">MinJae Choi</div>
+      <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../profile.html">Profile</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../posts.html">Posts</a>
+        <a href="../blogs.html">Blogs</a>
+        <a href="../archive.html">Archive</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <a href="../posts.html" class="back-link">← Posts</a>
+
+    <article>
+      <header class="post-header">
+        <span class="post-category">Column</span>
+        <h1 class="post-title">Growing a Language</h1>
+        <div class="post-meta">
+          <span>MinJae Choi</span> • 
+          <span>2025.12.29</span> </div>
+      </header>
+
+      <div class="post-content">
+        
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lw6TaiXzHAE?si=DSXOfOfKT67qzS4H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>The video above is a keynote speech delivered at a programming languages (PL) conference in 1998. In essence, the speech argues that programming language design should move toward providing meta-level tools that allow users (developers) to extend the language themselves and build their own libraries. In other words, a “cathedral model,” in which a small group of designers centrally drives language design, tends to alienate users and respond slowly to change. Instead, a model closer to that of the Linux operating system—where users actively participate, rapidly modify, and evolve the system—is far more effective.</p>
+        <p>The core message of the talk lies in this growth model of programming languages. As concrete examples of such an approach, the speaker mentions generic types in Java as a pattern for defining types, operator overloading that allows user-defined types to naturally use operations such as + and -, and lightweight types that can be stored in structures like stacks.</p>
+        <p>From this perspective, the key challenge in programming language design is how to incorporate users (developers) into the process of language evolution. Rather than language designers attempting to build a large, complete language upfront, they should design tools that enable developers to extend the language to solve problems specific to their own projects. Observing that the vision proposed by the speaker was later adopted in Java and reflected in other languages such as C#, one can see that this philosophy of language design is not only idealistic but also practically effective.</p>
+        <p>Moreover, this philosophy extends beyond programming language design and offers insights into the design of complex systems in general. Many modern systems, programming languages, and libraries are developed as open-source projects. This can be interpreted as a conscious effort to include users in the development process. Of course, languages developed as open-source projects (such as Python) also have clear drawbacks, including difficulties in maintaining a fully consistent syntax. Addressing these issues through improved development processes remains an important challenge. Nevertheless, this speech presents a compelling direction for how large-scale, complex projects can be built into successful systems that are widely used by diverse communities.</p>
+
+
+      </div>
+      <div class="tags-container">
+        <div class="tags">
+          <span class="tag">#Programming Languages</span>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    © 2025 MinJae Choi. All rights reserved.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+</body>
+</html>
