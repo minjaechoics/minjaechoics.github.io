@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>MinJae Choi - Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #0a0f8f;
       --accent: #4e6bff;
+      --accent-bright: #6e85ff; /* 배너용 더 밝은 색 */
       --bg: #f8faff;
       --text: #111;
       --text-light: #555;
+      --gold: #FFD700; /* 강조용 골드 */
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -77,6 +79,79 @@
       height: 3px;
       background: var(--text);
     }
+
+    /* ▼▼▼ 플랭카드 배너 스타일 시작 ▼▼▼ */
+    .wiki-launch-banner {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent-bright) 50%, var(--accent) 100%);
+      color: white;
+      padding: 14px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(78, 107, 255, 0.3);
+      z-index: 90;
+    }
+
+    /* 빛이 지나가는 효과 애니메이션 */
+    .wiki-launch-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+        transform: skewX(-25deg);
+        animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+        100% { left: 125%; }
+    }
+
+    .banner-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .banner-text {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .banner-highlight {
+        font-weight: 800;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .banner-btn {
+        background-color: white;
+        color: var(--primary);
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .banner-btn:hover {
+        background-color: var(--gold);
+        color: #111;
+        transform: translateY(-2px);
+    }
+    /* ▲▲▲ 플랭카드 배너 스타일 끝 ▲▲▲ */
+
 
     .hero {
       text-align: center;
@@ -246,6 +321,11 @@
       .social-icons img { width: 24px; height: 24px; }
       .card h2 { font-size: 16px; }
       .card { padding: 16px; }
+      
+      /* 모바일에서 배너 텍스트 줄바꿈 허용 */
+      .banner-content {
+          gap: 10px;
+      }
     }
   </style>
 </head>
@@ -269,11 +349,19 @@
     </nav>
   </header>
 
+  <div class="wiki-launch-banner">
+    <div class="banner-content">
+        <span style="font-size: 20px;">🎉</span>
+        <span class="banner-text">
+            <span class="banner-highlight">NEWS!</span> I've launched my <strong>Personal Wiki</strong> as a personal knowledge repository!
+        </span>
+        <a href="./wiki.html" class="banner-btn">Visit Wiki →</a>
+    </div>
+  </div>
   <section class="hero">
     <h1>Welcome!</h1>
     <p>I’m <strong>MinJae Choi</strong>, a student at <a href="https://kaist.edu/" target="_blank"><span style="text-decoration: underline;">KAIST</span></a> <a href="https://cs.kaist.ac.kr/" target="_blank"><span style="text-decoration: underline;">School of Computing</span></a>. I love to study Artificial Intelligence and Graph Algorithms!</p>
     
-    <!-- Profile 버튼 -->
     <a class="btn-profile" href="profile.html">View Profile</a>
 
     <p> Contact </p>
@@ -299,14 +387,16 @@
         <p>Read my thoughts and articles on AI, programming, and tech trends.</p>
         <a href="blogs.html" class="btn-card">
           Read Blogs →
-          <span class="badge-new">New Post</span>
         </a>
       </div>
 
       <div class="card">
         <h2>Posts</h2>
         <p>Check out my shorter posts and updates on ongoing work and experiments.</p>
-        <a href="posts.html" class="btn-card">Check Posts →</a>
+        <a href="posts.html" class="btn-card">
+          Check Posts →
+          <span class="badge-new">New Post</span>
+        </a>
       </div>
     </div>
   </section>
