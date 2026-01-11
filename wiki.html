@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    
+    <style>
+        /* === Ultra Compact Theme (VS Code Style) === */
+        :root {
+            --sidebar-width: 220px;
+            --bg-sidebar: #F3F3F3;
+            --bg-main: #FFFFFF;
+            --border-color: #E5E5E5;
+            
+            /* Selection Colors */
+            --active-bg: #E4E6F1;
+            --active-text: #000000;
+            --hover-bg: #EAEAEA;
+            
+            /* Font Settings */
+            --font-main: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: "Menlo", "Consolas", monospace;
+            --font-size-ui: 13px;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body { 
+            margin: 0; display: flex; height: 100vh; 
+            font-family: var(--font-main); color: #333; background: var(--bg-main);
+            overflow: hidden;
+        }
+
+        /* === Sidebar === */
+        #sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex; flex-direction: column;
+            padding: 10px 0;
+            flex-shrink: 0; overflow-y: auto;
+            user-select: none;
+        }
+
+        #sidebar h2 { 
+            padding: 0 16px; margin: 0 0 8px 0;
+            font-size: 11px; font-weight: 700; color: #888;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        /* 구분선 */
+        .separator {
+            height: 1px;
+            background-color: #E0E0E0;
+            margin: 6px 0;
+        }
+
+        ul { list-style: none; padding: 0; margin: 0; }
+        
+        /* Tree Indentation */
+        .tree-ul .tree-ul { 
+            padding-left: 10px;
+            margin-left: 6px;
+            border-left: 1px solid #ddd;
+        }
+
+        /* List Items (Shared Style) */
+        .nav-item {
+            display: flex; align-items: center;
+            width: 100%;
+            height: 24px; /* 고정 높이 */
+            padding: 0 12px; /* 좌우 여백 */
+            font-size: var(--font-size-ui);
+            color: #616161;
+            cursor: pointer;
+            text-decoration: none; /* a 태그 밑줄 제거 */
+            border: none; background: transparent;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            transition: background 0.1s;
+        }
+
+        .nav-item:hover { background-color: var(--hover-bg); color: #000; }
+        
+        /* Home Button Special Style */
+        .home-link {
+            font-weight: 600;
+            color: #444;
+        }
+        .home-link:hover {
+            color: #2563EB; /* 호버 시 파란색 포인트 */
+        }
+        
+        /* Active State */
+        .nav-item.active { 
+            background-color: var(--active-bg); 
+            color: var(--active-text);
+            font-weight: 500;
+        }
+
+        .icon { 
+            margin-right: 6px; font-size: 14px; opacity: 0.8; flex-shrink: 0;
+            filter: grayscale(100%);
+        }
+        .nav-item.active .icon, .home-link:hover .icon { filter: none; }
+
+        .folder-label { font-weight: 600; color: #444; }
+
+        /* === Main Content === */
+        #main { flex-grow: 1; overflow-y: auto; padding: 0; }
+
+        .content-container {
+            max-width: 820px; margin: 0 auto; padding: 40px 50px;
+        }
+
+        /* Markdown Styling */
+        .markdown-body { line-height: 1.6; font-size: 15px; color: #24292f; }
+        .markdown-body h1 { font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; margin-bottom: 24px; }
+        .markdown-body h2 { font-size: 1.4rem; margin-top: 30px; border-bottom: none; }
+        .markdown-body code {
+            background-color: rgba(175, 184, 193, 0.2);
+            padding: 0.2em 0.4em; border-radius: 4px;
+            font-family: var(--font-mono); font-size: 85%;
+        }
+        .markdown-body pre {
+            background: #f6f8fa; padding: 16px; border-radius: 6px;
+            overflow-x: auto; line-height: 1.45;
+        }
+        .markdown-body a { color: #0969da; text-decoration: none; }
+        .markdown-body a:hover { text-decoration: underline; }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+    </style>
+</head>
+<body>
+
+<nav id="sidebar">
+    <h2>Explorer</h2>
+    
+    <a href="index.html" target="_blank" class="nav-item home-link">
+        <span class="icon">🏠</span> MinJae Choi's Website
+    </a>
+    <div class="separator"></div>
+    <div id="tree-root"></div>
+</nav>
+
+<main id="main">
+    <div class="content-container">
+        <div id="content" class="markdown-body">
+            <div style="color:#aaa; font-size:13px; margin-top:20px;">Loading...</div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+    // [설정] 파일 목록
+    // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+    
+    const fileTree = [
+        { type: 'file', name: 'welcome.md' },
+        { type: 'file', name: 'todo.md' },
+        { 
+            type: 'folder', 
+            name: 'CS_Core', 
+            children: [
+                { type: 'file', name: 'data_structure.md' },
+                { type: 'file', name: 'algorithms.md' },
+                { type: 'file', name: 'operating_system.md' }
+            ]
+        },
+        {
+            type: 'folder',
+            name: 'Research',
+            children: [
+                { type: 'file', name: 'graph_theory.md' },
+                { type: 'file', name: 'paper_review.md' }
+            ]
+        }
+    ];
+
+    const contentDiv = document.getElementById('content');
+    const treeRoot = document.getElementById('tree-root');
+    const BASE_DIR = './wikicontent';
+
+    function renderTree(nodes, container, currentPath) {
+        const ul = document.createElement('ul');
+        ul.className = 'tree-ul';
+        container.appendChild(ul);
+
+        nodes.forEach(node => {
+            const li = document.createElement('li');
+            
+            if (node.type === 'folder') {
+                const div = document.createElement('div');
+                div.className = 'nav-item folder-label';
+                div.innerHTML = `<span class="icon">📂</span>${node.name}`;
+                li.appendChild(div);
+                if (node.children) renderTree(node.children, li, `${currentPath}/${node.name}`);
+            } else {
+                const btn = document.createElement('button');
+                btn.className = 'nav-item file-btn';
+                const displayName = node.name.replace(/\.md$/i, '');
+                btn.innerHTML = `<span class="icon">📄</span>${displayName}`;
+                
+                const fullPath = `${BASE_DIR}${currentPath}/${node.name}`;
+                btn.onclick = () => loadMarkdown(fullPath, btn);
+                if (node.name === 'welcome.md' && currentPath === '') btn.id = 'default-btn';
+
+                li.appendChild(btn);
+            }
+            ul.appendChild(li);
+        });
+    }
+
+    function loadMarkdown(path, btnElement) {
+        document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
+        if(btnElement) btnElement.classList.add('active');
+
+        fetch(path)
+            .then(res => res.ok ? res.text() : Promise.reject(res))
+            .then(text => {
+                contentDiv.innerHTML = marked.parse(text);
+                document.getElementById('main').scrollTop = 0;
+            })
+            .catch(err => contentDiv.innerHTML = `<h3 style="color:red">Not Found</h3>`);
+    }
+
+    renderTree(fileTree, treeRoot, '');
+    
+    const defaultBtn = document.getElementById('default-btn');
+    if (defaultBtn) defaultBtn.click();
+    else loadMarkdown(`${BASE_DIR}/welcome.md`, null);
+
+</script>
+</body>
+</html>
