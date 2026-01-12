@@ -2,31 +2,29 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Wiki</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     
     <style>
-        /* === Ultra Compact Theme (VS Code Style) === */
+        /* === Ultra Compact Theme (Responsive) === */
         :root {
             --sidebar-width: 220px;
             --bg-sidebar: #F3F3F3;
             --bg-main: #FFFFFF;
             --border-color: #E5E5E5;
             
-            /* Selection Colors */
             --active-bg: #E4E6F1;
             --active-text: #000000;
             --hover-bg: #EAEAEA;
             
-            /* Font Settings */
             --font-main: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: "Menlo", "Consolas", monospace;
             --font-size-ui: 13px;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body { 
             margin: 0; display: flex; height: 100vh; 
@@ -34,112 +32,178 @@
             overflow: hidden;
         }
 
-        /* === Sidebar === */
+        /* === Sidebar (Desktop Default) === */
         #sidebar {
             width: var(--sidebar-width);
             background-color: var(--bg-sidebar);
             border-right: 1px solid var(--border-color);
             display: flex; flex-direction: column;
             padding: 10px 0;
-            flex-shrink: 0; overflow-y: auto;
+            flex-shrink: 0; 
+            overflow-y: auto;
             user-select: none;
+            transition: margin-left 0.3s ease, transform 0.3s ease; /* 애니메이션 추가 */
+            z-index: 50;
+        }
+
+        /* 데스크톱에서 사이드바 접혔을 때 */
+        body.sidebar-collapsed #sidebar {
+            margin-left: calc(var(--sidebar-width) * -1);
         }
 
         #sidebar h2 { 
             padding: 0 16px; margin: 0 0 8px 0;
             font-size: 11px; font-weight: 700; color: #888;
             text-transform: uppercase; letter-spacing: 0.5px;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        /* 구분선 */
-        .separator {
-            height: 1px;
-            background-color: #E0E0E0;
-            margin: 6px 0;
+        /* 모바일용 닫기 버튼 (평소엔 숨김) */
+        .close-sidebar-btn {
+            display: none; cursor: pointer; padding: 4px;
         }
 
+        .separator { height: 1px; background-color: #E0E0E0; margin: 6px 0; }
         ul { list-style: none; padding: 0; margin: 0; }
         
-        /* Tree Indentation */
         .tree-ul .tree-ul { 
-            padding-left: 10px;
-            margin-left: 6px;
-            border-left: 1px solid #ddd;
+            padding-left: 10px; margin-left: 6px; border-left: 1px solid #ddd; 
         }
 
-        /* List Items (Shared Style) */
         .nav-item {
             display: flex; align-items: center;
-            width: 100%;
-            height: 24px; /* 고정 높이 */
-            padding: 0 12px; /* 좌우 여백 */
-            font-size: var(--font-size-ui);
-            color: #616161;
-            cursor: pointer;
-            text-decoration: none; /* a 태그 밑줄 제거 */
-            border: none; background: transparent;
+            width: 100%; height: 32px; /* 모바일 터치 고려해 살짝 키움 (24->32) */
+            padding: 0 12px;
+            font-size: var(--font-size-ui); color: #616161;
+            cursor: pointer; text-decoration: none; border: none; background: transparent;
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
             transition: background 0.1s;
         }
 
         .nav-item:hover { background-color: var(--hover-bg); color: #000; }
+        .home-link { font-weight: 600; color: #444; }
+        .home-link:hover { color: #2563EB; }
         
-        /* Home Button Special Style */
-        .home-link {
-            font-weight: 600;
-            color: #444;
-        }
-        .home-link:hover {
-            color: #2563EB; /* 호버 시 파란색 포인트 */
-        }
-        
-        /* Active State */
         .nav-item.active { 
             background-color: var(--active-bg); 
-            color: var(--active-text);
-            font-weight: 500;
+            color: var(--active-text); font-weight: 500; 
         }
 
         .icon { 
-            margin-right: 6px; font-size: 14px; opacity: 0.8; flex-shrink: 0;
+            margin-right: 8px; font-size: 15px; opacity: 0.8; flex-shrink: 0;
             filter: grayscale(100%);
         }
         .nav-item.active .icon, .home-link:hover .icon { filter: none; }
-
         .folder-label { font-weight: 600; color: #444; }
 
         /* === Main Content === */
-        #main { flex-grow: 1; overflow-y: auto; padding: 0; }
-
-        .content-container {
-            max-width: 820px; margin: 0 auto; padding: 40px 50px;
+        #main { 
+            flex-grow: 1; 
+            overflow-y: auto; 
+            padding: 0; 
+            position: relative; 
+            transition: margin-left 0.3s ease;
         }
 
-        /* Markdown Styling */
+        /* 토글 버튼 (햄버거 아이콘) */
+        #sidebar-toggle {
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border: none;
+            border-bottom: 1px solid #eee;
+            width: 100%;
+            padding: 10px 15px;
+            text-align: left;
+            font-size: 18px;
+            cursor: pointer;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* 데스크톱에서는 버튼을 작게, 본문 좌측 상단에 배치 */
+        @media (min-width: 769px) {
+            #sidebar-toggle {
+                position: absolute;
+                top: 10px; left: 10px;
+                width: 32px; height: 32px;
+                padding: 0;
+                justify-content: center;
+                background: transparent;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+            #sidebar-toggle:hover { background: #f0f0f0; }
+        }
+
+        .content-container {
+            max-width: 820px; margin: 0 auto; padding: 50px 50px 40px 50px; /* 상단 패딩 확보 */
+        }
+
+        /* === Markdown === */
         .markdown-body { line-height: 1.6; font-size: 15px; color: #24292f; }
         .markdown-body h1 { font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; margin-bottom: 24px; }
         .markdown-body h2 { font-size: 1.4rem; margin-top: 30px; border-bottom: none; }
-        .markdown-body code {
-            background-color: rgba(175, 184, 193, 0.2);
-            padding: 0.2em 0.4em; border-radius: 4px;
-            font-family: var(--font-mono); font-size: 85%;
-        }
-        .markdown-body pre {
-            background: #f6f8fa; padding: 16px; border-radius: 6px;
-            overflow-x: auto; line-height: 1.45;
-        }
-        .markdown-body a { color: #0969da; text-decoration: none; }
-        .markdown-body a:hover { text-decoration: underline; }
+        .markdown-body code { background-color: rgba(175, 184, 193, 0.2); padding: 0.2em 0.4em; border-radius: 4px; font-family: var(--font-mono); font-size: 85%; }
+        .markdown-body pre { background: #f6f8fa; padding: 16px; border-radius: 6px; overflow-x: auto; }
+        .markdown-body img { max-width: 100%; border-radius: 4px; }
 
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-        ::-webkit-scrollbar-track { background: transparent; }
+        /* === Mobile Styling (< 768px) === */
+        @media (max-width: 768px) {
+            /* 1. 사이드바를 화면 밖으로 밀어내고, 위에 띄움(Fixed) */
+            #sidebar {
+                position: fixed;
+                top: 0; left: 0; bottom: 0;
+                width: 260px; /* 모바일은 조금 더 넓게 */
+                transform: translateX(-100%); /* 기본적으로 숨김 */
+                margin-left: 0 !important; /* 데스크톱 로직 무시 */
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+
+            /* 2. 사이드바 열림 상태 */
+            body.mobile-sidebar-open #sidebar {
+                transform: translateX(0);
+            }
+
+            /* 3. 모바일에서만 닫기 버튼 보이기 */
+            .close-sidebar-btn { display: block; }
+
+            /* 4. 오버레이 (검은 배경) */
+            #mobile-overlay {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 45;
+                opacity: 0; visibility: hidden;
+                transition: opacity 0.3s;
+            }
+            body.mobile-sidebar-open #mobile-overlay {
+                opacity: 1; visibility: visible;
+            }
+
+            /* 5. 본문 패딩 조정 */
+            .content-container { padding: 20px; }
+            
+            /* 6. 모바일 토글 버튼 스타일 */
+            #sidebar-toggle {
+                font-size: 14px; font-weight: 600;
+            }
+        }
     </style>
 </head>
 <body>
 
+<div id="mobile-overlay" onclick="toggleSidebar()"></div>
+
 <nav id="sidebar">
-    <h2>Explorer</h2>
+    <h2>
+        Explorer
+        <span class="close-sidebar-btn" onclick="toggleSidebar()">✕</span>
+    </h2>
     
     <a href="index.html" target="_blank" class="nav-item home-link">
         <span class="icon">🏠</span> MinJae Choi's Website
@@ -149,6 +213,14 @@
 </nav>
 
 <main id="main">
+    <button id="sidebar-toggle" onclick="toggleSidebar()">
+        <span style="margin-right:8px;">☰</span> 
+        <span class="mobile-only-text" style="display:none;">Menu</span>
+    </button>
+    <script>
+        if(window.innerWidth <= 768) document.querySelector('.mobile-only-text').style.display = 'inline';
+    </script>
+
     <div class="content-container">
         <div id="content" class="markdown-body">
             <div style="color:#aaa; font-size:13px; margin-top:20px;">Loading...</div>
@@ -157,36 +229,34 @@
 </main>
 
 <script>
-    // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
-    // [설정] 파일 목록
-    // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
-    
+    // ▼▼▼ 파일 목록 설정 ▼▼▼
     const fileTree = [
-        { type: 'file', name: 'welcome.md' },
-        { type: 'file', name: 'todo.md' },
-        { 
-            type: 'folder', 
-            name: 'CS_Core', 
-            children: [
-                { type: 'file', name: 'data_structure.md' },
-                { type: 'file', name: 'algorithms.md' },
-                { type: 'file', name: 'operating_system.md' }
-            ]
-        },
-        {
-            type: 'folder',
-            name: 'Research',
-            children: [
-                { type: 'file', name: 'graph_theory.md' },
-                { type: 'file', name: 'paper_review.md' }
-            ]
-        }
+        { type: 'file', name: 'welcome.md' }
+        //{ type: 'file', name: 'todo.md' },
+        //{ 
+        //    type: 'folder', 
+        //    name: 'CS_Core', 
+        //    children: [
+        //        { type: 'file', name: 'data_structure.md' },
+        //        { type: 'file', name: 'algorithms.md' },
+        //        { type: 'file', name: 'operating_system.md' }
+        //    ]
+        //},
+        //{
+        //    type: 'folder',
+        //    name: 'Research',
+        //    children: [
+        //        { type: 'file', name: 'graph_theory.md' },
+        //        { type: 'file', name: 'paper_review.md' }
+        //    ]
+        //}
     ];
 
     const contentDiv = document.getElementById('content');
     const treeRoot = document.getElementById('tree-root');
     const BASE_DIR = './wikicontent';
 
+    // 1. 트리 렌더링
     function renderTree(nodes, container, currentPath) {
         const ul = document.createElement('ul');
         ul.className = 'tree-ul';
@@ -208,15 +278,22 @@
                 btn.innerHTML = `<span class="icon">📄</span>${displayName}`;
                 
                 const fullPath = `${BASE_DIR}${currentPath}/${node.name}`;
-                btn.onclick = () => loadMarkdown(fullPath, btn);
-                if (node.name === 'welcome.md' && currentPath === '') btn.id = 'default-btn';
+                // 클릭 시 파일 로드 + 모바일이면 사이드바 닫기
+                btn.onclick = () => {
+                    loadMarkdown(fullPath, btn);
+                    if (window.innerWidth <= 768) {
+                        toggleSidebar(); // 모바일에서 선택 후 자동 닫기
+                    }
+                };
 
+                if (node.name === 'welcome.md' && currentPath === '') btn.id = 'default-btn';
                 li.appendChild(btn);
             }
             ul.appendChild(li);
         });
     }
 
+    // 2. 마크다운 로드
     function loadMarkdown(path, btnElement) {
         document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
         if(btnElement) btnElement.classList.add('active');
@@ -230,11 +307,25 @@
             .catch(err => contentDiv.innerHTML = `<h3 style="color:red">Not Found</h3>`);
     }
 
+    // 3. 사이드바 토글 기능 (핵심)
+    function toggleSidebar() {
+        if (window.innerWidth <= 768) {
+            // [모바일] 오버레이 모드
+            document.body.classList.toggle('mobile-sidebar-open');
+        } else {
+            // [데스크톱] 공간 밀기 모드
+            document.body.classList.toggle('sidebar-collapsed');
+        }
+    }
+
+    // 실행
     renderTree(fileTree, treeRoot, '');
     
     const defaultBtn = document.getElementById('default-btn');
     if (defaultBtn) defaultBtn.click();
     else loadMarkdown(`${BASE_DIR}/welcome.md`, null);
+    //python -m http.server 8080
+    //http://localhost:8080
 
 </script>
 </body>
