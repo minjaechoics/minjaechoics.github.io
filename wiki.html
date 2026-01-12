@@ -32,7 +32,7 @@
             overflow: hidden;
         }
 
-        /* === Sidebar (Desktop Default) === */
+        /* === Sidebar === */
         #sidebar {
             width: var(--sidebar-width);
             background-color: var(--bg-sidebar);
@@ -42,11 +42,10 @@
             flex-shrink: 0; 
             overflow-y: auto;
             user-select: none;
-            transition: margin-left 0.3s ease, transform 0.3s ease; /* 애니메이션 추가 */
+            transition: margin-left 0.3s ease, transform 0.3s ease;
             z-index: 50;
         }
 
-        /* 데스크톱에서 사이드바 접혔을 때 */
         body.sidebar-collapsed #sidebar {
             margin-left: calc(var(--sidebar-width) * -1);
         }
@@ -55,14 +54,19 @@
             padding: 0 16px; margin: 0 0 8px 0;
             font-size: 11px; font-weight: 700; color: #888;
             text-transform: uppercase; letter-spacing: 0.5px;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex; align-items: center;
         }
 
-        /* 모바일용 닫기 버튼 (평소엔 숨김) */
-        .close-sidebar-btn {
-            display: none; cursor: pointer; padding: 4px;
+        /* 언어 선택 버튼 */
+        .lang-switch {
+            margin-left: auto; margin-right: 10px;
+            display: flex; gap: 6px; font-size: 11px; color: #ccc;
         }
+        .lang-opt { cursor: pointer; color: #999; transition: color 0.2s; }
+        .lang-opt:hover { color: #555; }
+        .lang-opt.active { color: #333; font-weight: 800; border-bottom: 2px solid #333; }
 
+        .close-sidebar-btn { display: none; cursor: pointer; padding: 4px; }
         .separator { height: 1px; background-color: #E0E0E0; margin: 6px 0; }
         ul { list-style: none; padding: 0; margin: 0; }
         
@@ -72,7 +76,7 @@
 
         .nav-item {
             display: flex; align-items: center;
-            width: 100%; height: 32px; /* 모바일 터치 고려해 살짝 키움 (24->32) */
+            width: 100%; height: 32px;
             padding: 0 12px;
             font-size: var(--font-size-ui); color: #616161;
             cursor: pointer; text-decoration: none; border: none; background: transparent;
@@ -98,53 +102,33 @@
 
         /* === Main Content === */
         #main { 
-            flex-grow: 1; 
-            overflow-y: auto; 
-            padding: 0; 
-            position: relative; 
-            transition: margin-left 0.3s ease;
+            flex-grow: 1; overflow-y: auto; padding: 0; 
+            position: relative; transition: margin-left 0.3s ease;
         }
 
-        /* 토글 버튼 (햄버거 아이콘) */
         #sidebar-toggle {
-            position: sticky;
-            top: 0;
-            left: 0;
-            z-index: 40;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(5px);
-            border: none;
-            border-bottom: 1px solid #eee;
-            width: 100%;
-            padding: 10px 15px;
-            text-align: left;
-            font-size: 18px;
-            cursor: pointer;
-            color: #555;
-            display: flex;
-            align-items: center;
+            position: sticky; top: 0; left: 0; z-index: 40;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px);
+            border: none; border-bottom: 1px solid #eee;
+            width: 100%; padding: 10px 15px;
+            text-align: left; font-size: 18px; cursor: pointer; color: #555;
+            display: flex; align-items: center;
         }
         
-        /* 데스크톱에서는 버튼을 작게, 본문 좌측 상단에 배치 */
         @media (min-width: 769px) {
             #sidebar-toggle {
-                position: absolute;
-                top: 10px; left: 10px;
-                width: 32px; height: 32px;
-                padding: 0;
-                justify-content: center;
-                background: transparent;
-                border: 1px solid #ddd;
-                border-radius: 4px;
+                position: absolute; top: 10px; left: 10px;
+                width: 32px; height: 32px; padding: 0;
+                justify-content: center; background: transparent;
+                border: 1px solid #ddd; border-radius: 4px;
             }
             #sidebar-toggle:hover { background: #f0f0f0; }
         }
 
         .content-container {
-            max-width: 820px; margin: 0 auto; padding: 50px 50px 40px 50px; /* 상단 패딩 확보 */
+            max-width: 820px; margin: 0 auto; padding: 50px 50px 40px 50px;
         }
 
-        /* === Markdown === */
         .markdown-body { line-height: 1.6; font-size: 15px; color: #24292f; }
         .markdown-body h1 { font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; margin-bottom: 24px; }
         .markdown-body h2 { font-size: 1.4rem; margin-top: 30px; border-bottom: none; }
@@ -152,46 +136,23 @@
         .markdown-body pre { background: #f6f8fa; padding: 16px; border-radius: 6px; overflow-x: auto; }
         .markdown-body img { max-width: 100%; border-radius: 4px; }
 
-        /* === Mobile Styling (< 768px) === */
         @media (max-width: 768px) {
-            /* 1. 사이드바를 화면 밖으로 밀어내고, 위에 띄움(Fixed) */
             #sidebar {
-                position: fixed;
-                top: 0; left: 0; bottom: 0;
-                width: 260px; /* 모바일은 조금 더 넓게 */
-                transform: translateX(-100%); /* 기본적으로 숨김 */
-                margin-left: 0 !important; /* 데스크톱 로직 무시 */
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                position: fixed; top: 0; left: 0; bottom: 0;
+                width: 260px; transform: translateX(-100%);
+                margin-left: 0 !important; box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             }
-
-            /* 2. 사이드바 열림 상태 */
-            body.mobile-sidebar-open #sidebar {
-                transform: translateX(0);
-            }
-
-            /* 3. 모바일에서만 닫기 버튼 보이기 */
-            .close-sidebar-btn { display: block; }
-
-            /* 4. 오버레이 (검은 배경) */
-            #mobile-overlay {
-                position: fixed;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.4);
-                z-index: 45;
-                opacity: 0; visibility: hidden;
-                transition: opacity 0.3s;
-            }
-            body.mobile-sidebar-open #mobile-overlay {
-                opacity: 1; visibility: visible;
-            }
-
-            /* 5. 본문 패딩 조정 */
-            .content-container { padding: 20px; }
+            body.mobile-sidebar-open #sidebar { transform: translateX(0); }
+            .close-sidebar-btn { display: block; margin-left: 10px; }
             
-            /* 6. 모바일 토글 버튼 스타일 */
-            #sidebar-toggle {
-                font-size: 14px; font-weight: 600;
+            #mobile-overlay {
+                position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.4); z-index: 45;
+                opacity: 0; visibility: hidden; transition: opacity 0.3s;
             }
+            body.mobile-sidebar-open #mobile-overlay { opacity: 1; visibility: visible; }
+            .content-container { padding: 20px; }
+            #sidebar-toggle { font-size: 14px; font-weight: 600; }
         }
     </style>
 </head>
@@ -202,6 +163,11 @@
 <nav id="sidebar">
     <h2>
         Explorer
+        <div class="lang-switch">
+            <span id="lang-eng" class="lang-opt active" onclick="setLanguage('eng')">ENG</span>
+            <span style="color:#ddd">|</span>
+            <span id="lang-kor" class="lang-opt" onclick="setLanguage('kor')">KOR</span>
+        </div>
         <span class="close-sidebar-btn" onclick="toggleSidebar()">✕</span>
     </h2>
     
@@ -233,28 +199,31 @@
     const fileTree = [
         { type: 'file', name: 'welcome.md' }
         //{ type: 'file', name: 'todo.md' },
-        //{ 
-        //    type: 'folder', 
-        //    name: 'CS_Core', 
-        //    children: [
-        //        { type: 'file', name: 'data_structure.md' },
-        //        { type: 'file', name: 'algorithms.md' },
-        //        { type: 'file', name: 'operating_system.md' }
-        //    ]
-        //},
-        //{
-        //    type: 'folder',
-        //    name: 'Research',
-        //    children: [
-        //        { type: 'file', name: 'graph_theory.md' },
-        //        { type: 'file', name: 'paper_review.md' }
-        //    ]
-        //}
+        // { 
+        //     type: 'folder', 
+        //     name: 'CS_Core', 
+        //     children: [
+        //         { type: 'file', name: 'data_structure.md' },
+        //         { type: 'file', name: 'algorithms.md' },
+        //         { type: 'file', name: 'operating_system.md' }
+        //     ]
+        // },
+        // {
+        //     type: 'folder',
+        //     name: 'Research',
+        //     children: [
+        //         { type: 'file', name: 'graph_theory.md' },
+        //         { type: 'file', name: 'paper_review.md' }
+        //     ]
+        // }
     ];
 
     const contentDiv = document.getElementById('content');
     const treeRoot = document.getElementById('tree-root');
     const BASE_DIR = './wikicontent';
+
+    let currentLang = 'eng';
+    let currentOriginalPath = ''; 
 
     // 1. 트리 렌더링
     function renderTree(nodes, container, currentPath) {
@@ -278,12 +247,9 @@
                 btn.innerHTML = `<span class="icon">📄</span>${displayName}`;
                 
                 const fullPath = `${BASE_DIR}${currentPath}/${node.name}`;
-                // 클릭 시 파일 로드 + 모바일이면 사이드바 닫기
                 btn.onclick = () => {
                     loadMarkdown(fullPath, btn);
-                    if (window.innerWidth <= 768) {
-                        toggleSidebar(); // 모바일에서 선택 후 자동 닫기
-                    }
+                    if (window.innerWidth <= 768) toggleSidebar();
                 };
 
                 if (node.name === 'welcome.md' && currentPath === '') btn.id = 'default-btn';
@@ -293,32 +259,70 @@
         });
     }
 
-    // 2. 마크다운 로드
+    // ▼▼▼ 2. 마크다운 로드 (자동 대체 로직 추가) ▼▼▼
     function loadMarkdown(path, btnElement) {
-        document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
-        if(btnElement) btnElement.classList.add('active');
+        if (btnElement) {
+            document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
 
-        fetch(path)
-            .then(res => res.ok ? res.text() : Promise.reject(res))
+        currentOriginalPath = path; // 원본 경로 저장
+
+        let targetPath = path;
+        // 한국어 모드일 경우 _kor.md 시도
+        if (currentLang === 'kor') {
+            targetPath = path.replace(/\.md$/i, '_kor.md');
+        }
+
+        fetch(targetPath)
+            .then(res => {
+                // 파일이 있으면 텍스트 반환
+                if (res.ok) return res.text();
+
+                // 한국어 파일이 없으면(404), 영어 원본(path)을 다시 시도
+                if (currentLang === 'kor') {
+                    return fetch(path).then(fallbackRes => {
+                        if (!fallbackRes.ok) throw new Error('Original Not Found');
+                        return fallbackRes.text().then(text => {
+                            // 대체 로드 성공 시: 상단에 안내 문구 추가
+                            return `> ⚠️ **Notice:** 한국어 번역본이 존재하지 않아 영문 원본을 표시합니다.\n\n` + text;
+                        });
+                    });
+                }
+                throw new Error('Not Found');
+            })
             .then(text => {
                 contentDiv.innerHTML = marked.parse(text);
                 document.getElementById('main').scrollTop = 0;
             })
-            .catch(err => contentDiv.innerHTML = `<h3 style="color:red">Not Found</h3>`);
+            .catch(err => {
+                contentDiv.innerHTML = `<h3 style="color:#aaa">File not found</h3>`;
+            });
     }
 
-    // 3. 사이드바 토글 기능 (핵심)
+    // 3. 언어 변경
+    function setLanguage(lang) {
+        if (currentLang === lang) return;
+        currentLang = lang;
+
+        document.getElementById('lang-eng').classList.toggle('active', lang === 'eng');
+        document.getElementById('lang-kor').classList.toggle('active', lang === 'kor');
+
+        if (currentOriginalPath) {
+            const activeBtn = document.querySelector('.file-btn.active');
+            loadMarkdown(currentOriginalPath, activeBtn);
+        }
+    }
+
+    // 4. 사이드바 토글
     function toggleSidebar() {
         if (window.innerWidth <= 768) {
-            // [모바일] 오버레이 모드
             document.body.classList.toggle('mobile-sidebar-open');
         } else {
-            // [데스크톱] 공간 밀기 모드
             document.body.classList.toggle('sidebar-collapsed');
         }
     }
 
-    // 실행
     renderTree(fileTree, treeRoot, '');
     
     const defaultBtn = document.getElementById('default-btn');
@@ -326,7 +330,10 @@
     else loadMarkdown(`${BASE_DIR}/welcome.md`, null);
     //python -m http.server 8080
     //http://localhost:8080
-
 </script>
 </body>
 </html>
+
+
+
+
