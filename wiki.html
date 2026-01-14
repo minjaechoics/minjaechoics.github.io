@@ -7,6 +7,10 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
     <style>
         /* === Ultra Compact Theme (Responsive) === */
         :root {
@@ -68,7 +72,8 @@
 
         .close-sidebar-btn { display: none; cursor: pointer; padding: 4px; }
         .separator { height: 1px; background-color: #E0E0E0; margin: 6px 0; }
-        ul { list-style: none; padding: 0; margin: 0; }
+        
+        .tree-ul { list-style: none; padding: 0; margin: 0; }
         
         .tree-ul .tree-ul { 
             padding-left: 10px; margin-left: 6px; border-left: 1px solid #ddd; 
@@ -130,11 +135,19 @@
         }
 
         .markdown-body { line-height: 1.6; font-size: 15px; color: #24292f; }
-        .markdown-body h1 { font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; margin-bottom: 24px; }
+        .markdown-body h1 { font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; margin-bottom: 24px; font-weight: 700; }
         .markdown-body h2 { font-size: 1.4rem; margin-top: 30px; border-bottom: none; }
         .markdown-body code { background-color: rgba(175, 184, 193, 0.2); padding: 0.2em 0.4em; border-radius: 4px; font-family: var(--font-mono); font-size: 85%; }
         .markdown-body pre { background: #f6f8fa; padding: 16px; border-radius: 6px; overflow-x: auto; }
         .markdown-body img { max-width: 100%; border-radius: 4px; }
+        
+        .markdown-body ul { list-style: disc; padding-left: 2em; margin-bottom: 16px; }
+        .markdown-body ol { list-style: decimal; padding-left: 2em; margin-bottom: 16px; }
+        .markdown-body li { margin-bottom: 0.25em; }
+        .markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ul, .markdown-body ol ol { margin-bottom: 0; margin-top: 0.25em; }
+
+        /* KaTeX Font Fix */
+        .katex { font-size: 1.1em; }
 
         @media (max-width: 768px) {
             #sidebar {
@@ -197,25 +210,14 @@
 <script>
     // ▼▼▼ 파일 목록 설정 ▼▼▼
     const fileTree = [
-        { type: 'file', name: 'welcome.md' }
-        //{ type: 'file', name: 'todo.md' },
-        // { 
-        //     type: 'folder', 
-        //     name: 'CS_Core', 
-        //     children: [
-        //         { type: 'file', name: 'data_structure.md' },
-        //         { type: 'file', name: 'algorithms.md' },
-        //         { type: 'file', name: 'operating_system.md' }
-        //     ]
-        // },
-        // {
-        //     type: 'folder',
-        //     name: 'Research',
-        //     children: [
-        //         { type: 'file', name: 'graph_theory.md' },
-        //         { type: 'file', name: 'paper_review.md' }
-        //     ]
-        // }
+        { type: 'file', name: 'welcome.md' },
+        {
+            type: 'folder',
+            name: 'Large Language Model',
+            children: [
+                {type: 'file', name: 'Decoding of LLM.md'}
+            ]
+        }
     ];
 
     const contentDiv = document.getElementById('content');
@@ -259,32 +261,27 @@
         });
     }
 
-    // ▼▼▼ 2. 마크다운 로드 (자동 대체 로직 추가) ▼▼▼
+    // ▼▼▼ 2. 마크다운 로드 (강력한 수식 보호 기능 추가) ▼▼▼
     function loadMarkdown(path, btnElement) {
         if (btnElement) {
             document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
             btnElement.classList.add('active');
         }
 
-        currentOriginalPath = path; // 원본 경로 저장
+        currentOriginalPath = path;
 
         let targetPath = path;
-        // 한국어 모드일 경우 _kor.md 시도
         if (currentLang === 'kor') {
             targetPath = path.replace(/\.md$/i, '_kor.md');
         }
 
         fetch(targetPath)
             .then(res => {
-                // 파일이 있으면 텍스트 반환
                 if (res.ok) return res.text();
-
-                // 한국어 파일이 없으면(404), 영어 원본(path)을 다시 시도
                 if (currentLang === 'kor') {
                     return fetch(path).then(fallbackRes => {
                         if (!fallbackRes.ok) throw new Error('Original Not Found');
                         return fallbackRes.text().then(text => {
-                            // 대체 로드 성공 시: 상단에 안내 문구 추가
                             return `> ⚠️ **Notice:** 한국어 번역본이 존재하지 않아 영문 원본을 표시합니다.\n\n` + text;
                         });
                     });
@@ -292,10 +289,58 @@
                 throw new Error('Not Found');
             })
             .then(text => {
-                contentDiv.innerHTML = marked.parse(text);
+                // [Step A] 수식 보호: 마크다운 파싱 전 $...$ 와 $$...$$ 를 임시 토큰으로 변경
+                const mathBlocks = [];
+                
+                // 블록 수식 $$ ... $$ 보호
+                let protectedText = text.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+                    mathBlocks.push(match);
+                    return `%%%MATH_BLOCK_${mathBlocks.length - 1}%%%`;
+                });
+
+                // 인라인 수식 $ ... $ 보호
+                protectedText = protectedText.replace(/\$([^$\n]+?)\$/g, (match) => {
+                    mathBlocks.push(match);
+                    return `%%%MATH_INLINE_${mathBlocks.length - 1}%%%`;
+                });
+
+                // [Step B] 마크다운 변환
+                let html = marked.parse(protectedText);
+
+                // [Step C] 수식 복원 및 HTML 이스케이프 (중요!)
+                // 여기서 < 기호를 &lt; 로 바꿔야 브라우저가 태그로 인식하지 않습니다.
+                mathBlocks.forEach((block, index) => {
+                    // 수식 내부의 <, > 기호를 HTML 엔티티로 변환
+                    // 예: x_{<i} -> x_{&lt;i}
+                    const safeBlock = block.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    
+                    html = html.replace(`%%%MATH_BLOCK_${index}%%%`, safeBlock);
+                    html = html.replace(`%%%MATH_INLINE_${index}%%%`, safeBlock);
+                });
+
+                // [Step D] 상단 제목 추가
+                const fileName = currentOriginalPath.split('/').pop();
+                const title = fileName.replace(/\.md$/i, '');
+                html = `<h1>${title}</h1>` + html;
+
+                contentDiv.innerHTML = html;
                 document.getElementById('main').scrollTop = 0;
+
+                // [Step E] KaTeX 렌더링
+                renderMathInElement(contentDiv, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false},
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ],
+                    throwOnError: false,
+                    trust: true, 
+                    strict: false
+                });
             })
             .catch(err => {
+                console.error(err);
                 contentDiv.innerHTML = `<h3 style="color:#aaa">File not found</h3>`;
             });
     }
@@ -328,12 +373,9 @@
     const defaultBtn = document.getElementById('default-btn');
     if (defaultBtn) defaultBtn.click();
     else loadMarkdown(`${BASE_DIR}/welcome.md`, null);
-    //python -m http.server 8080
+        //python -m http.server 8080
     //http://localhost:8080
 </script>
 </body>
 </html>
-
-
-
 
