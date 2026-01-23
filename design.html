@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINJAE CHOI | Portfolio</title>
+    <style>
+        /* --- 1. VARIABLES & RESET --- */
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #2e54ff; /* Vivid Blue */
+            --gray: #f4f4f4;
+            --line: #e0e0e0;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-serif: 'Times New Roman', Times, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; cursor: pointer; }
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- 2. LAYOUT UTILS --- */
+        .wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 4vw;
+        }
+
+        /* --- 3. HEADER & NAV --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .logo { font-weight: 900; letter-spacing: -0.02em; font-size: 1.2rem; }
+
+        /* --- 4. HERO SECTION --- */
+        .hero {
+            padding: 6vh 0 10vh;
+        }
+
+        .hero-title {
+            font-size: 9vw;
+            line-height: 0.85;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            margin-bottom: 5rem;
+        }
+        
+        .hero-title span { display: block; }
+        .italic-accent {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            border-top: 1px solid var(--text);
+            padding-top: 2rem;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            font-weight: 500;
+            max-width: 90%;
+        }
+
+        /* --- [UPDATED] SOLID BLOCK TAGS --- */
+        .tag-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px; /* Gap for border effect */
+            background-color: var(--text); /* Border color */
+            border: 1px solid var(--text);
+        }
+
+        .tag {
+            background-color: var(--bg);
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .tag-num {
+            font-size: 0.8rem;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .tag-text {
+            font-size: 1.4rem;
+            font-weight: 800; /* Bold text */
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        /* Hover Effect: Fill Black */
+        .tag:hover {
+            background-color: var(--text);
+            color: var(--bg);
+        }
+        .tag:hover .tag-num { color: var(--accent); }
+
+        /* --- 5. IMAGE MARQUEE --- */
+        .marquee-container {
+            overflow: hidden;
+            padding: 4rem 0;
+            background: var(--gray);
+            margin: 5vh 0;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 2rem;
+            animation: scroll 25s linear infinite;
+        }
+
+        .marquee-img {
+            width: 450px;
+            height: 280px;
+            flex-shrink: 0;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        .marquee-img:hover { filter: grayscale(0%); }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-2000px); }
+        }
+
+        /* --- 6. PROJECTS --- */
+        .projects { padding: 5vh 0 15vh; }
+        
+        .section-header {
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-header::after {
+            content: ''; flex: 1; height: 1px; background: var(--line);
+        }
+
+        .project-item {
+            position: relative;
+            border-top: 1px solid var(--line);
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: padding 0.3s ease;
+            cursor: pointer;
+            group;
+        }
+
+        .project-item:last-child { border-bottom: 1px solid var(--line); }
+        .project-item:hover { padding: 4rem 0; }
+
+        .p-index { 
+            font-family: var(--font-serif); font-style: italic; 
+            color: #ccc; margin-right: 2rem; font-size: 1.2rem;
+        }
+        
+        .p-content { flex: 1; }
+        .p-title { 
+            font-size: 4.5rem; font-weight: 300; line-height: 0.9; 
+            margin-bottom: 0.5rem; letter-spacing: -0.03em;
+            transition: color 0.3s; 
+        }
+        .project-item:hover .p-title { 
+            color: var(--accent); font-family: var(--font-serif); font-style: italic; 
+        }
+
+        .p-tags { 
+            font-size: 1rem; color: #666; font-weight: 500;
+        }
+
+        .p-preview {
+            position: absolute;
+            top: 50%; right: 15%;
+            transform: translateY(-50%) scale(0.8) rotate(5deg);
+            width: 320px; height: 220px;
+            opacity: 0; pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-item:hover .p-preview {
+            opacity: 1;
+            transform: translateY(-50%) scale(1) rotate(0deg);
+        }
+
+        /* --- 7. ABOUT & PHOTO --- */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0; /* Removing gap for tight layout */
+            border-top: 1px solid var(--text);
+            border-bottom: 1px solid var(--text);
+        }
+
+        .photo-area {
+            border-right: 1px solid var(--text);
+            height: 100%;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .my-photo {
+            width: 100%; height: 100%;
+            filter: grayscale(100%);
+            transition: filter 0.5s, transform 0.5s;
+        }
+        .photo-area:hover .my-photo { 
+            filter: grayscale(0%); transform: scale(1.03); 
+        }
+
+        .about-details {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-details h2 { 
+            font-size: 3.5rem; margin-bottom: 2rem; 
+            line-height: 1; letter-spacing: -0.02em; 
+        }
+        .about-details p { 
+            font-size: 1.15rem; color: #444; 
+            margin-bottom: 2rem; line-height: 1.6; 
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--text);
+            color: var(--bg);
+            padding: 6rem 4vw 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 40vh;
+        }
+        
+        .footer-cta { 
+            font-size: 8vw; font-weight: 900; 
+            line-height: 0.9; letter-spacing: -0.04em;
+            margin-bottom: auto;
+            transition: color 0.3s;
+        }
+        .footer-cta:hover { color: var(--accent); }
+
+        .footer-info {
+            display: flex; justify-content: space-between;
+            font-size: 0.9rem; opacity: 0.6; text-transform: uppercase;
+            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 13vw; }
+            .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .tag-box { grid-template-columns: 1fr; border-top: 1px solid var(--text); } 
+            .tag { padding: 1.5rem; flex-direction: row; align-items: center; }
+            .tag-num { margin-bottom: 0; margin-right: 1rem; }
+            .tag-text { font-size: 1.1rem; }
+            
+            .about-section { grid-template-columns: 1fr; }
+            .photo-area { border-right: none; border-bottom: 1px solid var(--text); height: 400px; min-height: auto; }
+            .about-details { padding: 2rem; }
+            
+            .p-title { font-size: 2.5rem; }
+            .p-preview { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <nav>
+            <div class="logo">MinJae Choi</div>
+            <div>KAIST Industrial Design</div>
+            <div><a href="index.html">Go to main webpage</a></div>
+        </nav>
+
+        <header class="hero">
+            <h1 class="hero-title">
+                <span>COMPUTATIONAL</span>
+                <span><i class="italic-accent">DESIGNER</i> &</span>
+                <span>ENGINEER.</span>
+            </h1>
+
+            <div class="intro-grid">
+                <div class="intro-text">
+                    I bridge the gap between rigorous engineering and sensuous design.
+                    Studying <strong>Computer Science, Electrical Egineering, and Industrial Design</strong> at KAIST allows me to build products that work flawlessly and feel intuitive.
+                </div>
+
+                <div class="tag-box">
+                    <div class="tag">
+                        <span class="tag-num">(01)</span>
+                        <span class="tag-text">UX/UI Design</span>
+                    </div>
+                    <div class="tag">
+                        <span class="tag-num">(02)</span>
+                        <span class="tag-text">Data Science</span>
+                    </div>
+                    <div class="tag">
+                        <span class="tag-num">(03)</span>
+                        <span class="tag-text">Graph Structure</span>
+                    </div>
+                    <div class="tag">
+                        <span class="tag-num">(04)</span>
+                        <span class="tag-text">Artificial Intelligence</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" class="marquee-img">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" class="marquee-img">
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <section class="projects">
+            <div class="section-header">Selected Works / Archive</div>
+            
+            <div class="project-item" onclick="location.href='#'">
+                <span class="p-index">01</span>
+                <div class="p-content">
+                    <div class="p-title">Will be updated soon:)</div>
+                    <div class="p-tags">Will be updated soon:)</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=60" class="p-preview">
+            </div>
+
+        </section>
+    </div>
+
+    <section class="about-section">
+        <div class="photo-area">
+             <img src="minjaechoi.png" alt="MinJae Choi" class="my-photo">
+        </div>
+        <div class="about-details">
+            <h2>Logic &<br>Sensation.</h2>
+            <p>
+                <strong>MinJae Choi</strong> combines the analytical depth of a CS/EE engineer with the aesthetic sensitivity of an Industrial Designer.
+            </p>
+            <p>
+                I don't just write code; I orchestrate user experiences. My work spans from low-level signal processing to high-level interface design.
+            </p>
+            <a href="mailto:minjaechoi.cs@gmail.com" style="margin-top: 2rem; font-weight: 700; text-decoration: underline;">Available for Collaboration ↗</a>
+        </div>
+    </section>
+
+    <footer>
+        <a href="mailto:minjaechoi.cs@gmail.com" class="footer-cta">ALWAYS<br>READY.</a>
+        <div class="footer-info">
+            <span>© 2026 MINJAE CHOI</span>
+            <span>REPUBLIC OF KOREA</span>
+        </div>
+    </footer>
+
+</body>
+</html>
