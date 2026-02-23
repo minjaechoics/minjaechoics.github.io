@@ -134,17 +134,21 @@
             max-width: 820px; margin: 0 auto; padding: 50px 50px 40px 50px;
         }
 
-        .markdown-body { line-height: 1.6; font-size: 15px; color: #24292f; }
-        .markdown-body h1 { font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.3em; margin-bottom: 24px; font-weight: 700; }
-        .markdown-body h2 { font-size: 1.4rem; margin-top: 30px; border-bottom: none; }
-        .markdown-body code { background-color: rgba(175, 184, 193, 0.2); padding: 0.2em 0.4em; border-radius: 4px; font-family: var(--font-mono); font-size: 85%; }
-        .markdown-body pre { background: #f6f8fa; padding: 16px; border-radius: 6px; overflow-x: auto; }
+        .markdown-body { line-height: 1.45; font-size: 14px; color: #24292f; }
+        .markdown-body p { margin: 0.5em 0; }
+        .markdown-body h1 { font-size: 1.45rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.2em; margin: 0 0 14px 0; font-weight: 700; }
+        .markdown-body h2 { font-size: 1.15rem; margin: 18px 0 6px 0; border-bottom: none; }
+        .markdown-body h3 { font-size: 1.0rem; margin: 12px 0 4px 0; }
+        .markdown-body code { background-color: rgba(175, 184, 193, 0.2); padding: 0.15em 0.35em; border-radius: 3px; font-family: var(--font-mono); font-size: 82%; }
+        .markdown-body pre { background: #f6f8fa; padding: 10px 14px; border-radius: 4px; overflow-x: auto; margin: 8px 0; }
+        .markdown-body pre code { padding: 0; background: none; }
         .markdown-body img { max-width: 100%; border-radius: 4px; }
+        .markdown-body blockquote { margin: 6px 0; padding: 4px 12px; border-left: 3px solid #ddd; color: #555; }
         
-        .markdown-body ul { list-style: disc; padding-left: 2em; margin-bottom: 16px; }
-        .markdown-body ol { list-style: decimal; padding-left: 2em; margin-bottom: 16px; }
-        .markdown-body li { margin-bottom: 0.25em; }
-        .markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ul, .markdown-body ol ol { margin-bottom: 0; margin-top: 0.25em; }
+        .markdown-body ul { list-style: disc; padding-left: 1.6em; margin: 4px 0 8px 0; }
+        .markdown-body ol { list-style: decimal; padding-left: 1.6em; margin: 4px 0 8px 0; }
+        .markdown-body li { margin-bottom: 0.1em; }
+        .markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ul, .markdown-body ol ol { margin-bottom: 0; margin-top: 0.1em; }
 
         /* KaTeX Font Fix */
         .katex { font-size: 1.1em; }
@@ -215,8 +219,7 @@
             type: 'folder',
             name: 'Large Language Model',
             children: [
-                {type: 'file', name: 'Decoding of LLM.md'},
-                {type: 'file', name: 'RAG (Retrieval Augmented Generation).md'}
+                {type: 'file', name: 'Decoding of LLM.md'}
             ]
         }
     ];
@@ -379,5 +382,4 @@
 </script>
 </body>
 </html>
-
 
