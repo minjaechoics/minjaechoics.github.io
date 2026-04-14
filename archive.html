@@ -54,31 +54,12 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 16px;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.2s ease;
-    }
-
+    .nav-links { display: flex; gap: 16px; }
+    .nav-links a { font-weight: 600; color: var(--text); transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 4px;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: var(--text);
-    }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
+    .hamburger div { width: 25px; height: 3px; background: var(--text); }
 
     .hero {
       text-align: center;
@@ -86,104 +67,127 @@
       background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
       width: 100%;
     }
-
     .hero h1 {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 12px;
+      font-size: 28px; font-weight: 800; margin-bottom: 12px;
       background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-
     .hero p {
-      font-size: 16px;
-      color: var(--text-light);
-      margin-bottom: 8px;
-      width: 90%;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 16px; color: var(--text-light); margin-bottom: 8px;
+      width: 90%; max-width: 400px; margin-left: auto; margin-right: auto;
     }
 
-    .sections {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 16px;
-      padding: 16px;
-    }
+    .sections { display: flex; flex-direction: column; width: 100%; gap: 16px; padding: 16px; }
 
     .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      width: 100%;
+      background: white; border-radius: 12px; padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: 100%;
       border: 1px solid rgba(0,0,0,0.05);
     }
+    .card h2 { color: var(--primary); font-size: 18px; margin-bottom: 12px; }
 
-    .card h2 {
-      color: var(--primary);
-      font-size: 18px;
-      margin-bottom: 12px;
+    /* ── Category headers ── */
+    .card h4 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      padding: 5px 14px 5px 10px;
+      border-radius: 20px;
+      margin: 22px 0 12px 0;
+      box-shadow: 0 3px 12px rgba(78, 107, 255, 0.4);
+    }
+    .card h4::before {
+      content: '';
+      display: inline-block;
+      width: 5px; height: 5px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
+    /* ── Course card ── */
     .course-card {
       background: #fff;
       border-radius: 12px;
-      padding: 16px; /* 패딩을 조금 늘렸습니다 */
-      margin-bottom: 16px; /* 카드 간 간격 조정 */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
       border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Dept badge — top-right gradient */
+    .dept-badge {
+      position: absolute;
+      top: 0; right: 0;
+      padding: 5px 12px 5px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: white;
+      border-radius: 0 12px 0 18px;
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0.9;
+    }
+    .dept-cs   { background: linear-gradient(135deg, #0a0f8f, #4e6bff); }
+    .dept-math { background: linear-gradient(135deg, #5b21b6, #8b5cf6); }
+    .dept-phys { background: linear-gradient(135deg, #0e7490, #22d3ee); }
+    .dept-chem { background: linear-gradient(135deg, #065f46, #34d399); }
+    .dept-ee   { background: linear-gradient(135deg, #92400e, #fbbf24); }
+    .dept-dhss { background: linear-gradient(135deg, #9d174d, #f472b6); }
+    .dept-id   { background: linear-gradient(135deg, #9a3412, #fb923c); }
 
     .course-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 6px;
+      font-size: 15px; font-weight: 700; color: var(--primary);
+      margin-bottom: 5px; padding-right: 58px;
+    }
+    .course-card p { font-size: 13px; color: var(--text-light); margin-bottom: 2px; }
+
+    /* Course type static tag */
+    .course-type:empty { display: none; }
+    .course-type {
+      display: inline-block;
+      margin-top: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7c8bc4;
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      border-radius: 6px;
+      padding: 2px 8px;
+      letter-spacing: 0.03em;
     }
 
-    .course-card p {
-      font-size: 13px;
-      color: var(--text-light);
-      margin-bottom: 2px;
-    }
-
-    /* 새로 추가된 설명란 스타일 */
+    /* Course description */
     .course-description {
       margin-top: 10px;
       padding-top: 10px;
-      border-top: 1px dashed #e0e0e0; /* 위쪽 점선 구분선 */
-      font-size: 14px !important; /* 글자 크기 약간 키움 */
-      color: #333 !important; /* 글자색 조금 더 진하게 */
+      border-top: 1px dashed #e8eaf0;
+      font-size: 13px !important;
+      color: #444 !important;
       line-height: 1.6;
     }
 
     footer {
-      margin-top: auto;
-      text-align: center;
-      background: var(--primary);
-      color: white;
-      padding: 16px;
-      font-size: 14px;
-      width: 100%;
+      margin-top: auto; text-align: center;
+      background: var(--primary); color: white;
+      padding: 16px; font-size: 14px; width: 100%;
     }
 
     @media (max-width: 768px) {
       .nav-links {
-        position: fixed;
-        top: 56px;
-        right: -100%;
-        background: white;
-        flex-direction: column;
-        width: 60%;
-        height: calc(100% - 56px);
-        gap: 16px;
-        padding: 20px;
-        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
-        transition: right 0.3s ease;
+        position: fixed; top: 56px; right: -100%;
+        background: white; flex-direction: column; width: 60%;
+        height: calc(100% - 56px); gap: 16px; padding: 20px;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.1); transition: right 0.3s;
       }
       .nav-links.show { right: 0; }
       .hamburger { display: flex; }
@@ -193,7 +197,7 @@
       .hero h1 { font-size: 24px; }
       .hero p { font-size: 14px; max-width: 95%; }
       .card h2 { font-size: 16px; }
-      .course-card h3 { font-size: 15px; }
+      .course-card h3 { font-size: 14px; padding-right: 50px; }
       .course-card p { font-size: 12px; }
       .card { padding: 16px; }
     }
@@ -214,9 +218,7 @@
         <a href="design.html">Design</a>
       </div>
       <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div><div></div><div></div>
       </div>
     </nav>
   </header>
@@ -229,37 +231,44 @@
   <section class="sections">
     <div class="card">
       <h2>Courses</h2>
+
       <h4>Artificial Intelligence</h4>
       <div class="course-card">
         <h3>Introduction to Artificial Intelligence</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+        <span class="course-type">Major Elective</span>
       </div>
       <div class="course-card">
         <h3>Machine Learning</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+              <span class="course-type">Major Elective</span>
       </div>
       <div class="course-card">
         <h3>AI Foundation Models: Theory and Practice</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Electrical Engineering</p>
+              <span class="course-type">Major Elective</span>
       </div>
+
       <h4>Theoretical Computer Science</h4>
       <div class="course-card">
         <h3>Design and Analysis of Algorithm</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+              <span class="course-type">Major Elective</span>
       </div>
       <div class="course-card">
         <h3>Algorithms Design and Analysis for NP-Hard Problems</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+              <span class="course-type">Major Elective</span>
       </div>
       <div class="course-card">
         <h3>Algorithmic Graph Structure Theory</h3>
@@ -269,18 +278,18 @@
         <p class="course-description">
           #Parameterized Algorithms #Treewidth #Brambles #Tree-Independence Number #Abstract \(\mu\)-treewidth #Intersection Graphs #Clique-cover-treewidth #Branchwidth #Tangle #Abstract Separtion Systems #Abstract Tangle Duality
         </p>
+              <span class="course-type">Major Elective</span>
       </div>
-
       <div class="course-card">
         <h3>Programming Languages</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
         <p class="course-description">
-          #Functional Programming #Scala #First-Class & First-Order Functions #Closures #Pattern Matching #Identifiers #Recursion #Garbage Collection #Lazy Evaluation #Continuations #Type Systems #Polymorphism
+          #Functional Programming #Scala #First-Class &amp; First-Order Functions #Closures #Pattern Matching #Identifiers #Recursion #Garbage Collection #Lazy Evaluation #Continuations #Type Systems #Polymorphism
         </p>
+              <span class="course-type">Major Required</span>
       </div>
-
       <div class="course-card">
         <h3>Problem Solving</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
@@ -289,8 +298,8 @@
         <p class="course-description">
           #Advanced Data Structures #Dynamic Programming #Number Theory #Combinatorics #Sweeping #Two Pointers #Greedy
         </p>
+              <span class="course-type">Major Elective</span>
       </div>
-
       <div class="course-card">
         <h3>Introduction to Algorithms</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
@@ -299,8 +308,8 @@
         <p class="course-description">
           #Time Complexity #Asymptotic Notation #Divide and Conquer #Dynamic Programming #Greedy Algorithms #Graph Algorithms #Sorting Algorithms #NP-Completeness #Approximation Algorithms
         </p>
+              <span class="course-type">Major Required</span>
       </div>
-
       <div class="course-card">
         <h3>Introduction to Graph Theory</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
@@ -309,8 +318,8 @@
         <p class="course-description">
           #Connection #Matching #Cycles #Connectivity #Coloring #Planar Graphs #Ramsey Theory #Probabilistic Method #Extremal Problems #Spectrum
         </p>
+              <span class="course-type">Major Elective</span>
       </div>
-
       <div class="course-card">
         <h3>Discrete Structures</h3>
         <p><strong>Semester:</strong> Summer 2025</p>
@@ -319,8 +328,8 @@
         <p class="course-description">
           #Logic #Proof #Set #Relations #Number Theory #Algorithm #Combinatorics #Boolean Algebra #Discrete Probability
         </p>
+              <span class="course-type">Major Required</span>
       </div>
-
       <div class="course-card">
         <h3>Data Structures</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
@@ -329,19 +338,23 @@
         <p class="course-description">
           #JAVA #ADT #Data Abstraction #Stack #Queue #Recursion #Dynamic Arrays #Amortized Arrays #Iterators #Binary Search Tree #Priority Queues #Heaps #Map ADT #Hash Tables #Set ADT #Tries #Sorting Algorithms
         </p>
+              <span class="course-type">Major Required</span>
       </div>
-      <h4>Computer Systems & Security</h4>
+
+      <h4>Computer Systems &amp; Security</h4>
       <div class="course-card">
         <h3>Operating Systems and Lab</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+              <span class="course-type">Major Required</span>
       </div>
       <div class="course-card">
         <h3>Introduction to Information Security</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Computing</p>
+              <span class="course-type">Major Elective</span>
       </div>
       <div class="course-card">
         <h3>Introduction to Hacking</h3>
@@ -351,8 +364,8 @@
         <p class="course-description">
           #Linux #Cryptography #Web Hacking #SQL Injection #Buffer Overflow #PHP Exploitation
         </p>
+              <span class="course-type">General Required</span>
       </div>
-
       <div class="course-card">
         <h3>System Programming</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
@@ -361,6 +374,7 @@
         <p class="course-description">
           #Data representation #Machine language #Processor Architecture #Code Optimization #Memory Hierarchy #Linking #Exceptional Control Flow #Performance Measurement #Virtual Memory #System-level I/O #Network Programming #Concurrent Programming
         </p>
+              <span class="course-type">Major Elective</span>
       </div>
 
       <h4>Database Systems</h4>
@@ -372,34 +386,40 @@
         <p class="course-description">
           #Relational Model #SQL #ER Model #Normalization #Transactions #Indexing #Query Processing #Query Optimization #NoSQL
         </p>
+              <span class="course-type">Major Elective</span>
       </div>
+
       <h4>Product Design</h4>
       <div class="course-card">
         <h3>Computer-Aided Design</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Dept of Industrial Design</p>
+              <span class="course-type">Major Elective</span>
       </div>
+
       <h4>Basic Courses</h4>
       <div class="course-card">
         <h3>General Chemistry Experiment I</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Dept of Chemistry</p>
+              <span class="course-type">Basic Required</span>
       </div>
       <div class="course-card">
         <h3>Communication Training</h3>
         <p><strong>Semester:</strong> Spring 2026</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Digital Humanities and Computational Social Sciences</p>
+              <span class="course-type">General Required</span>
       </div>
       <div class="course-card">
         <h3>Analysis of the Modern Economy</h3>
         <p><strong>Semester:</strong> Winter 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> School of Digital Humanities and Computational Social Sciences</p>
+              <span class="course-type">General Elective</span>
       </div>
-
       <div class="course-card">
         <h3>Calculus II</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
@@ -408,28 +428,25 @@
         <p class="course-description">
           #Vectors and Linear Functions #Derivative of Multivariable Functions #Multi-variable Function Integration #Integration of Vector Fields
         </p>
+              <span class="course-type">Basic Required</span>
       </div>
-
       <div class="course-card">
         <h3>General Chemistry I</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Chemistry</p>
-        <p class="course-description">
-          
-        </p>
+              <span class="course-type">Basic Required</span>
       </div>
-
       <div class="course-card">
         <h3>General Physics II</h3>
         <p><strong>Semester:</strong> Fall 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Physics</p>
         <p class="course-description">
-          #Gauss's Law #Electric Potential #Capacitors #Electric Circuits #Magnetism #Electromagnetic Induction #Alternating-Current Circuits #Electromagnetic Waves #Reflection & Refraction #Optical Instruments #Relativity #Quantum Mechanics
+          #Gauss's Law #Electric Potential #Capacitors #Electric Circuits #Magnetism #Electromagnetic Induction #Alternating-Current Circuits #Electromagnetic Waves #Reflection &amp; Refraction #Optical Instruments #Relativity #Quantum Mechanics
         </p>
+              <span class="course-type">Basic Required</span>
       </div>
-
       <div class="course-card">
         <h3>Introduction to Programming</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
@@ -438,8 +455,8 @@
         <p class="course-description">
           #Python #Basic Graphics #File Format
         </p>
+              <span class="course-type">Basic Required</span>
       </div>
-
       <div class="course-card">
         <h3>General Physics Laboratory I</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
@@ -448,36 +465,37 @@
         <p class="course-description">
           #Dynamics #Electromagnetism #Thermodynamics #Optics
         </p>
+              <span class="course-type">Basic Required</span>
       </div>
-
       <div class="course-card">
         <h3>General Physics I</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Physics</p>
         <p class="course-description">
-          #1D~3D Motion #Force #Newton's Law #Work #Conservative of Energy #Graivty #System of Particles #Rotational Motions #Angular Momentum #Oscillatory Motion #Wave Motion #Fluid Motion #Temperature&Heat #Thermal Dynamics
+          #1D~3D Motion #Force #Newton's Law #Work #Conservative of Energy #Graivty #System of Particles #Rotational Motions #Angular Momentum #Oscillatory Motion #Wave Motion #Fluid Motion #Temperature&amp;Heat #Thermal Dynamics
         </p>
+              <span class="course-type">Basic Required</span>
       </div>
-
       <div class="course-card">
         <h3>Introduction to Linear Algebra</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Mathematical Sciences</p>
         <p class="course-description">
-          #Vector Space #Matrix #Determinants #Linear Transformation #Dimension & Strucutre #Diagonalization
+          #Vector Space #Matrix #Determinants #Linear Transformation #Dimension &amp; Strucutre #Diagonalization
         </p>
+              <span class="course-type">Basic Elective</span>
       </div>
-
       <div class="course-card">
         <h3>Calculus I</h3>
         <p><strong>Semester:</strong> Spring 2025</p>
         <p><strong>Institution:</strong> KAIST</p>
         <p><strong>Department:</strong> Department of Mathematical Sciences</p>
         <p class="course-description">
-          #Limits & Continuity #Differentiation #Integration #Vector Calculus #Curves in Space #Particle Motion #Polar Coordinates #Differential Equations #Approximation Methods #Sequences and Series #Taylor Series
+          #Limits &amp; Continuity #Differentiation #Integration #Vector Calculus #Curves in Space #Particle Motion #Polar Coordinates #Differential Equations #Approximation Methods #Sequences and Series #Taylor Series
         </p>
+              <span class="course-type">Basic Required</span>
       </div>
 
     </div>
@@ -491,6 +509,33 @@
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('show');
     }
+
+    /* ── Department → badge mapping ── */
+    const DEPT_MAP = [
+      { match: /school of computing/i,                              label: 'Computer Science',   cls: 'dept-cs'   },
+      { match: /mathematical sciences/i,                            label: 'Mathematical Sciences', cls: 'dept-math' },
+      { match: /department of physics/i,                            label: 'Physics', cls: 'dept-phys' },
+      { match: /department of chemistry|dept of chemistry/i,        label: 'Chemistry', cls: 'dept-chem' },
+      { match: /electrical engineering/i,                           label: 'Electrical Engineering',   cls: 'dept-ee'   },
+      { match: /digital humanities|computational social sciences/i, label: 'Computational Social Sciences', cls: 'dept-dhss' },
+      { match: /industrial design/i,                                label: 'Industrial Design',   cls: 'dept-id'   },
+    ];
+
+    document.querySelectorAll('.course-card').forEach(card => {
+      /* Find department text and insert badge */
+      let deptText = '';
+      card.querySelectorAll('p').forEach(p => {
+        if (p.textContent.includes('Department:')) deptText = p.textContent;
+      });
+
+      const deptMatch = DEPT_MAP.find(d => d.match.test(deptText));
+      if (deptMatch) {
+        const badge = document.createElement('span');
+        badge.className = 'dept-badge ' + deptMatch.cls;
+        badge.textContent = deptMatch.label;
+        card.appendChild(badge);
+      }
+    });
   </script>
 </body>
 </html>
