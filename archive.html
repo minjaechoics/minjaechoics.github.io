@@ -512,13 +512,13 @@
 
     /* ── Department → badge mapping ── */
     const DEPT_MAP = [
-      { match: /school of computing/i,                              label: 'Computer Science',   cls: 'dept-cs'   },
-      { match: /mathematical sciences/i,                            label: 'Mathematical Sciences', cls: 'dept-math' },
-      { match: /department of physics/i,                            label: 'Physics', cls: 'dept-phys' },
-      { match: /department of chemistry|dept of chemistry/i,        label: 'Chemistry', cls: 'dept-chem' },
-      { match: /electrical engineering/i,                           label: 'Electrical Engineering',   cls: 'dept-ee'   },
-      { match: /digital humanities|computational social sciences/i, label: 'Computational Social Sciences', cls: 'dept-dhss' },
-      { match: /industrial design/i,                                label: 'Industrial Design',   cls: 'dept-id'   },
+      { match: /school of computing/i,                              label: 'CS',   cls: 'dept-cs'   },
+      { match: /mathematical sciences/i,                            label: 'MATH', cls: 'dept-math' },
+      { match: /department of physics/i,                            label: 'PHY', cls: 'dept-phys' },
+      { match: /department of chemistry|dept of chemistry/i,        label: 'CHEM', cls: 'dept-chem' },
+      { match: /electrical engineering/i,                           label: 'EE',   cls: 'dept-ee'   },
+      { match: /digital humanities|computational social sciences/i, label: 'SOCIETY', cls: 'dept-dhss' },
+      { match: /industrial design/i,                                label: 'DESIGN',   cls: 'dept-id'   },
     ];
 
     document.querySelectorAll('.course-card').forEach(card => {
