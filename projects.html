@@ -4,68 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>MinJae Choi - Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0a0f8f;
-      --accent: #4e6bff;
-      --bg: #f8faff;
-      --text: #111;
-      --text-light: #555;
-      --badge-bg: #e0e7ff;
-      --badge-text: #4e6bff;
+      --primary: #23394F;
+      --accent: #2E4A6B;
+      --bg: #ECEEF1;
+      --paper: #FFFFFF;
+      --soft: #EEF1F5;
+      --line: #DFE4EA;
+      --text: #1A1A1A;
+      --text-light: #5A6473;
+      --muted: #8A93A0;
+      --ink: #111;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', '맑은 고딕', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', 'Malgun Gothic', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
     a { text-decoration: none; color: inherit; }
 
     header {
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 2px 10px rgba(20,30,50,0.05);
       position: sticky;
       top: 0;
       z-index: 100;
       width: 100%;
+      backdrop-filter: blur(10px);
     }
-
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 12px 16px;
+      padding: 12px 18px;
     }
-
     .logo {
       font-size: 20px;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.01em;
     }
-
     .nav-links {
       display: flex;
       gap: 16px;
+      align-items: center;
     }
-
     .nav-links a {
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 14px;
       color: var(--text);
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--accent); }
-
     .hamburger {
       display: none;
       flex-direction: column;
@@ -79,133 +80,259 @@
     }
 
     .hero {
-      text-align: center;
-      padding: 40px 0;
-      background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
-      width: 100%;
+      background: linear-gradient(180deg, var(--soft) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 46px 18px 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 26px;
+      align-items: end;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
     .hero h1 {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text);
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: .96;
+      letter-spacing: -0.04em;
+      max-width: 780px;
     }
     .hero p {
-      font-size: 16px;
+      margin-top: 15px;
       color: var(--text-light);
-      margin-bottom: 8px;
-      width: 90%;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 16px;
+      max-width: 690px;
+    }
+    .project-count {
+      min-width: 150px;
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+    }
+    .project-count strong {
+      display: block;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 36px;
+      line-height: 1;
+    }
+    .project-count span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .project-shell {
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 26px 18px 46px;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .section-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .section-head h2 {
+      margin-top: 5px;
+      color: var(--text);
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    .legend {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      width: 100%;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
     }
-
-    .card {
-      background: white;
-      border-radius: 12px;
+    .project-card {
+      grid-column: span 4;
+      min-height: 460px;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid rgba(0,0,0,0.05);
-      position: relative; /* 오버레이 위치 기준점 */
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card-content {
-      padding: 16px;
-    }
-
-    .card h2 {
-      font-size: 18px;
-      color: var(--primary);
-      margin-bottom: 6px;
+      border-radius: 8px;
+      background: var(--paper);
+      border: 1px solid rgba(35,57,79,0.12);
+      box-shadow: 0 8px 24px rgba(20,30,50,0.10);
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
+      flex-direction: column;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    
-    .category-badge {
-      font-size: 12px;
-      background-color: var(--badge-bg);
-      color: var(--badge-text);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      vertical-align: middle;
-      white-space: nowrap;
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(20,30,50,0.16);
+      border-color: rgba(46,74,107,0.32);
     }
-
-    .card p {
-      font-size: 14px;
-      color: var(--text-light);
-      margin-bottom: 8px;
+    .project-card.featured {
+      grid-column: span 6;
     }
-
-    .hashtags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 8px;
+    .project-card.compact {
+      min-height: 420px;
     }
-    .hashtag {
-      background: #e0e0e0;
-      border-radius: 5px;
-      padding: 3px 8px;
-      font-size: 12px;
+    .media {
+      position: relative;
+      min-height: 230px;
+      background: #1A1A1A;
+      overflow: hidden;
     }
-
-    .date {
-      font-size: 12px;
-      color: var(--text-light);
-      font-style: italic;
-      margin-top: 4px;
+    .project-card.featured .media {
+      min-height: 280px;
     }
-
-    /* --- [추가된 오버레이 스타일] 시작 --- */
-    .card-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .media img {
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7); /* 어두운 배경 */
-      color: white;
+      min-height: inherit;
+      display: block;
+      object-fit: cover;
+      filter: grayscale(12%) saturate(.82);
+      transition: transform .28s ease, opacity .28s ease;
+    }
+    .project-card:hover .media img {
+      transform: scale(1.04);
+      opacity: .94;
+    }
+    .media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,26,26,0.02) 0%, rgba(26,26,26,0.44) 100%);
+      pointer-events: none;
+    }
+    .rank {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: rgba(255,255,255,.92);
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 17px;
+    }
+    .status {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      z-index: 2;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(26,26,26,.74);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .project-body {
+      padding: 18px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      flex: 1;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      font-size: 1.1rem;
+      gap: 12px;
+      margin-bottom: 11px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .project-card h2 {
+      color: var(--primary);
+      font-size: clamp(19px, 2.1vw, 24px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 2px;
+    }
+    .tags span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent);
+      padding: 5px 9px;
+      font-size: 12px;
       font-weight: 700;
-      opacity: 0; /* 기본적으로 숨김 */
-      transition: opacity 0.3s ease;
-      z-index: 10;
     }
-
-    /* .coming-soon 클래스가 있는 카드를 호버하면 오버레이 보이기 */
-    .card.coming-soon:hover .card-overlay {
-      opacity: 1;
+    .project-link {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border-radius: 7px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      transition: background .18s ease, color .18s ease;
     }
-    /* --- [추가된 오버레이 스타일] 끝 --- */
+    .project-card:hover .project-link {
+      background: var(--accent);
+      color: #fff;
+    }
+    .project-card.is-static .project-link {
+      opacity: .62;
+    }
 
     footer {
       margin-top: auto;
@@ -217,6 +344,12 @@
       width: 100%;
     }
 
+    @media (max-width: 1000px) {
+      .project-card,
+      .project-card.featured {
+        grid-column: span 6;
+      }
+    }
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
@@ -224,7 +357,8 @@
         right: -100%;
         background: white;
         flex-direction: column;
-        width: 60%;
+        align-items: flex-start;
+        width: min(72vw, 280px);
         height: calc(100% - 56px);
         gap: 16px;
         padding: 20px;
@@ -233,24 +367,47 @@
       }
       .nav-links.show { right: 0; }
       .hamburger { display: flex; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .project-count {
+        border-left: 0;
+        border-top: 2px solid var(--accent);
+        padding-left: 0;
+        padding-top: 14px;
+      }
+      .section-head {
+        display: block;
+      }
+      .legend {
+        justify-content: flex-start;
+        margin-top: 12px;
+      }
+      .project-card,
+      .project-card.featured {
+        grid-column: span 12;
+      }
+      .project-card,
+      .project-card.compact {
+        min-height: auto;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo">MinJae Choi</div>
+      <a class="logo" href="index.html">MinJae Choi</a>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="profile.html">Profile</a>
+        <a href="cv.html">CV</a>
         <a href="projects.html">Projects</a>
         <a href="posts.html">Posts</a>
         <a href="blogs.html">Blogs</a>
         <a href="archive.html">Archive</a>
-        <a href="wiki.html">Wiki</a>
-        <a href="design.html">Design</a>
       </div>
-      <div class="hamburger" onclick="toggleMenu()">
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open navigation">
         <div></div>
         <div></div>
         <div></div>
@@ -259,156 +416,190 @@
   </header>
 
   <section class="hero">
-    <h1>Projects</h1>
-    <p>Works across AI, Software Engineering, and Computational Design</p>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Selected Work</div>
+        <h1>Projects across AI systems, algorithms, and product engineering.</h1>
+        <p>Recent research, competitions, and software projects arranged as a compact exhibition board.</p>
+      </div>
+      <div class="project-count">
+        <strong>09</strong>
+        <span>listed projects</span>
+      </div>
+    </div>
   </section>
 
-  <section class="projects">
-    
-    <!--<a href="#" class="card coming-soon">
-      <div class="card-overlay">Will be uploaded soon</div> <img src="gov_fiar.jpg" alt="">
-      <div class="card-content">
-        <h2>
-          Designing Parameterized Algorithm for Maximum-Agreement Forest(MAF) Problem
-          <span class="category-badge">2026 PACE Challenge</span>
-        </h2>
-        <p>Solving Maximum Agreement Forest Problem by desiging parameterized algorithm.</p>
-        <div class="hashtags">
-          <span class="hashtag">#Computational Theory</span>
-          <span class="hashtag">#Parameterized Algorithms</span>
-          <span class="hashtag">#NP</span>
-          <span class="hashtag">#Discrete Mathematics</span>
-        </div>
-        <div class="date">2026</div>
+  <main class="project-shell">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Project Gallery</div>
+        <h2>Current and past work</h2>
       </div>
-    </a>
-    <a href="#" class="card coming-soon">
-      <div class="card-overlay">Will be uploaded soon</div> <img src="gov_culturesportstourism.png" alt="">
-      <div class="card-content">
-        <h2>
-          Will be updated soon
-          <span class="category-badge">Ministry of Culture, Sports and Tourism</span>
-        </h2>
-        <p>Will be updated after competition</p>
-        <div class="hashtags">
-          <span class="hashtag">#iOS</span>
-          <span class="hashtag">#Android</span>
-          <span class="hashtag">#Web</span>
-          <span class="hashtag">#Rust</span>
-          <span class="hashtag">#On Device LLM</span>
-          <span class="hashtag">#LLM Compression</span>
-        </div>
-        <div class="date">2026</div>
-      </div>
-    </a>
-    <a href="#" class="card coming-soon">
-      <div class="card-overlay">Will be uploaded soon</div> <img src="pace.svg" alt="">
-      <div class="card-content">
-        <h2>
-          Designing Parameterized Algorithm for Maximum-Agreement Forest(MAF) Problem
-          <span class="category-badge">2026 PACE Challenge</span>
-        </h2>
-        <p>Solving Maximum Agreement Forest Problem by desiging parameterized algorithm.</p>
-        <div class="hashtags">
-          <span class="hashtag">#Computational Theory</span>
-          <span class="hashtag">#Parameterized Algorithms</span>
-          <span class="hashtag">#NP</span>
-          <span class="hashtag">#Discrete Mathematics</span>
-        </div>
-        <div class="date">2026</div>
-      </div>
-    </a>-->
-    <a href="#" class="card coming-soon">
-      <div class="card-overlay">Will be uploaded soon</div> <img src="nvidianemontron.png" alt="">
-      <div class="card-content">
-        <h2>
-          Building NVIDIA Nemotron Model Reasoning
-          <span class="category-badge">NVIDIA Nemotron Model Reasoning Challenge</span>
-        </h2>
-        <p>Will be updated after competition</p>
-        <div class="hashtags">
-          <span class="hashtag">#Foundation Model</span>
-          <span class="hashtag">#Reasoning</span>
-          <span class="hashtag">#Fine Tuning</span>
-          <span class="hashtag">#Reinforcement Learning</span>
-        </div>
-        <div class="date">2026</div>
-      </div>
-    </a>
-    <a href="#" class="card coming-soon">
-      <div class="card-overlay">Will be uploaded soon</div> <img src="kexaone_logo.png" alt="">
-      <div class="card-content">
-        <h2>
-          LG AI Research LLM Compression (EXAONE4 1.2B)
-          <span class="category-badge">LG AI Research LLM Compression Competition</span>
-        </h2>
-        <p>Post-Training Quantization (PTQ) of LG Exaone4 Model.</p>
-        <div class="hashtags">
-          <span class="hashtag">#LLM</span>
-          <span class="hashtag">#Post-Training Quantization</span>
-          <span class="hashtag">#On-Device</span>
-          <span class="hashtag">#LLM Production Engineering</span>
-          <span class="hashtag">#Fine Tuning</span>
-          <span class="hashtag">#Knowledge Distillation</span>
-        </div>
-        <div class="date">2026</div>
-      </div>
-    </a>
-    <a href="#" class="card coming-soon">
-      <div class="card-overlay">Will be uploaded soon</div> <img src="amplify_thumbnail.png" alt="Amplify Thumbnail">
-      <div class="card-content">
-        <h2>
-          Amplify
-          <span class="category-badge">Microsoft Imagine Cup 2026</span>
-        </h2>
-        <p>A question-driven collective learning platform that reconnects classrooms in the age of AI.</p>
-        <div class="hashtags">
-          <span class="hashtag">#AI Agent</span>
-          <span class="hashtag">#RAG</span>
-          <span class="hashtag">#Knowledge Graph</span>
-          <span class="hashtag">#Relational DB</span>
-          <span class="hashtag">#Graph DB</span>
-          <span class="hashtag">#Azure AI</span>
-        </div>
-        <div class="date">2025 ~ 2026</div>
-      </div>
-    </a>
-
-    <a href="project_easycoach.html" class="card">
-      <img src="promotionvideo_easycoach.gif" alt="Easy Coach Thumbnail">
-      <div class="card-content">
-        <h2>
-          Easy Coach
-          <span class="category-badge">Soongmoon High School SW Competition</span> 
-        </h2>
-        <p>A computer vision–based posture correction tool that automatically analyzes and coaches exercise form.</p>
-        <div class="hashtags">
-          <span class="hashtag">#CV</span>
-          <span class="hashtag">#Python</span>
-        </div>
-        <div class="date">2022 ~ 2023</div>
-      </div>
-    </a>
-
-    <div class="card">
-      <img src="resources/personal_homepage/promo_pic.png" alt="Personal Homepage Thumbnail">
-      <div class="card-content">
-        <h2>
-            Personal Homepage
-            </h2>
-        <p>Personal Webpage</p>
-        <div class="hashtags">
-          <span class="hashtag">#HTML5</span>
-          <span class="hashtag">#CSS3</span>
-        </div>
-        <div class="date">2025</div>
+      <div class="legend" aria-label="Project status legend">
+        <span>Research</span>
+        <span>Competition</span>
+        <span>Build</span>
       </div>
     </div>
 
-  </section>
+    <section class="projects" aria-label="Project list">
+      <a href="#" class="project-card featured is-static">
+        <div class="media">
+          <img src="kaistee.jpg" alt="KAIST EE project visual">
+          <span class="rank">01</span>
+          <span class="status">Ongoing</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Research</span><span>2026</span></div>
+          <h2>Near 1-Bit Ultra-Low-Bit Quantization for Trillion-Scale LLMs</h2>
+          <p>Flexible Machine Learning Algorithm Lab (FlexML) at KAIST EE, advised by Prof. Insu Han.</p>
+          <div class="tags">
+            <span>Quantization</span><span>1-bit</span><span>Fast Inference</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card featured is-static">
+        <div class="media">
+          <img src="arcagi2.png" alt="ARC Challenge project visual">
+          <span class="rank">02</span>
+          <span class="status">Upcoming</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Challenge</span><span>2026</span></div>
+          <h2>ARC Challenge 2026</h2>
+          <p>Research around abstraction, reasoning, and generalization for ARC-style tasks.</p>
+          <div class="tags">
+            <span>ARC Prize</span><span>AGI</span><span>Reasoning</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card compact is-static">
+        <div class="media">
+          <img src="cjlogistics.png" alt="CJ Logistics project visual">
+          <span class="rank">03</span>
+          <span class="status">Competition</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Algorithm</span><span>2026</span></div>
+          <h2>CJ Logistics Random Palletizing Algorithm</h2>
+          <p>Designing algorithms for palletizing and logistics optimization problems.</p>
+          <div class="tags">
+            <span>Logistics</span><span>Optimization</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card compact is-static">
+        <div class="media">
+          <img src="pace.svg" alt="PACE Challenge project visual">
+          <span class="rank">04</span>
+          <span class="status">Theory</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>PACE Challenge</span><span>2026</span></div>
+          <h2>Parameterized Algorithm for Maximum-Agreement Forest</h2>
+          <p>Solving the MAF problem by designing parameterized algorithms.</p>
+          <div class="tags">
+            <span>Graph Algorithms</span><span>NP-hard</span><span>Discrete Math</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card compact is-static">
+        <div class="media">
+          <img src="nvidianemontron.png" alt="NVIDIA Nemotron project visual">
+          <span class="rank">05</span>
+          <span class="status">Competition</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Foundation Model</span><span>2026</span></div>
+          <h2>NVIDIA Nemotron Model Reasoning</h2>
+          <p>Reasoning model development work to be updated after the competition.</p>
+          <div class="tags">
+            <span>Reasoning</span><span>Fine Tuning</span><span>RL</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card compact is-static">
+        <div class="media">
+          <img src="kexaone_logo.png" alt="EXAONE project visual">
+          <span class="rank">06</span>
+          <span class="status">Competition</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Compression</span><span>2026</span></div>
+          <h2>LG AI Research LLM Compression</h2>
+          <p>Post-training quantization of LG EXAONE 4 1.2B for efficient on-device deployment.</p>
+          <div class="tags">
+            <span>LLM</span><span>PTQ</span><span>On-device</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card compact is-static">
+        <div class="media">
+          <img src="amplify_thumbnail.png" alt="Amplify project visual">
+          <span class="rank">07</span>
+          <span class="status">Build</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Imagine Cup</span><span>2025-2026</span></div>
+          <h2>Amplify</h2>
+          <p>A question-driven collective learning platform that reconnects classrooms in the age of AI.</p>
+          <div class="tags">
+            <span>AI Agent</span><span>RAG</span><span>Graph DB</span>
+          </div>
+          <span class="project-link">Details pending</span>
+        </div>
+      </a>
+
+      <a href="project_easycoach.html" class="project-card compact">
+        <div class="media">
+          <img src="promotionvideo_easycoach.gif" alt="Easy Coach project visual">
+          <span class="rank">08</span>
+          <span class="status">Published</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Computer Vision</span><span>2022-2023</span></div>
+          <h2>Easy Coach</h2>
+          <p>A computer-vision-based posture correction tool that analyzes and coaches exercise form.</p>
+          <div class="tags">
+            <span>CV</span><span>Python</span><span>OpenPose</span>
+          </div>
+          <span class="project-link">Open project</span>
+        </div>
+      </a>
+
+      <div class="project-card compact is-static">
+        <div class="media">
+          <img src="resources/personal_homepage/promo_pic.png" alt="Personal homepage project visual">
+          <span class="rank">09</span>
+          <span class="status">Web</span>
+        </div>
+        <div class="project-body">
+          <div class="meta-row"><span>Personal Site</span><span>2025</span></div>
+          <h2>Personal Homepage</h2>
+          <p>A personal website for projects, posts, archives, and design experiments.</p>
+          <div class="tags">
+            <span>HTML5</span><span>CSS3</span>
+          </div>
+          <span class="project-link">Current page</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2025 MinJae Choi. All rights reserved.<br>Last update: 2025.10.29
+    &copy; 2026 MinJae Choi. All rights reserved.
   </footer>
 
   <script>
@@ -416,6 +607,5 @@
       document.querySelector('.nav-links').classList.toggle('show');
     }
   </script>
-
 </body>
 </html>

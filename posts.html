@@ -4,74 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>MinJae Choi - Posts</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0a0f8f;
-      --accent: #4e6bff;
-      --bg: #f8faff;
-      --text: #111;
-      --text-light: #555;
+      --primary: #23394F;
+      --accent: #2E4A6B;
+      --bg: #ECEEF1;
+      --paper: #FFFFFF;
+      --soft: #EEF1F5;
+      --line: #DFE4EA;
+      --text: #1A1A1A;
+      --text-light: #5A6473;
+      --muted: #8A93A0;
+      --ink: #111111;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', '맑은 고딕', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', 'Malgun Gothic', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.5;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
     a { text-decoration: none; color: inherit; }
 
     header {
-      background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 2px 10px rgba(20,30,50,0.05);
       position: sticky;
       top: 0;
       z-index: 100;
       width: 100%;
+      backdrop-filter: blur(10px);
     }
-
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding: 12px 16px;
+      padding: 12px 18px;
     }
-
     .logo {
       font-size: 20px;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.01em;
     }
-
     .nav-links {
       display: flex;
       gap: 16px;
+      align-items: center;
     }
-
     .nav-links a {
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 14px;
       color: var(--text);
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
-
     .nav-links a:hover { color: var(--accent); }
-
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
       gap: 4px;
     }
-
     .hamburger div {
       width: 25px;
       height: 3px;
@@ -79,133 +80,315 @@
     }
 
     .hero {
-      text-align: center;
-      padding: 40px 0;
-      background: linear-gradient(180deg, #eef2ff 0%, #f9faff 100%);
-      width: 100%;
+      background: linear-gradient(180deg, var(--soft) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--line);
     }
-
-    .hero h1 {
-      font-size: 28px;
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 46px 18px 34px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+      gap: 28px;
+      align-items: end;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
       font-weight: 800;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-
+    .hero h1 {
+      color: var(--text);
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: .96;
+      letter-spacing: -0.04em;
+      max-width: 760px;
+    }
     .hero p {
-      font-size: 16px;
+      margin-top: 15px;
       color: var(--text-light);
-      margin-bottom: 8px;
-      width: 90%;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 16px;
+      max-width: 700px;
+    }
+    .issue-panel {
+      border-left: 2px solid var(--accent);
+      padding: 16px 0 16px 18px;
+    }
+    .issue-panel span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .issue-panel strong {
+      display: block;
+      margin-top: 7px;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 36px;
+      line-height: 1;
+    }
+    .issue-panel p {
+      margin-top: 10px;
+      color: var(--text-light);
+      font-size: 14px;
     }
 
+    .posts-shell {
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 26px 18px 46px;
+      flex: 1;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .section-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .section-head h2 {
+      margin-top: 5px;
+      color: var(--text);
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
     .filter-menu {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      padding: 16px;
+      gap: 8px;
+      justify-content: flex-end;
     }
-
     .filter-button {
-      background-color: #f0f0f0;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 14px;
+      min-height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: rgba(255,255,255,0.72);
+      color: var(--text-light);
       cursor: pointer;
-      font-weight: 600;
-      transition: background 0.2s, color 0.2s;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      transition: background .18s ease, color .18s ease, border-color .18s ease;
     }
-    .filter-button.active, .filter-button:hover {
+    .filter-button.active,
+    .filter-button:hover {
       background: var(--primary);
-      color: white;
+      border-color: var(--primary);
+      color: #fff;
     }
 
-    .sections {
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .post-card {
+      grid-column: span 12;
+      min-height: 360px;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.88fr) minmax(0, 1.12fr);
+      overflow: hidden;
+      border: 1px solid rgba(35,57,79,0.12);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(20,30,50,0.10);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(46,74,107,0.32);
+      box-shadow: 0 16px 36px rgba(20,30,50,0.16);
+    }
+    .post-card[hidden] { display: none; }
+    .post-media {
+      position: relative;
+      min-height: 360px;
+      background: #1A1A1A;
+      overflow: hidden;
+    }
+    .post-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: grayscale(10%) saturate(.86);
+      transform: scale(1.01);
+      transition: transform .28s ease, opacity .28s ease;
+    }
+    .post-card:hover .post-media img {
+      transform: scale(1.05);
+      opacity: .94;
+    }
+    .post-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(26,26,26,0.02) 0%, rgba(26,26,26,0.54) 100%);
+      pointer-events: none;
+    }
+    .post-rank {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: rgba(255,255,255,.92);
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 800;
+    }
+    .post-type {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      z-index: 2;
+      border-radius: 999px;
+      background: rgba(35,57,79,.88);
+      color: #fff;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .post-body {
+      padding: 28px;
       display: flex;
       flex-direction: column;
-      width: 100%;
-      gap: 16px;
-      padding: 16px;
+      justify-content: space-between;
+      gap: 24px;
     }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      width: 100%;
-      border: 1px solid rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-
-    .card h2 {
-      color: var(--primary);
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .card .hashtags {
+    .post-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-    }
-    .card .hashtag {
-      background: #e0e0e0;
-      border-radius: 5px;
-      padding: 3px 8px;
+      gap: 8px;
+      color: var(--muted);
       font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .post-card h2 {
+      margin-top: 14px;
+      color: var(--ink);
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: .98;
+      letter-spacing: -0.04em;
+    }
+    .post-card p {
+      margin-top: 16px;
+      max-width: 620px;
+      color: var(--text-light);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .read-link {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 9px 12px;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .post-card:hover .read-link {
+      background: var(--primary);
+      transform: translateY(-2px);
     }
 
     footer {
       margin-top: auto;
+      padding: 22px 18px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+      color: var(--text-light);
       text-align: center;
-      background: var(--primary);
-      color: white;
-      padding: 16px;
-      font-size: 14px;
-      width: 100%;
+      font-size: 13px;
     }
 
+    @media (max-width: 860px) {
+      .hero-inner,
+      .section-head,
+      .post-card {
+        grid-template-columns: 1fr;
+      }
+      .section-head {
+        display: grid;
+        align-items: start;
+      }
+      .filter-menu {
+        justify-content: flex-start;
+      }
+      .post-media {
+        min-height: 260px;
+      }
+    }
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
         top: 56px;
         right: -100%;
+        width: min(280px, 78vw);
+        height: calc(100vh - 56px);
         background: white;
         flex-direction: column;
-        width: 60%;
-        height: calc(100% - 56px);
+        align-items: flex-start;
         gap: 16px;
-        padding: 20px;
-        box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+        padding: 22px;
+        box-shadow: -2px 0 12px rgba(20,30,50,0.12);
         transition: right 0.3s ease;
       }
       .nav-links.show { right: 0; }
       .hamburger { display: flex; }
     }
-
-    @media (max-width: 400px) {
-      .hero h1 { font-size: 24px; }
-      .hero p { font-size: 14px; max-width: 95%; }
-      .card h2 { font-size: 16px; }
-      .card p { font-size: 13px; }
-      .card { padding: 16px; }
+    @media (max-width: 520px) {
+      .hero-inner { padding-top: 36px; }
+      .hero h1 { font-size: 34px; }
+      .post-body { padding: 22px; }
+      .post-card h2 { font-size: 30px; }
     }
   </style>
 </head>
@@ -215,13 +398,11 @@
       <div class="logo">MinJae Choi</div>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="profile.html">Profile</a>
+        <a href="cv.html">CV</a>
         <a href="projects.html">Projects</a>
         <a href="posts.html">Posts</a>
         <a href="blogs.html">Blogs</a>
         <a href="archive.html">Archive</a>
-        <a href="wiki.html">Wiki</a>
-        <a href="design.html">Design</a>
       </div>
       <div class="hamburger" onclick="toggleMenu()">
         <div></div>
@@ -232,36 +413,71 @@
   </header>
 
   <section class="hero">
-    <h1>Posts</h1>
-    <p>Deep dives into AI, Algorithms, Algorithmic Graph (Structure) Theory, and more!</p>
-  </section>
-
-  <div class="filter-menu">
-    <button class="filter-button active" data-category="All">All</button>
-    <button class="filter-button" data-category="ALG">Algorithms</button>
-    <button class="filter-button" data-category="NLP">Natural Language Processing</button>
-    <button class="filter-button" data-category="CV">Computer Vision</button>
-    <button class="filter-button" data-category="TS">Time Series</button>
-    <button class="filter-button" data-category="COL">Column</button>
-  </div>
-
-  <section class="sections">
-
-    
-    <a href="posts/251229.html" class="card" data-category="COL">
-      <h2>Growing a Language</h2>
-      <p>A brief commentary on user-centered programming language design.</p>
-      <div class="hashtags">
-        <span class="hashtag">Programming Language</span>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Notes and Essays</div>
+        <h1>Short posts on systems, language, and technical craft.</h1>
+        <p>
+          A small reading room for technical commentary and study notes. The tone is intentionally compact:
+          ideas first, clean references, and enough structure to revisit after time away from the topic.
+        </p>
       </div>
-      <p>2025-12-29</p>
-    </a>
-
-    <!-- 더 많은 블로그 카드 추가 가능 -->
+      <aside class="issue-panel" aria-label="Post archive summary">
+        <span>Published</span>
+        <strong>01</strong>
+        <p>Current posts are arranged as an editorial index and can be filtered by topic.</p>
+      </aside>
+    </div>
   </section>
+
+  <main class="posts-shell">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Post Index</div>
+        <h2>Latest writing</h2>
+      </div>
+      <div class="filter-menu" aria-label="Post filters">
+        <button class="filter-button active" data-category="All">All</button>
+        <button class="filter-button" data-category="ALG">Algorithms</button>
+        <button class="filter-button" data-category="NLP">NLP</button>
+        <button class="filter-button" data-category="CV">Computer Vision</button>
+        <button class="filter-button" data-category="TS">Time Series</button>
+        <button class="filter-button" data-category="COL">Column</button>
+      </div>
+    </div>
+
+    <section class="post-grid" aria-label="Posts">
+      <a href="posts/251229.html" class="post-card" data-category="COL">
+        <div class="post-media">
+          <img src="https://img.youtube.com/vi/lw6TaiXzHAE/hqdefault.jpg" alt="Growing a Language keynote thumbnail">
+          <span class="post-rank">01</span>
+          <span class="post-type">Column</span>
+        </div>
+        <div class="post-body">
+          <div>
+            <div class="post-meta">
+              <span>2025.12.29</span>
+              <span>Programming Languages</span>
+            </div>
+            <h2>Growing a Language</h2>
+            <p>
+              A brief commentary on user-centered programming language design, open evolution,
+              and why extensibility often matters more than designing a complete language upfront.
+            </p>
+            <div class="tags">
+              <span class="tag">PL</span>
+              <span class="tag">Language Design</span>
+              <span class="tag">Open Systems</span>
+            </div>
+          </div>
+          <span class="read-link">Read Post</span>
+        </div>
+      </a>
+    </section>
+  </main>
 
   <footer>
-    © 2025 MinJae Choi. All rights reserved.<br>Last update: 2025.12.29
+    &copy; 2026 MinJae Choi. All rights reserved. Last update: 2025.12.29
   </footer>
 
   <script>
@@ -270,20 +486,16 @@
     }
 
     const buttons = document.querySelectorAll('.filter-button');
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll('.post-card');
 
-    buttons.forEach(btn => {
+    buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
+        buttons.forEach((item) => item.classList.remove('active'));
         btn.classList.add('active');
-        const category = btn.dataset.category;
 
-        cards.forEach(card => {
-          if (category === 'All' || card.dataset.category === category) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+        const category = btn.dataset.category;
+        cards.forEach((card) => {
+          card.hidden = category !== 'All' && card.dataset.category !== category;
         });
       });
     });
