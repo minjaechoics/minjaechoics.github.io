@@ -1,0 +1,15 @@
+/*******************************************************************************
+ * Site-local overrides on top of the al_folio_core theme defaults.
+ ******************************************************************************/
+
+// The gem default sizes every card title (incl. project cards) at 2rem, which
+// wraps long project titles into 2-3 bold lines inside a small card and looks
+// oversized/unbalanced. Tone it down specifically on the projects grid.
+.projects {
+  .card-title {
+    font-size: 1.25rem;
+    line-height: 1.35;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+}

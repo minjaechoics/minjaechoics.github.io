@@ -1,13 +1,15 @@
 cv:
   name: MinJae Choi
-  label: Undergraduate Researcher — AI Systems & Algorithms
+  label: Undergraduate Researcher — Efficient ML & Foundation Model Systems
   email: minjaechoi.cs@gmail.com
   location: Daejeon, South Korea
   image: ""
   summary: >
-    Undergraduate at KAIST studying computer science, electrical engineering, and industrial
-    design. I work around foundation model systems, quantization, graph algorithms, and
-    product-minded engineering.
+    My research interests lie in Efficient ML, especially for AI foundation models, with a focus
+    on end-to-end foundation model systems spanning architecture design, large-scale training,
+    low-bit quantization, efficient deployment, and inference kernel optimization. I am also
+    interested in theoretical computer science, particularly algorithmic graph structure theory
+    and algorithm design for NP-hard problems.
 
   social_networks:
     - network: GitHub
@@ -20,134 +22,141 @@ cv:
       - institution: Korea Advanced Institute of Science and Technology (KAIST)
         location: Daejeon, South Korea
         url: https://kaist.ac.kr
-        area: Computer Science (advanced major); Electrical Engineering & Mechanical Engineering (double majors); Industrial Design (minor)
-        studyType: Undergraduate, School of Computing
+        area: Computer Science; AI Systems (Double Major); Mathematics (Minor)
+        studyType: B.S.
         start_date: 2025-03
         highlights:
-          - "Advisor: Prof. Sung-Eui Yoon (School of Computing)"
-          - "Advanced Major: [Computer Science](https://cs.kaist.ac.kr)"
-          - "Double Major: [Electrical Engineering](https://ee.kaist.ac.kr/en/)"
-          - "Double Major: [Mechanical Engineering](https://me.kaist.ac.kr/)"
-          - "Minor: [Industrial Design](https://id.kaist.ac.kr/)"
-
-      - institution: Soongmoon High School
-        location: South Korea
-        studyType: High School
-        start_date: 2021-03
-        end_date: 2024-02
-        highlights:
-          - "🏆 Graduated top of the class (Top 0.7%)"
+          - "Advisor: Prof. Sungeui Yoon (School of Computing)"
 
     Experience:
-      - company: Flexible Machine Learning Algorithm Lab (FlexML), KAIST EE
+      - company: Flexible Machine Learning Lab, KAIST
         position: Undergraduate Researcher
         location: KAIST, Daejeon
         url: https://flexml.kaist.ac.kr/
-        start_date: 2025-06
-        summary: KAIST Undergraduate Research Program (URP), advised by Prof. Insu Han (KAIST EE).
+        start_date: 2026-06
+        summary: "Advisor: Prof. Insu Han."
         highlights:
-          - "Project: Near-1-Bit Quantization for Trillion-Scale Foundation Models"
+          - "Co-advised by Prof. Sukmin Yun (Vision AI Lab, Hanyang Univ. ERICA)"
+          - "Collaborated with Samsung Electronics DS Division"
 
-      - company: Include — KAIST AI Club
-        position: "Manager (Head of Promotion)"
-        location: KAIST, Daejeon
-        start_date: 2025-03
-        highlights:
-          - "2025 Spring: Basic Machine Learning Seminar / Natural Language Processing Seminar"
-          - "2025 Summer: Generative AI Seminar / AI Agent Seminar"
-          - "2025 Fall: Graph AI Seminar"
-          - "2026 Spring: Computer Vision Seminar"
-
-      - company: NVIDIA
-        position: Nemotron Model Reasoning Challenge — Participant
-        location: Remote
-        start_date: 2026-04
-        end_date: 2026-06
-
-      - company: LG AI Research
-        position: K-EXAONE4 Model (LLM) Compression Competition — Team Member
-        location: Remote
-        start_date: 2026-01
-        end_date: 2026-03
-        summary: "Team: MinJae Choi, Jiseok Son, Sungsu Lee, Chaewon Lee."
-        highlights:
-          - "🏆 Won the semifinal round (Top 3%) and advanced to the final round"
-
-      - company: Microsoft Imagine Cup 2026
-        position: MVP Round Participant
-        location: Remote
-        start_date: 2025-12
-        summary: "Project: [Amplify](/projects/amplify/) — a question-driven collective learning platform."
-
-      - company: Google Gemini Student Ambassador
+      - company: Google Gemini Student Ambassador — Team KAIST Include
         position: Student Ambassador
         location: KAIST, Daejeon
         start_date: 2025-08
         end_date: 2025-12
         highlights:
-          - "🏆 Phase 1: 2nd Best Activity Team (Team KAIST-Include)"
+          - "Received Phase 1 Second Best Activity Team Award"
 
-    Awards:
-      - title: Semifinalist, Top 3% — LG AI Research K-EXAONE4 LLM Compression Competition
-        date: 2026-03-01
-        awarder: LG AI Research
-
-      - title: "Phase 1: 2nd Best Activity Team — Google Gemini Student Ambassador"
-        date: 2025-12-01
-        awarder: Google
-
-      - title: Graduated top of the class, Top 0.7% — Soongmoon High School
-        date: 2024-02-01
-        awarder: Soongmoon High School
-
-    Certificates:
-      - name: SQL Developer (SQLD)
-        date: 2025-06-27
-        issuer: Korea Data Agency (K-DATA)
-        icon: fa-solid fa-certificate
-
-      - name: Neural Processing Unit (NPU) Design 2026 Beginner Course
-        date: 2026-05-01
-        issuer: KAIST PIM Semiconductor Design Research Center
-        icon: fa-solid fa-microchip
-
-      - name: LG AImers (8th)
-        date: 2026-03-01
-        issuer: LG AI Research
-        icon: fa-solid fa-award
+      - company: KAIST Include
+        position: Head of Promotion
+        location: Daejeon, South Korea
+        start_date: 2026-03
+        end_date: 2026-08
 
     Skills:
       - name: Programming Languages
         icon: fa-solid fa-code
-        keywords: "Python, C (systems programming), C++, Scala, Rust"
+        keywords:
+          - Python
+          - SQL
+          - "C/C++"
+          - Rust
+          - Scala
 
-      - name: Artificial Intelligence
+      - name: ML Library
         icon: fa-solid fa-brain
-        keywords: "PyTorch, Scikit-learn"
+        keywords:
+          - PyTorch
 
-      - name: Database
-        icon: fa-solid fa-database
-        keywords: "MySQL (relational DB, SQL), Azure Cosmos DB (Graph DB, Gremlin)"
-
-      - name: Data Analysis
-        icon: fa-solid fa-chart-line
-        keywords: "NumPy, Pandas, Matplotlib"
-
-      - name: Web Development
-        icon: fa-solid fa-globe
-        keywords: "HTML5, CSS3"
-
-      - name: Cloud & Tools
+      - name: Cloud Service
         icon: fa-solid fa-cloud
-        keywords: "Azure, Git"
+        keywords:
+          - Azure
+          - AWS
 
-      - name: CAD Design
+      - name: High-Performance Computing
+        icon: fa-solid fa-microchip
+        keywords:
+          - Triton
+          - CUDA
+
+      - name: Product Design
         icon: fa-solid fa-pen-ruler
-        keywords: "Rhino (3D modeling), Autodesk Fusion 360 (3D modeling), KeyShot (3D rendering)"
+        keywords:
+          - Rhino
+          - Fusion360
+          - KeyShot
+
+    Training:
+      - label: NPU Design Course
+        details: "KAIST PIM Semiconductor Design Research Center — May 2026. DNN Core Operation, NPU Architecture, NPU SW Stack & Mapping, Advanced NPU Design."
+      - label: LG Aimers (8th)
+        details: "LG AI Research — Jan 2026 – Mar 2026. Fundamentals of Large Language Models, LLM Compression."
+
+    Projects:
+      - name: "Samsung Electronics (Device Solution Division) — Trillion-Scale Language Model Quantization"
+        summary: Industrial collaboration project on near-1-bit quantization for trillion-scale foundation models, carried out with the Flexible Machine Learning Lab.
+        start_date: 2026-07
+
+      - name: "ZipJiGi — 2026 KB Financial AI Challenge"
+        url: https://github.com/minjaechoics/ZipJiGi
+        summary: "Hosted by KB Kookmin Bank, with Yelim Lee."
+        highlights:
+          - "🏆 Won Excellence Award (KT Award), Top 1.33% — $2,207.86 cash prize, hiring perks"
+          - "[GitHub repo](https://github.com/minjaechoics/ZipJiGi)"
+          - "[Demo video](https://www.youtube.com/watch?v=C0442eBrezA)"
+        start_date: 2026-07
+        end_date: 2026-08
+
+      - name: NVIDIA Nemotron 3 30B Model LoRA Adapter Development
+        summary: "2026 NVIDIA Nemotron3 Reasoning Challenge, with Jiseok Son and Seungsu Lee."
+        start_date: 2026-04
+        end_date: 2026-06
+
+      - name: LG AI Research EXAONE 4 1.2B Model Quantization
+        summary: "2026 LG AI Research EXAONE Compression Competition, with Jiseok Son, Seungsu Lee, and Chaewon Lee."
+        highlights:
+          - "🏆 Top 3% in Semifinal Round, advanced to the Final Round"
+        start_date: 2026-01
+        end_date: 2026-04
+
+      - name: "AMPLIFY — Question Driven Collective Learning Platform"
+        url: /amplify.html
+        summary: Participated in the Microsoft Imagine Cup 2026 MVP Round.
+        start_date: 2025-12
+        end_date: 2026-01
+
+      - name: "EASY COACH — Vision-based Coaching Platform"
+        summary: A computer-vision-based posture correction tool that automatically analyzes and coaches exercise form.
+        start_date: 2022-03
+        end_date: 2023-09
+
+    Certificates:
+      - name: SQL Developer (SQLD)
+        date: 2025-01-01
+        issuer: Korea Data Agency (K-DATA)
+        icon: fa-solid fa-certificate
 
     Languages:
       - name: Korean
         summary: Native
-
       - name: English
         summary: "Advanced — TOEIC 935/990 (2026.02.28)"
+
+    Advisor:
+      - label: Insu Han
+        details: Associate Professor at KAIST School of Electrical Engineering
+      - label: Sukmin Yun
+        details: Assistant Professor at Hanyang Univ. ERICA, Dept. of Artificial Intelligence
+      - label: Sungeui Yoon
+        details: Associate Professor at KAIST School of Computing
+
+    References:
+      - name: Yelim Lee
+        reference: BS in Software Engineering and Financial Engineering at Ajou University
+      - name: Jiseok Son
+        reference: BS in Computer Engineering at Hongik University
+      - name: Seungsu Lee
+        reference: BS in Computer Engineering at Hansung University
+      - name: Chaewon Lee
+        reference: BS in Mathematics and Computer Science at Sogang University

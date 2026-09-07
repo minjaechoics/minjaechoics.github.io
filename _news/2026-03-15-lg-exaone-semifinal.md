@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🏆 Our team won the semifinal round (**Top 3%**) of the **LG AI Research K-EXAONE4 LLM Compression Competition** and advanced to the final round!
+🏆 Our team (with Jiseok Son, Seungsu Lee, and Chaewon Lee) won the semifinal round (**Top 3%**) of the **LG AI Research EXAONE 4 1.2B Model Compression Competition** and advanced to the final round!

@@ -3,7 +3,7 @@ layout: page
 title: Easy Coach
 description: A computer-vision-based posture correction tool that analyzes and coaches exercise form.
 img: assets/img/promotionvideo_easycoach.gif
-importance: 8
+importance: 6
 category: build
 ---
 
