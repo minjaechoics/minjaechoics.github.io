@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wiki</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        /* === Ultra Compact Theme (Responsive) === */
+        :root {
+            --sidebar-width: 220px;
+            --bg-sidebar: #F3F3F3;
+            --bg-main: #FFFFFF;
+            --border-color: #E5E5E5;
+            
+            --active-bg: #E4E6F1;
+            --active-text: #000000;
+            --hover-bg: #EAEAEA;
+            
+            --font-main: "Pretendard Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: "Menlo", "Consolas", monospace;
+            --font-size-ui: 13px;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            margin: 0; display: flex; height: 100vh; 
+            font-family: var(--font-main); color: #333; background: var(--bg-main);
+            overflow: hidden;
+        }
+
+        /* === Sidebar === */
+        #sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex; flex-direction: column;
+            padding: 10px 0;
+            flex-shrink: 0; 
+            overflow-y: auto;
+            user-select: none;
+            transition: margin-left 0.3s ease, transform 0.3s ease;
+            z-index: 50;
+        }
+
+        body.sidebar-collapsed #sidebar {
+            margin-left: calc(var(--sidebar-width) * -1);
+        }
+
+        #sidebar h2 { 
+            padding: 0 16px; margin: 0 0 8px 0;
+            font-size: 11px; font-weight: 700; color: #888;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            display: flex; align-items: center;
+        }
+
+        /* 언어 선택 버튼 */
+        .lang-switch {
+            margin-left: auto; margin-right: 10px;
+            display: flex; gap: 6px; font-size: 11px; color: #ccc;
+        }
+        .lang-opt { cursor: pointer; color: #999; transition: color 0.2s; }
+        .lang-opt:hover { color: #555; }
+        .lang-opt.active { color: #333; font-weight: 800; border-bottom: 2px solid #333; }
+
+        .close-sidebar-btn { display: none; cursor: pointer; padding: 4px; }
+        .separator { height: 1px; background-color: #E0E0E0; margin: 6px 0; }
+        
+        .tree-ul { list-style: none; padding: 0; margin: 0; }
+        
+        .tree-ul .tree-ul { 
+            padding-left: 10px; margin-left: 6px; border-left: 1px solid #ddd; 
+        }
+
+        .nav-item {
+            display: flex; align-items: center;
+            width: 100%; height: 32px;
+            padding: 0 12px;
+            font-size: var(--font-size-ui); color: #616161;
+            cursor: pointer; text-decoration: none; border: none; background: transparent;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            transition: background 0.1s;
+        }
+
+        .nav-item:hover { background-color: var(--hover-bg); color: #000; }
+        .home-link { font-weight: 600; color: #444; }
+        .home-link:hover { color: #2563EB; }
+        
+        .nav-item.active { 
+            background-color: var(--active-bg); 
+            color: var(--active-text); font-weight: 500; 
+        }
+
+        .icon { 
+            margin-right: 8px; font-size: 15px; opacity: 0.8; flex-shrink: 0;
+            filter: grayscale(100%);
+        }
+        .nav-item.active .icon, .home-link:hover .icon { filter: none; }
+        .folder-label { font-weight: 600; color: #444; }
+
+        /* === Main Content === */
+        #main { 
+            flex-grow: 1; overflow-y: auto; padding: 0; 
+            position: relative; transition: margin-left 0.3s ease;
+        }
+
+        #sidebar-toggle {
+            position: sticky; top: 0; left: 0; z-index: 40;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(5px);
+            border: none; border-bottom: 1px solid #eee;
+            width: 100%; padding: 10px 15px;
+            text-align: left; font-size: 18px; cursor: pointer; color: #555;
+            display: flex; align-items: center;
+        }
+        
+        @media (min-width: 769px) {
+            #sidebar-toggle {
+                position: absolute; top: 10px; left: 10px;
+                width: 32px; height: 32px; padding: 0;
+                justify-content: center; background: transparent;
+                border: 1px solid #ddd; border-radius: 4px;
+            }
+            #sidebar-toggle:hover { background: #f0f0f0; }
+        }
+
+        .content-container {
+            max-width: 820px; margin: 0 auto; padding: 50px 50px 40px 50px;
+        }
+
+        .markdown-body { line-height: 1.45; font-size: 14px; color: #1a1a1a; }
+        .markdown-body p { margin: 0.3em 0 0.6em 0; }
+        .markdown-body h1 { font-size: 1.1rem; border-bottom: none; padding-bottom: 0; margin: 0 0 10px 0; font-weight: 700; color: #000; }
+        .markdown-body h2 { font-size: 1.0rem; margin: 14px 0 3px 0; font-weight: 700; color: #111; }
+        .markdown-body h3 { font-size: 0.95rem; margin: 10px 0 2px 0; font-weight: 600; color: #222; }
+        .markdown-body h4, .markdown-body h5, .markdown-body h6 { font-size: 0.9rem; margin: 8px 0 2px 0; font-weight: 600; }
+        .markdown-body code { background-color: rgba(0,0,0,0.06); padding: 0.1em 0.3em; border-radius: 2px; font-family: var(--font-mono); font-size: 82%; color: #333; }
+        .markdown-body pre { background: #f4f4f4; padding: 8px 12px; border-radius: 3px; overflow-x: auto; margin: 6px 0; }
+        .markdown-body pre code { padding: 0; background: none; }
+        .markdown-body img { max-width: 100%; }
+        .markdown-body blockquote { margin: 4px 0 4px 0.5em; padding: 0 0 0 10px; border-left: 2px solid #ccc; color: #555; }
+        .markdown-body hr { border: none; border-top: 1px solid #ddd; margin: 10px 0; }
+        .markdown-body table { border-collapse: collapse; font-size: 13px; margin: 6px 0; }
+        .markdown-body th, .markdown-body td { border: 1px solid #ccc; padding: 3px 8px; }
+        .markdown-body th { background: #f0f0f0; font-weight: 600; }
+        
+        .markdown-body ul { list-style: disc; padding-left: 1.4em; margin: 2px 0 6px 0; }
+        .markdown-body ol { list-style: decimal; padding-left: 1.4em; margin: 2px 0 6px 0; }
+        .markdown-body li { margin-bottom: 0.05em; }
+        .markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ul, .markdown-body ol ol { margin: 0; }
+
+        /* KaTeX Font Fix */
+        .katex { font-size: 1.1em; }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                position: fixed; top: 0; left: 0; bottom: 0;
+                width: 260px; transform: translateX(-100%);
+                margin-left: 0 !important; box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+            body.mobile-sidebar-open #sidebar { transform: translateX(0); }
+            .close-sidebar-btn { display: block; margin-left: 10px; }
+            
+            #mobile-overlay {
+                position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.4); z-index: 45;
+                opacity: 0; visibility: hidden; transition: opacity 0.3s;
+            }
+            body.mobile-sidebar-open #mobile-overlay { opacity: 1; visibility: visible; }
+            .content-container { padding: 20px; }
+            #sidebar-toggle { font-size: 14px; font-weight: 600; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="mobile-overlay" onclick="toggleSidebar()"></div>
+
+<nav id="sidebar">
+    <h2>
+        Explorer
+        <div class="lang-switch">
+            <span id="lang-eng" class="lang-opt active" onclick="setLanguage('eng')">ENG</span>
+            <span style="color:#ddd">|</span>
+            <span id="lang-kor" class="lang-opt" onclick="setLanguage('kor')">KOR</span>
+        </div>
+        <span class="close-sidebar-btn" onclick="toggleSidebar()">✕</span>
+    </h2>
+    
+    <a href="/" target="_blank" class="nav-item home-link">
+        <span class="icon">🏠</span> MinJae Choi's Website
+    </a>
+    <div class="separator"></div>
+    <div id="tree-root"></div>
+</nav>
+
+<main id="main">
+    <button id="sidebar-toggle" onclick="toggleSidebar()">
+        <span style="margin-right:8px;">☰</span> 
+        <span class="mobile-only-text" style="display:none;">Menu</span>
+    </button>
+    <script>
+        if(window.innerWidth <= 768) document.querySelector('.mobile-only-text').style.display = 'inline';
+    </script>
+
+    <div class="content-container">
+        <div id="content" class="markdown-body">
+            <div style="color:#aaa; font-size:13px; margin-top:20px;">Loading...</div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // ▼▼▼ 파일 목록 설정 ▼▼▼
+    const fileTree = [
+        { type: 'file', name: 'welcome.md' },
+        {
+            type: 'folder',
+            name: 'Large Language Model',
+            children: [
+                {type: 'file', name: 'Decoding of LLM.md'}
+            ]
+        }
+    ];
+
+    const contentDiv = document.getElementById('content');
+    const treeRoot = document.getElementById('tree-root');
+    const BASE_DIR = './wikicontent';
+
+    let currentLang = 'eng';
+    let currentOriginalPath = ''; 
+
+    // 1. 트리 렌더링
+    function renderTree(nodes, container, currentPath) {
+        const ul = document.createElement('ul');
+        ul.className = 'tree-ul';
+        container.appendChild(ul);
+
+        nodes.forEach(node => {
+            const li = document.createElement('li');
+            
+            if (node.type === 'folder') {
+                const div = document.createElement('div');
+                div.className = 'nav-item folder-label';
+                div.innerHTML = `<span class="icon">📂</span>${node.name}`;
+                li.appendChild(div);
+                if (node.children) renderTree(node.children, li, `${currentPath}/${node.name}`);
+            } else {
+                const btn = document.createElement('button');
+                btn.className = 'nav-item file-btn';
+                const displayName = node.name.replace(/\.md$/i, '');
+                btn.innerHTML = `<span class="icon">📄</span>${displayName}`;
+                
+                const fullPath = `${BASE_DIR}${currentPath}/${node.name}`;
+                btn.onclick = () => {
+                    loadMarkdown(fullPath, btn);
+                    if (window.innerWidth <= 768) toggleSidebar();
+                };
+
+                if (node.name === 'welcome.md' && currentPath === '') btn.id = 'default-btn';
+                li.appendChild(btn);
+            }
+            ul.appendChild(li);
+        });
+    }
+
+    // ▼▼▼ 2. 마크다운 로드 (강력한 수식 보호 기능 추가) ▼▼▼
+    function loadMarkdown(path, btnElement) {
+        if (btnElement) {
+            document.querySelectorAll('.file-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
+
+        currentOriginalPath = path;
+
+        let targetPath = path;
+        if (currentLang === 'kor') {
+            targetPath = path.replace(/\.md$/i, '_kor.md');
+        }
+
+        fetch(targetPath)
+            .then(res => {
+                if (res.ok) return res.text();
+                if (currentLang === 'kor') {
+                    return fetch(path).then(fallbackRes => {
+                        if (!fallbackRes.ok) throw new Error('Original Not Found');
+                        return fallbackRes.text().then(text => {
+                            return `> ⚠️ **Notice:** 한국어 번역본이 존재하지 않아 영문 원본을 표시합니다.\n\n` + text;
+                        });
+                    });
+                }
+                throw new Error('Not Found');
+            })
+            .then(text => {
+                // [Step A] 수식 보호: 마크다운 파싱 전 $...$ 와 $$...$$ 를 임시 토큰으로 변경
+                const mathBlocks = [];
+                
+                // 블록 수식 $$ ... $$ 보호
+                let protectedText = text.replace(/\$\$([\s\S]*?)\$\$/g, (match) => {
+                    mathBlocks.push(match);
+                    return `%%%MATH_BLOCK_${mathBlocks.length - 1}%%%`;
+                });
+
+                // 인라인 수식 $ ... $ 보호
+                protectedText = protectedText.replace(/\$([^$\n]+?)\$/g, (match) => {
+                    mathBlocks.push(match);
+                    return `%%%MATH_INLINE_${mathBlocks.length - 1}%%%`;
+                });
+
+                // [Step B] 마크다운 변환
+                let html = marked.parse(protectedText);
+
+                // [Step C] 수식 복원 및 HTML 이스케이프 (중요!)
+                // 여기서 < 기호를 &lt; 로 바꿔야 브라우저가 태그로 인식하지 않습니다.
+                mathBlocks.forEach((block, index) => {
+                    // 수식 내부의 <, > 기호를 HTML 엔티티로 변환
+                    // 예: x_{<i} -> x_{&lt;i}
+                    const safeBlock = block.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    
+                    html = html.replace(`%%%MATH_BLOCK_${index}%%%`, safeBlock);
+                    html = html.replace(`%%%MATH_INLINE_${index}%%%`, safeBlock);
+                });
+
+                // [Step D] 상단 제목 추가
+                const fileName = currentOriginalPath.split('/').pop();
+                const title = fileName.replace(/\.md$/i, '');
+                html = `<h1>${title}</h1>` + html;
+
+                contentDiv.innerHTML = html;
+                document.getElementById('main').scrollTop = 0;
+
+                // [Step E] KaTeX 렌더링
+                renderMathInElement(contentDiv, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false},
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ],
+                    throwOnError: false,
+                    trust: true, 
+                    strict: false
+                });
+            })
+            .catch(err => {
+                console.error(err);
+                contentDiv.innerHTML = `<h3 style="color:#aaa">File not found</h3>`;
+            });
+    }
+
+    // 3. 언어 변경
+    function setLanguage(lang) {
+        if (currentLang === lang) return;
+        currentLang = lang;
+
+        document.getElementById('lang-eng').classList.toggle('active', lang === 'eng');
+        document.getElementById('lang-kor').classList.toggle('active', lang === 'kor');
+
+        if (currentOriginalPath) {
+            const activeBtn = document.querySelector('.file-btn.active');
+            loadMarkdown(currentOriginalPath, activeBtn);
+        }
+    }
+
+    // 4. 사이드바 토글
+    function toggleSidebar() {
+        if (window.innerWidth <= 768) {
+            document.body.classList.toggle('mobile-sidebar-open');
+        } else {
+            document.body.classList.toggle('sidebar-collapsed');
+        }
+    }
+
+    renderTree(fileTree, treeRoot, '');
+    
+    const defaultBtn = document.getElementById('default-btn');
+    if (defaultBtn) defaultBtn.click();
+    else loadMarkdown(`${BASE_DIR}/welcome.md`, null);
+        //python -m http.server 8080
+    //http://localhost:8080
+</script>
+</body>
+</html>

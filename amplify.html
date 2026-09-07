@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amplify | Reconnecting the Classroom</title>
+    <style>
+        /* --- Reset & Variables --- */
+        :root {
+            --bg-color: #000000;
+            --card-bg: #151516;
+            --text-main: #f5f5f7;
+            --text-sub: #86868b;
+            --accent-gradient: linear-gradient(135deg, #2997ff 0%, #9e1eff 100%);
+            --accent-blue: #2997ff;
+            --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 { letter-spacing: -0.02em; font-weight: 700; }
+        
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 1.05;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: linear-gradient(to right, #fff, #c0c0c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #e0e0e0;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroFadeIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.6s;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-headline {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Navigation (Updated for Logo) --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 0; /* Adjusted padding */
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Styling Updates */
+        .logo { 
+            font-size: 22px; 
+            font-weight: 700; 
+            color: #fff; 
+            text-decoration: none; 
+            text-shadow: 0 0 10px rgba(41, 151, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+        }
+
+        .logo-img {
+            height: 36px; /* Adjust logo size */
+            width: auto;
+            filter: invert(1); /* Inverts black logo to white */
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: rotate(180deg); /* Interactive spin on hover */
+        }
+
+        .nav-menu { display: flex; gap: 24px; align-items: center; }
+        .nav-link { color: #ccc; text-decoration: none; font-size: 14px; transition: color 0.3s; font-weight: 500; }
+        .nav-link:hover { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+        
+        .nav-btn {
+            background: rgba(255,255,255,0.9);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.3s;
+            cursor: pointer;
+        }
+        .nav-btn:hover { transform: scale(1.05); background: #fff; box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140vw;
+            height: 140vh;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(41, 151, 255, 0.4) 0%, rgba(0,0,0,0) 50%),
+                radial-gradient(circle at 80% 80%, rgba(158, 30, 255, 0.4) 0%, rgba(0,0,0,0) 50%),
+                radial-gradient(circle at 50% 50%, rgba(41, 151, 255, 0.2) 0%, rgba(0,0,0,0) 60%);
+            z-index: -2;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: aurora 8s ease-in-out infinite alternate;
+        }
+
+        #graph-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        @keyframes aurora {
+            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) scale(1.1) rotate(2deg); }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+        }
+
+        /* --- Bento Grid / Features --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 900px) {
+            .feature-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+            .feature-grid.reversed { direction: rtl; }
+            .feature-grid.reversed .content-col { direction: ltr; }
+            .feature-grid.reversed .visual-col { direction: ltr; }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .visual-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        /* --- Infographics --- */
+        .graph-core { width: 200px; height: 200px; position: relative; }
+        .core-circle {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            border-radius: 50%; border: 2px solid rgba(41, 151, 255, 0.3);
+            box-shadow: 0 0 30px rgba(41, 151, 255, 0.2);
+        }
+        .c1 { width: 60px; height: 60px; background: var(--accent-blue); animation: pulse 3s infinite; }
+        .c2 { width: 120px; height: 120px; animation: spin 10s linear infinite; border-top-color: #fff; }
+        .c3 { width: 180px; height: 180px; animation: spinReverse 15s linear infinite; border-bottom-color: #9e1eff; }
+        .node { position: absolute; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; }
+        .n1 { top: 0; left: 50%; } .n2 { bottom: 20%; right: 10%; } .n3 { bottom: 20%; left: 10%; }
+
+        .analytics-box { width: 100%; max-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+        .bar-container { display: flex; align-items: center; gap: 15px; }
+        .bar-label { font-size: 14px; color: var(--text-sub); width: 60px; }
+        .bar-track { flex-grow: 1; height: 8px; background: #333; border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; background: var(--accent-gradient); width: 0; border-radius: 4px; transition: width 2s cubic-bezier(0.22, 1, 0.36, 1); }
+
+        .access-box { display: flex; gap: 6px; align-items: center; height: 100px; }
+        .wave-bar { width: 10px; background: #fff; border-radius: 5px; animation: sound 1s infinite ease-in-out; }
+        .w1 { height: 30%; animation-delay: 0.1s; } .w2 { height: 60%; animation-delay: 0.2s; }
+        .w3 { height: 90%; animation-delay: 0.3s; background: var(--accent-blue); }
+        .w4 { height: 50%; animation-delay: 0.4s; } .w5 { height: 30%; animation-delay: 0.5s; }
+
+        .connect-box { position: relative; width: 260px; height: 260px; }
+        .avatar {
+            width: 60px; height: 60px; background: #333; border-radius: 50%; position: absolute;
+            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; border: 2px solid #000;
+        }
+        .a-center { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--text-main); color: #000; z-index: 2; box-shadow: 0 0 50px rgba(255,255,255,0.2); }
+        .a-float { background: #222; color: #fff; animation: float 6s ease-in-out infinite; }
+        .af-1 { top: 0; left: 50%; animation-delay: 0s; } .af-2 { bottom: 20px; left: 10px; animation-delay: 2s; } .af-3 { bottom: 20px; right: 10px; animation-delay: 4s; }
+        .line { position: absolute; top: 50%; left: 50%; width: 2px; height: 100px; background: linear-gradient(to bottom, #fff, transparent); transform-origin: top center; opacity: 0.3; }
+
+        /* --- CTA Section --- */
+        .cta-section { background: #f5f5f7; color: #000; border-radius: 40px 40px 0 0; margin-top: 50px; text-align: center; padding: 150px 24px; }
+        .btn-cta {
+            display: inline-block; background: #000; color: #fff; padding: 18px 40px; border-radius: 100px;
+            font-size: 18px; font-weight: 600; text-decoration: none; margin-top: 40px; transition: transform 0.2s, background-color 0.3s;
+            cursor: pointer;
+        }
+        .btn-cta:hover { transform: scale(1.05); background-color: #333; }
+
+        /* --- Animations --- */
+        @keyframes heroFadeIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: translate(-50%, -50%) scale(0.9); box-shadow: 0 0 0 rgba(41,151,255,0.7); } 70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 50px rgba(41,151,255,0); } 100% { transform: translate(-50%, -50%) scale(0.9); } }
+        @keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes spinReverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+        @keyframes sound { 0%, 100% { height: 20%; } 50% { height: 100%; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-menu .nav-link { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Amplify Logo" class="logo-img">
+                Amplify
+            </a>
+            
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#inclusivity" class="nav-link">Inclusivity</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a class="nav-btn" onclick="requestDemo()">Request Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg-glow"></div>
+        <canvas id="graph-canvas"></canvas>
+        <div class="container" style="z-index: 2;">
+            <h1 class="hero-title">Amplify</h1>
+            <p class="hero-tagline">The Ultimate Platform for Inclusive Class Connection.<br>Experience the future of education.</p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="feature-grid reveal">
+                <div class="content-col">
+                    <h2 class="section-headline">Educationally Grounded <span class="gradient-text">Intelligence.</span></h2>
+                    <p class="section-desc">
+                        Say goodbye to hallucinations. Our Graph based Agentic Graph QA system understands the structure of your lecture materials. It traces logic, verifies facts, and delivers answers you can trust—not just generate.
+                    </p>
+                </div>
+                <div class="visual-col">
+                    <div class="card" style="width: 100%; display: flex; justify-content: center; align-items: center; min-height: 400px;">
+                        <div class="graph-core">
+                            <div class="core-circle c1"></div>
+                            <div class="core-circle c2"><div class="node n1"></div></div>
+                            <div class="core-circle c3"><div class="node n2"></div><div class="node n3"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="feature-grid reversed reveal">
+                <div class="content-col">
+                    <h2 class="section-headline">Visible <span class="gradient-text">Understanding.</span></h2>
+                    <p class="section-desc">
+                        Instructors have been flying blind—until now. Amplify turns every student interaction into actionable data. Visualize comprehension levels in real-time and adapt your teaching based on evidence, not intuition.
+                    </p>
+                </div>
+                <div class="visual-col">
+                    <div class="card" style="width: 100%; min-height: 400px; display: flex; justify-content: center; align-items: center;">
+                        <div class="analytics-box">
+                            <div class="bar-container"><span class="bar-label">Logic</span><div class="bar-track"><div class="bar-fill" data-width="92%"></div></div></div>
+                            <div class="bar-container"><span class="bar-label">Recall</span><div class="bar-track"><div class="bar-fill" data-width="65%" style="background: #ff3b30;"></div></div></div>
+                            <div class="bar-container"><span class="bar-label">App.</span><div class="bar-track"><div class="bar-fill" data-width="88%"></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inclusivity">
+        <div class="container">
+            <div class="feature-grid reveal">
+                <div class="content-col">
+                    <h2 class="section-headline">Inclusivity. <span class="gradient-text">Built-in.</span></h2>
+                    <p class="section-desc">
+                        We leave no student behind. Powered by <strong>Azure Immersive Reader</strong> and <strong>Interaction algorithms designed with students with disabilities</strong>, Amplify reduces cognitive load for screen reader users by preventing auditory information overload. Our dialog-based engine assists visually impaired students in formulating complex queries step-by-step.
+                    </p>
+                </div>
+                <div class="visual-col">
+                    <div class="card" style="width: 100%; min-height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <div class="access-box">
+                            <div class="wave-bar w1"></div>
+                            <div class="wave-bar w2"></div>
+                            <div class="wave-bar w3"></div>
+                            <div class="wave-bar w4"></div>
+                            <div class="wave-bar w5"></div>
+                        </div>
+                        <p style="margin-top: 30px; color: var(--text-sub); font-size: 14px;">Azure Immersive Reader & Specialized Interaction Algorithms Integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="feature-grid reversed reveal">
+                <div class="content-col">
+                    <h2 class="section-headline">Collective <span class="gradient-text">Impact.</span></h2>
+                    <p class="section-desc">
+                        Don't let good questions disappear. Amplify creates a thriving ecosystem where meaningful inquiries spark debate. We foster an environment where students learn from each other through shared insights, guided by specialized AI agents.
+                    </p>
+                </div>
+                <div class="visual-col">
+                    <div class="card" style="width: 100%; min-height: 400px; display: flex; justify-content: center; align-items: center;">
+                        <div class="connect-box">
+                            <div class="line" style="transform: rotate(0deg);"></div>
+                            <div class="line" style="transform: rotate(120deg);"></div>
+                            <div class="line" style="transform: rotate(240deg);"></div>
+                            <div class="avatar a-center">AI</div>
+                            <div class="avatar a-float af-1">Q</div>
+                            <div class="avatar a-float af-2">A</div>
+                            <div class="avatar a-float af-3">?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container reveal">
+            <h2 class="section-headline" style="color: #000;">Ready to Transform Your Campus?</h2>
+            <p class="section-desc" style="color: #444; max-width: 700px; margin: 0 auto;">
+                Seamless integration with your existing University LMS <br>
+                Empower your institution with the scalable, data-driven education platform.
+            </p>
+            <div style="margin-top: 40px;">
+                <a class="btn-cta" onclick="requestDemo()" style="margin-right: 15px;">Request a Demo</a>
+                <a class="btn-cta" onclick="contactSales()" style="background: #fff; color: #000; border: 1px solid #ddd;">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #f5f5f7; padding: 40px 24px; text-align: center; color: #86868b; font-size: 12px;">
+        <p>Copyright © 2026 MinJae Choi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    const bars = entry.target.querySelectorAll('.bar-fill');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Email Automation Logic
+        function requestDemo() {
+            const email = "minjaechoi.cs@gmail.com";
+            const subject = "[Amplify] Request for Demo & Integration";
+            const body = `
+Thank you for your interest in Amplify.
+Please provide the information below to request a demo, and we will contact you soon.
+
+1. Institution Name(If you are an individual, please enter “Individual” as your name): 
+2. Representative Name (Institutional contact person): 
+2. Representative Email/Contact: 
+3. Estimated Scope (Number of Students/Courses): 
+
+We sincerely appreciate your interest in Amplify.
+`;
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function contactSales() {
+            const email = "minjaechoi.cs@gmail.com";
+            const subject = "[Amplify] Sales Inquiry";
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+        }
+
+        // --- Graph Animation (Canvas) ---
+        const canvas = document.getElementById('graph-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        // Configuration
+        const particleCount = 60;
+        const connectionDistance = 150;
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.update();
+                p.draw();
+
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / connectionDistance})`; // Fade based on distance
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            initParticles();
+        });
+
+        resize();
+        initParticles();
+        animate();
+
+    </script>
+</body>
+</html>

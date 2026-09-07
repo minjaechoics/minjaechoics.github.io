@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MFJMFV4JJE');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project · Easy Coach — MinJae Choi</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       Variables & Base
+       =========================== */
+    :root{
+      --bg: #ECEEF1;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0b1220;
+      --primary: #23394F;
+      --accent: #2E4A6B;
+      --glass: rgba(255,255,255,0.7);
+      --radius: 12px;
+      --max-width: 1100px;
+      --container-gap: 24px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Pretendard', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #ECEEF1 0%, #F7F8FA 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block;border-radius:8px}
+
+    /* ===========================
+       Header / Nav
+       =========================== */
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(15,23,42,0.04);
+    }
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px var(--container-gap);
+      gap:12px;
+    }
+    .logo{
+      font-weight:800;
+      font-size:18px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .nav-links{display:flex;gap:14px;align-items:center}
+    .nav-links a{font-weight:600;color:var(--muted);padding:8px;border-radius:8px}
+    .nav-links a:hover{color:var(--primary); background: rgba(35,57,79,0.04)}
+    
+    /* Hamburger Menu */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--primary);transition:all 0.3s;border-radius:2px}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(7px, 7px)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px, -7px)}
+
+    /* ===========================
+       Layout container
+       =========================== */
+    main {
+      max-width: var(--max-width);
+      margin: 28px auto;
+      padding: 0 var(--container-gap) 80px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items:start;
+    }
+
+    /* ===========================
+       Sidebar (TOC / profile)
+       =========================== */
+    aside.sidemenu{
+      position:sticky;
+      top:80px;
+      align-self:start;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 6px 18px rgba(12,20,55,0.06);
+      border:1px solid rgba(11,18,32,0.04);
+      min-height: 200px;
+    }
+    .profile-title{font-weight:700;color:var(--primary);margin-bottom:8px}
+    .contact{font-size:13px;color:var(--muted);margin-bottom:12px}
+    .socials{display:flex;gap:8px;margin-bottom:12px}
+    .toc{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px dashed rgba(11,18,32,0.04);
+      font-size:14px;
+    }
+    .toc a{display:block;padding:6px 0;color:var(--muted);border-left:3px solid transparent;transition:all .16s}
+    .toc a:hover{color:var(--primary);padding-left:6px;border-left-color:var(--accent)}
+
+    /* ===========================
+       Article content
+       =========================== */
+    article.contents{
+      background:transparent;
+      display:block;
+      min-width:0;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(12,20,55,0.06);
+      border:1px solid rgba(11,18,32,0.04);
+    }
+
+    .hero {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .page-title{
+      font-size:28px;
+      margin:0;
+      font-weight:800;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .meta{
+      display:flex;gap:12px;align-items:center;color:var(--muted);font-size:14px;
+    }
+    .badge{background:linear-gradient(90deg, rgba(46,74,107,0.12), rgba(35,57,79,0.06));padding:6px 10px;border-radius:999px;font-weight:600;color:var(--primary);font-size:13px}
+
+    h2.section-title{
+      color:var(--primary); margin:22px 0 12px; font-size:18px; font-weight:700;
+    }
+    h3.sub-title{font-size:16px;margin:16px 0 8px;color:#12203a;font-weight:700}
+    p, li{color: #15212d; font-size:15px}
+    p.lead{font-size:15.5px;color:var(--muted)}
+
+    .img-full{border-radius:10px;box-shadow: 0 6px 18px rgba(8,12,40,0.06);margin:14px 0}
+
+    .list{padding-left:18px;margin:10px 0}
+    table.project-table { width:100%; border-collapse: collapse; margin:14px 0; font-size:14px; }
+    table.project-table th, table.project-table td { border:1px solid rgba(11,18,32,0.06); padding:10px; text-align:left; }
+    table.project-table th{background:linear-gradient(90deg, rgba(35,57,79,0.03), rgba(46,74,107,0.02));font-weight:700}
+
+    /* Code / flow images row */
+    .flow-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+    .flow-row .flow-img{border-radius:10px;overflow:hidden}
+
+    /* small helper */
+    .muted{color:var(--muted);font-size:13px}
+
+    /* ===========================
+       Footer
+       =========================== */
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:14px;background:transparent}
+
+    /* ===========================
+       Responsiveness
+       =========================== */
+    @media (max-width: 980px){
+      main{grid-template-columns: 1fr; padding:0 18px 80px; gap:18px}
+      aside.sidemenu{position:relative;top:auto;}
+      .flow-row{grid-template-columns:1fr}
+    }
+    
+    @media (max-width: 768px){
+      .nav-links{
+        position:fixed;
+        top:56px;
+        right:-100%;
+        width:240px;
+        height:calc(100vh - 56px);
+        background:var(--card);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        box-shadow:-4px 0 24px rgba(12,20,55,0.12);
+        transition:right 0.3s ease;
+        gap:4px;
+      }
+      .nav-links.active{right:0}
+      .nav-links a{width:100%;padding:12px 16px;display:block}
+      .hamburger{display:flex}
+    }
+    
+    @media (max-width: 520px){
+      .page-title{font-size:22px}
+      .hero{gap:6px}
+      .card{padding:16px}
+      .nav{padding:12px}
+    }
+
+    /* ===========================
+       Accessibility / small touches
+       =========================== */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav" role="navigation" aria-label="Main Navigation">
+      <div class="logo">MinJae Choi</div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" aria-label="Site Links">
+        <a href="/">Home</a>
+        <a href="/cv/">CV</a>
+        <a href="/projects/">Projects</a>
+        <a href="/blog/">Posts</a>
+        <a href="/blog/">Blogs</a>
+        <a href="archive.html">Archive</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- SIDEBAR -->
+    <aside class="sidemenu" aria-label="Project Sidebar">
+      <div class="profile-title">Easy Coach</div>
+
+      <nav class="toc" aria-label="Table of contents" style="margin-top:14px">
+        <div style="font-weight:700;margin-bottom:8px;color:#12203a">Contents</div>
+        <a href="#necessary">1. Why I started this project</a>
+        <a href="#uioverview">2. What Easy Coach can do</a>
+        <a href="#maincoachingalg">3. Main Coaching Algorithms</a>
+        <a href="#algoverview">4-1. Overview</a>
+        <a href="#datacollect">4-2. What data should be collected?</a>
+        <a href="#openpose">4-3. What is OpenPose?</a>
+        <a href="#minmaxcalc">4-4. Calculating maximum and minimum angles</a>
+        <a href="#stoprcd">4-5. Movement identification algorithm</a>
+        <a href="#algacc">5. Algorithms for More Accurate Coaching</a>
+        <a href="#causes">5-1. Causes of inaccuracies</a>
+        <a href="#discard">5-2. Discarding inaccurate measurements</a>
+        <a href="#feedback">6. Feedback from Specialists</a>
+      </nav>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="contents" id="content">
+      <div class="card">
+        <header class="hero" aria-labelledby="title">
+          <h1 id="title" class="page-title">Easy Coach <span style="font-size:14px;font-weight:600;color:var(--muted);margin-left:8px">· 2022</span></h1>
+          <div class="meta">
+            <div class="badge">Computer Vision</div>
+            <div class="muted">OpenPose · Real-time · Lightweight</div>
+            <div style="margin-left:auto;font-size:13px;color:var(--muted)">Last update: 2025.10.29</div>
+          </div>
+        </header>
+
+        <!-- INTRO -->
+        <section aria-labelledby="necessary">
+          <h2 id="necessary" class="section-title">Why I started this project</h2>
+          <p class="lead">From 2019 to 2022, normal outdoor activities became difficult due to the COVID-19 pandemic. To maintain physical health at home, people needed accessible posture coaching without expensive sensors — so I built Easy Coach: a webcam-only posture coach.</p>
+
+          <p class="muted">This post expands my 2022 project presentation and includes implementation details and troubleshooting notes.</p>
+        </section>
+
+        <!-- WHAT IT DOES -->
+        <section aria-labelledby="uioverview" style="margin-top:18px">
+          <h2 id="uioverview" class="section-title">What Easy Coach can do</h2>
+
+          <img class="img-full" src="resources/project_easycoach/promotion_pic.png" alt="Easy Coach Promotion">
+
+          <p>Easy Coach offers simple, fast, and precise posture feedback. Users select an exercise and perform it in front of a laptop camera — the system returns real-time coaching based on extracted joint angles.</p>
+        </section>
+
+        <!-- MAIN ALGORITHMS -->
+        <section aria-labelledby="maincoachingalg" style="margin-top:18px">
+          <h2 id="maincoachingalg" class="section-title">Main Coaching Algorithms</h2>
+
+          <h3 id="algoverview" class="sub-title">Overview</h3>
+          <div class="flow-row" role="figure" aria-label="system structure">
+            <div class="flow-img"><img src="resources/project_easycoach/structure_pic.png" alt="system structure"></div>
+            <div class="flow-img"><img src="resources/project_easycoach/iostructure_pic.png" alt="IO structure"></div>
+          </div>
+
+          <h3 id="datacollect" class="sub-title">What data should be collected?</h3>
+          <ul class="list">
+            <li>Squats</li>
+            <li>Push-ups</li>
+            <li>Lunges</li>
+            <li>Shoulder Press</li>
+            <li>Overhead Tricep Extensions</li>
+          </ul>
+
+          <p>These home workouts require monitoring of joint angles and identification of repeated movement phases. We use extrema in joint-angle vs time graphs (from OpenPose keypoints) to find phases, measure repetition counts, and compute movement speed.</p>
+
+          <h3 id="openpose" class="sub-title">What is OpenPose and how to calculate angles?</h3>
+          <p>OpenPose outputs 2D coordinates of keypoints. By choosing three joints we form a triangle and compute side lengths; using the law of cosines we obtain joint angles (range 0 to π), which are robust for further processing.</p>
+
+          <img class="img-full" src="resources/project_easycoach/openpose_pic.png" alt="OpenPose example">
+
+          <h3 id="minmaxcalc" class="sub-title">Calculating maximum and minimum angles</h3>
+          <p>Recording and storing per-frame angles caused memory overhead and slow IO. The practical solution was to compute representative statistics online: detect local maxima/minima in-stream and aggregate only those values (constant time per frame), preventing memory and IO bottlenecks.</p>
+
+          <img class="img-full" src="resources/project_easycoach/cpuvsgpu_graph.png" alt="CPU vs GPU performance">
+
+          <p>Local extrema detection relies on sign changes of the derivative of angle-time signals — a light-weight, real-time-friendly approach.</p>
+
+          <h3 id="stoprcd" class="sub-title">Movement identification algorithm</h3>
+          <p>Repetitive exercises show repeating extremum patterns (e.g., knee angle during squats). By tracking derivative sign patterns and aligning extrema, we determine current movement phase, repetition index, and decide when to stop recording.</p>
+
+          <img class="img-full" src="resources/project_easycoach/derivative_graph.png" alt="derivative of joint-angle">
+        </section>
+
+        <!-- ACCURACY -->
+        <section aria-labelledby="algacc" style="margin-top:18px">
+          <h2 id="algacc" class="section-title">Algorithms for More Accurate Coaching</h2>
+
+          <h3 id="causes" class="sub-title">Causes of coaching inaccuracies</h3>
+          <p>During beta testing, OpenPose misdetections occurred mostly because of occlusions or moving background objects. Typical causes:</p>
+          <ul class="list">
+            <li>Another person or moving object behind the user</li>
+            <li>Partial occlusion of body parts by furniture or objects</li>
+          </ul>
+
+          <img class="img-full" src="resources/project_easycoach/cause_pic.png" alt="causes of error">
+
+          <h3 id="discard" class="sub-title">Discarding & correcting inaccurate measurements</h3>
+          <p>OpenPose uses -1 to indicate missing values — those are discarded. The harder case is when an obstacle is mistaken for a body part and generates a plausible angle (within 0–180°). To detect and correct such errors, Easy Coach uses:</p>
+          <ul class="list">
+            <li><strong>Criterion 1</strong>: If an angle is below an exercise-specific physical lower bound, mark frame as erroneous.</li>
+            <li><strong>Criterion 2</strong>: If the angular change between consecutive frames exceeds a plausible physical threshold (derivative-based), mark it as erroneous.</li>
+          </ul>
+          <p>When erroneous frames are detected, the angle is replaced by the average of previous valid observations, smoothing the signal and improving coaching reliability.</p>
+
+          <img class="img-full" src="resources/project_easycoach/errorcorrection_graph.png" alt="error correction example">
+
+        </section>
+
+        <!-- FEEDBACK -->
+        <section aria-labelledby="feedback" style="margin-top:18px">
+          <h2 id="feedback" class="section-title">Feedback from Specialists</h2>
+          <p class="indent">Presentation feedback from industry and academia emphasized two main points:</p>
+          <ol class="list">
+            <li>UI/UX importance — add gamification and engagement features to retain users.</li>
+            <li>Prior art research — investigate existing solutions to refine differentiation and product strategy.</li>
+          </ol>
+          <p>These insights guided subsequent UI improvements and the roadmap toward a productized solution.</p>
+        </section>
+
+        <!-- OPTIONAL: Technical table / resources -->
+        <section style="margin-top:18px">
+          <h3 class="sub-title">Technical notes</h3>
+          <table class="project-table" aria-label="Technical details">
+            <thead>
+              <tr><th>Component</th><th>Details</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Pose estimation</td><td>OpenPose-based 2D keypoint extraction (15 joints)</td></tr>
+              <tr><td>Angle calc</td><td>Form triangles — law of cosines to compute joint angles</td></tr>
+              <tr><td>Realtime</td><td>Online extrema detection + streaming aggregation</td></tr>
+              <tr><td>Error handling</td><td>Value thresholds + derivative checks + fallback averaging</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+      </div> <!-- /.card -->
+
+      <!-- Image gallery card -->
+      <div class="card" style="margin-top:18px">
+        <h3 class="sub-title">Images & Flow</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <img src="resources/project_easycoach/promotion_pic.png" alt="promotion" style="border-radius:10px">
+          <img src="resources/project_easycoach/flwchart_pic.png" alt="flow chart" style="border-radius:10px">
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div style="max-width:var(--max-width);margin:0 auto;padding:18px 20px;color:var(--muted)">
+      © 2025 MinJae Choi. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Small script for smooth TOC scrolling (progressively-enhanced) -->
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      const isExpanded = hamburger.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', isExpanded);
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    // Smooth scroll for TOC links
+    document.querySelectorAll('.toc a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Optional: highlight current TOC entry on scroll (simple)
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(l => document.getElementById(l.getAttribute('href').slice(1)));
+    function onScroll(){
+      const fromTop = window.scrollY + 100;
+      sections.forEach((sec,i)=>{
+        if(sec){
+          if(sec.offsetTop <= fromTop && sec.offsetTop + sec.offsetHeight > fromTop){
+            tocLinks.forEach(x=>x.style.color='var(--muted)');
+            tocLinks[i].style.color = 'var(--primary)';
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  </script>
+</body>
+</html>

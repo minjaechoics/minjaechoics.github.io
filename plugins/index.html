@@ -1,0 +1,314 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> plugins | MinJae Choi </title> <meta name="author" content="MinJae Choi"> <meta name="description" content="featured and bundled plugin ecosystem catalog for al-folio v1.x"> <meta name="keywords" content="MinJae Choi, KAIST, machine learning, quantization, graph algorithms, portfolio"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%A0&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://minjaechoics.github.io/plugins/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> MinJae Choi </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-nav-dropdown-toggle="true" aria-haspopup="true" aria-expanded="false">more </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/archive.html">archive (KAIST courses)</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/design.html">design portfolio</a> <a class="dropdown-item " href="/amplify.html">amplify</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/wiki.html">wiki</a> <a class="dropdown-item " href="/falcon.html">falcon dashboard</a> </div> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">plugins</h1> <p class="post-description">featured and bundled plugin ecosystem catalog for al-folio v1.x</p> </header> <article> <p><code class="language-plaintext highlighter-rouge">al-folio</code> <code class="language-plaintext highlighter-rouge">v1.x</code> is a starter with plugin-owned runtime features. This page lists plugins recognized in the ecosystem catalog (<code class="language-plaintext highlighter-rouge">_data/featured_plugins.yml</code>).</p> <h2 id="naming-convention">Naming convention</h2> <ul> <li>Theme-coupled plugins: <ul> <li>repo: <code class="language-plaintext highlighter-rouge">al-folio-&lt;feature&gt;</code> </li> <li>gem/plugin id: <code class="language-plaintext highlighter-rouge">al_folio_&lt;feature&gt;</code> </li> </ul> </li> <li>Reusable plugins: <ul> <li>repo: <code class="language-plaintext highlighter-rouge">al-&lt;feature&gt;</code> or neutral name</li> <li>gem/plugin id aligned with plugin namespace</li> </ul> </li> </ul> <p>Third-party non-<code class="language-plaintext highlighter-rouge">al-*</code> plugins are also eligible for featuring.</p> <h2 id="bundled-plugins">Bundled plugins</h2> <table> <thead> <tr> <th>Name</th> <th>Gem</th> <th>Plugin ID</th> <th>Compatibility</th> <th>Owner</th> <th>Demo</th> <th>Notes</th> </tr> </thead> <tbody> <tr> <td>al_folio_core<br><small><code>https://github.com/al-org-dev/al-folio-core</code></small> </td> <td><code>al_folio_core</code></td> <td><code>al_folio_core</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/about/</code></td> <td>Core runtime primitives and starter contracts.</td> </tr> <tr> <td>al_folio_distill<br><small><code>https://github.com/al-org-dev/al-folio-distill</code></small> </td> <td><code>al_folio_distill</code></td> <td><code>al_folio_distill</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/blog/2018/distill/</code></td> <td>Distill layout/runtime ownership.</td> </tr> <tr> <td>al_folio_cv<br><small><code>https://github.com/al-org-dev/al-folio-cv</code></small> </td> <td><code>al_folio_cv</code></td> <td><code>al_folio_cv</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/cv/</code></td> <td>CV layouts, includes, and rendering behavior.</td> </tr> <tr> <td>al_folio_upgrade<br><small><code>https://github.com/al-org-dev/al-folio-upgrade</code></small> </td> <td><code>al_folio_upgrade</code></td> <td><code>al_folio_upgrade</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/</code></td> <td>Upgrade audit/codemod/report CLI.</td> </tr> <tr> <td>al_folio_bootstrap_compat<br><small><code>https://github.com/al-org-dev/al-folio-bootstrap-compat</code></small> </td> <td><code>al_folio_bootstrap_compat</code></td> <td><code>al_folio_bootstrap_compat</code></td> <td> <code>1.0.0</code> - <code>1.2.x</code> </td> <td>al-org-dev</td> <td><code>/blog/2023/tables/</code></td> <td>Transitional compatibility for legacy Bootstrap-marked content.</td> </tr> <tr> <td>al_icons<br><small><code>https://github.com/al-org-dev/al-icons</code></small> </td> <td><code>al_icons</code></td> <td><code>al_icons</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/about/</code></td> <td>Icon runtime loading (Font Awesome, Academicons, Scholar Icons).</td> </tr> <tr> <td>al_cookie<br><small><code>https://github.com/al-org-dev/al-cookie</code></small> </td> <td><code>al_cookie</code></td> <td><code>al_cookie</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/</code></td> <td>Cookie consent runtime and consent-aware analytics gating.</td> </tr> <tr> <td>al_search<br><small><code>https://github.com/al-org-dev/al-search</code></small> </td> <td><code>al_search</code></td> <td><code>al_search</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/</code></td> <td>Search runtime payload and keyboard/modal setup.</td> </tr> <tr> <td>al_img_tools<br><small><code>https://github.com/al-org-dev/al-img-tools</code></small> </td> <td><code>al_img_tools</code></td> <td><code>al_img_tools</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/blog/2024/photo-gallery/</code></td> <td>Image tooling, gallery, and lightbox behavior.</td> </tr> <tr> <td>al_math<br><small><code>https://github.com/al-org-dev/al-math</code></small> </td> <td><code>al_math</code></td> <td><code>al_math</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/blog/2023/tikzjax/</code></td> <td>Math and TikZ runtime integration.</td> </tr> <tr> <td>al_analytics<br><small><code>https://github.com/al-org-dev/al-analytics</code></small> </td> <td><code>al_analytics</code></td> <td><code>al_analytics</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/</code></td> <td>Analytics provider runtime integration.</td> </tr> <tr> <td>al_citations<br><small><code>https://github.com/al-org-dev/al-citations</code></small> </td> <td><code>al_citations</code></td> <td><code>al_citations</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/publications/</code></td> <td>Bibliography rendering and publication runtime behavior.</td> </tr> <tr> <td>al_ext_posts<br><small><code>https://github.com/al-org-dev/al-ext-posts</code></small> </td> <td><code>al_ext_posts</code></td> <td><code>al_ext_posts</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/blog/</code></td> <td>External posts ingestion helpers.</td> </tr> <tr> <td>al_charts<br><small><code>https://github.com/al-org-dev/al-charts</code></small> </td> <td><code>al_charts</code></td> <td><code>al_charts</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/blog/2023/charts/</code></td> <td>Chart runtime integrations.</td> </tr> <tr> <td>al_comments<br><small><code>https://github.com/al-org-dev/al-comments</code></small> </td> <td><code>al_comments</code></td> <td><code>al_comments</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/blog/</code></td> <td>Comments providers and comment runtime glue.</td> </tr> <tr> <td>al_newsletter<br><small><code>https://github.com/al-org-dev/al-newsletter</code></small> </td> <td><code>al_newsletter</code></td> <td><code>al_newsletter</code></td> <td> <code>1.0.0</code> - <code>1.x</code> </td> <td>al-org-dev</td> <td><code>/</code></td> <td>Newsletter runtime integration.</td> </tr> </tbody> </table> <h2 id="featured-only-plugins">Featured-only plugins</h2> <p>There are no featured-only entries yet. Open a <strong>Plugin Feature Proposal</strong> issue if you want your plugin considered.</p> <h2 id="proposing-a-plugin-for-featuring">Proposing a plugin for featuring</h2> <ol> <li>Open a <strong>Plugin Feature Proposal</strong> issue in this repo.</li> <li>Provide plugin metadata (repo URL, gem name, plugin id, compatibility, demo path, maintainer contact).</li> <li>Open a PR updating <code class="language-plaintext highlighter-rouge">_data/featured_plugins.yml</code>.</li> <li>If requesting default starter bundling, include <code class="language-plaintext highlighter-rouge">Gemfile</code> and <code class="language-plaintext highlighter-rouge">_config.yml</code> wiring updates in the same PR.</li> </ol> <p>Featuring and bundling are separate maintainer decisions.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 MinJae Choi. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script> <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-MFJMFV4JJE");
+</script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Research, competitions, and software projects.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "GitHub activity and repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Education, research, competitions, and skills.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "dropdown-archive-kaist-courses",
+              title: "archive (KAIST courses)",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/archive.html";
+              },
+            },{id: "dropdown-design-portfolio",
+              title: "design portfolio",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/design.html";
+              },
+            },{id: "dropdown-amplify",
+              title: "amplify",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/amplify.html";
+              },
+            },{id: "dropdown-wiki",
+              title: "wiki",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/wiki.html";
+              },
+            },{id: "dropdown-falcon-dashboard",
+              title: "falcon dashboard",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/falcon.html";
+              },
+            },{id: "post-kaist-include-2026-spring-computer-vision-seminar",
+        
+          title: "KAIST Include 2026 Spring Computer Vision Seminar",
+        
+        description: "Slides for a seminar on Generative Adversarial Networks hosted by Include, KAIST&#39;s AI club.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/computer-vision-seminar/";
+          
+        },
+      },{id: "post-growing-a-language",
+        
+          title: 'Growing a Language <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/@minjaechoi.cs/growing-a-language-3ba209b57f9b?source=rss-5226e1c0356d------2", "_blank");
+          
+        },
+      },{id: "post-dynamic-programming-in-rl-policy-iteration-vs-value-iteration",
+        
+          title: 'Dynamic Programming in RL: Policy Iteration vs. Value Iteration <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/kaist-include-ai-club/dynamic-programming-in-rl-policy-iteration-vs-value-iteration-a004aa143d03?source=rss-5226e1c0356d------2", "_blank");
+          
+        },
+      },{id: "post-the-foundation-of-reinforcement-learning-mdps-and-the-bellman-equation",
+        
+          title: 'The Foundation of Reinforcement Learning: MDPs and the Bellman Equation <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/kaist-include-ai-club/the-foundation-of-reinforcement-learning-mdps-and-the-bellman-equation-3f657cb31e7f?source=rss-5226e1c0356d------2", "_blank");
+          
+        },
+      },{id: "post-unlocking-the-power-of-networks-expressiveness-link-prediction-and-generation-in-graph-ai",
+        
+          title: 'Unlocking the Power of Networks: Expressiveness, Link Prediction, and Generation in Graph AI... <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://medium.com/kaist-include-ai-club/unlocking-the-power-of-networks-expressiveness-link-prediction-and-generation-in-graph-ai-2c970686a8e3?source=rss-5226e1c0356d------2", "_blank");
+          
+        },
+      },{id: "post-kaist-include-2025-fall-graph-ai-seminar",
+        
+          title: "KAIST Include 2025 Fall Graph AI Seminar",
+        
+        description: "Slides on expressiveness, link prediction, and generation in graph AI.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/graph-ai-seminar/";
+          
+        },
+      },{id: "news-started-undergraduate-studies-at-kaist-school-of-computing",
+          title: 'Started undergraduate studies at KAIST, School of Computing.',
+          description: "",
+          section: "News",},{id: "news-started-undergraduate-research-at-the-flexible-machine-learning-algorithm-lab-flexml-kaist-ee",
+          title: 'Started undergraduate research at the Flexible Machine Learning Algorithm Lab (FlexML), KAIST EE....',
+          description: "",
+          section: "News",},{id: "news-became-a-google-gemini-student-ambassador-team-kaist-include-won-2nd-best-activity-team-in-phase-1",
+          title: '🏆 Became a Google Gemini Student Ambassador — Team KAIST-Include won 2nd Best...',
+          description: "",
+          section: "News",},{id: "news-advanced-to-the-mvp-round-of-microsoft-imagine-cup-2026-with-amplify",
+          title: 'Advanced to the MVP round of Microsoft Imagine Cup 2026 with Amplify.',
+          description: "",
+          section: "News",},{id: "news-started-lg-aimers-8th-focused-on-large-language-models-and-llm-compression",
+          title: 'Started LG AImers (8th), focused on Large Language Models and LLM compression.',
+          description: "",
+          section: "News",},{id: "news-our-team-won-the-semifinal-round-top-3-of-the-lg-ai-research-k-exaone4-llm-compression-competition-and-advanced-to-the-final-round",
+          title: '🏆 Our team won the semifinal round (Top 3%) of the LG AI...',
+          description: "",
+          section: "News",},{id: "news-started-the-nvidia-nemotron-model-reasoning-challenge",
+          title: 'Started the NVIDIA Nemotron Model Reasoning Challenge.',
+          description: "",
+          section: "News",},{id: "news-completed-the-npu-design-2026-beginner-course-at-the-kaist-pim-semiconductor-design-research-center",
+          title: 'Completed the NPU Design 2026 Beginner Course at the KAIST PIM Semiconductor Design...',
+          description: "",
+          section: "News",},{id: "projects-near-1-bit-ultra-low-bit-quantization-for-trillion-scale-llms",
+          title: 'Near 1-Bit Ultra-Low-Bit Quantization for Trillion-Scale LLMs',
+          description: "Research on efficient inference for trillion-scale language models at FlexML Lab.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_near_1bit_quantization/";
+            },},{id: "projects-arc-challenge-2026",
+          title: 'ARC Challenge 2026',
+          description: "Research around abstraction, reasoning, and generalization for ARC-style tasks.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_arc_challenge/";
+            },},{id: "projects-cj-logistics-random-palletizing-algorithm",
+          title: 'CJ Logistics Random Palletizing Algorithm',
+          description: "Designing algorithms for palletizing and logistics optimization problems.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_cj_logistics/";
+            },},{id: "projects-parameterized-algorithm-for-maximum-agreement-forest",
+          title: 'Parameterized Algorithm for Maximum-Agreement Forest',
+          description: "Solving the MAF problem by designing parameterized algorithms.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_pace_maf/";
+            },},{id: "projects-nvidia-nemotron-model-reasoning",
+          title: 'NVIDIA Nemotron Model Reasoning',
+          description: "Reasoning model development work to be updated after the competition.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_nvidia_nemotron/";
+            },},{id: "projects-lg-ai-research-llm-compression",
+          title: 'LG AI Research LLM Compression',
+          description: "Post-training quantization of LG EXAONE 4 1.2B for efficient on-device deployment.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_lg_exaone_compression/";
+            },},{id: "projects-amplify",
+          title: 'Amplify',
+          description: "A question-driven collective learning platform that reconnects classrooms in the age of AI.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_amplify/";
+            },},{id: "projects-easy-coach",
+          title: 'Easy Coach',
+          description: "A computer-vision-based posture correction tool that analyzes and coaches exercise form.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/8_easy_coach/";
+            },},{id: "projects-personal-homepage",
+          title: 'Personal Homepage',
+          description: "This site — built on the al-folio Jekyll theme, migrated from a hand-rolled static site.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/9_personal_homepage/";
+            },},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/CV_MinJaeChoi.pdf", "_blank");
+        },
+      },{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%6D%69%6E%6A%61%65%63%68%6F%69.%63%73@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/minjaechoics", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/minjae-choi-7a9160346", "_blank");
+        },
+      },{
+        id: 'social-medium',
+        title: 'Medium',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://medium.com/@minjaechoi.cs", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+        id: 'social-custom_social',
+        title: 'Custom_social',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://velog.io/@minjaechoics/", "_blank");
+        },
+      },{
+        id: 'social-custom_social_2',
+        title: 'Custom_social_2',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://minjaechoics.hashnode.dev/", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
