@@ -1,0 +1,153 @@
+cv:
+  name: MinJae Choi
+  label: Undergraduate Researcher — AI Systems & Algorithms
+  email: minjaechoi.cs@gmail.com
+  location: Daejeon, South Korea
+  image: ""
+  summary: >
+    Undergraduate at KAIST studying computer science, electrical engineering, and industrial
+    design. I work around foundation model systems, quantization, graph algorithms, and
+    product-minded engineering.
+
+  social_networks:
+    - network: GitHub
+      username: minjaechoics
+    - network: LinkedIn
+      username: minjae-choi-7a9160346
+
+  sections:
+    Education:
+      - institution: Korea Advanced Institute of Science and Technology (KAIST)
+        location: Daejeon, South Korea
+        url: https://kaist.ac.kr
+        area: Computer Science (advanced major); Electrical Engineering & Mechanical Engineering (double majors); Industrial Design (minor)
+        studyType: Undergraduate, School of Computing
+        start_date: 2025-03
+        highlights:
+          - "Advisor: Prof. Sung-Eui Yoon (School of Computing)"
+          - "Advanced Major: [Computer Science](https://cs.kaist.ac.kr)"
+          - "Double Major: [Electrical Engineering](https://ee.kaist.ac.kr/en/)"
+          - "Double Major: [Mechanical Engineering](https://me.kaist.ac.kr/)"
+          - "Minor: [Industrial Design](https://id.kaist.ac.kr/)"
+
+      - institution: Soongmoon High School
+        location: South Korea
+        studyType: High School
+        start_date: 2021-03
+        end_date: 2024-02
+        highlights:
+          - "🏆 Graduated top of the class (Top 0.7%)"
+
+    Experience:
+      - company: Flexible Machine Learning Algorithm Lab (FlexML), KAIST EE
+        position: Undergraduate Researcher
+        location: KAIST, Daejeon
+        url: https://flexml.kaist.ac.kr/
+        start_date: 2025-06
+        summary: KAIST Undergraduate Research Program (URP), advised by Prof. Insu Han (KAIST EE).
+        highlights:
+          - "Project: Near-1-Bit Quantization for Trillion-Scale Foundation Models"
+
+      - company: Include — KAIST AI Club
+        position: "Manager (Head of Promotion)"
+        location: KAIST, Daejeon
+        start_date: 2025-03
+        highlights:
+          - "2025 Spring: Basic Machine Learning Seminar / Natural Language Processing Seminar"
+          - "2025 Summer: Generative AI Seminar / AI Agent Seminar"
+          - "2025 Fall: Graph AI Seminar"
+          - "2026 Spring: Computer Vision Seminar"
+
+      - company: NVIDIA
+        position: Nemotron Model Reasoning Challenge — Participant
+        location: Remote
+        start_date: 2026-04
+        end_date: 2026-06
+
+      - company: LG AI Research
+        position: K-EXAONE4 Model (LLM) Compression Competition — Team Member
+        location: Remote
+        start_date: 2026-01
+        end_date: 2026-03
+        summary: "Team: MinJae Choi, Jiseok Son, Sungsu Lee, Chaewon Lee."
+        highlights:
+          - "🏆 Won the semifinal round (Top 3%) and advanced to the final round"
+
+      - company: Microsoft Imagine Cup 2026
+        position: MVP Round Participant
+        location: Remote
+        start_date: 2025-12
+        summary: "Project: [Amplify](/projects/amplify/) — a question-driven collective learning platform."
+
+      - company: Google Gemini Student Ambassador
+        position: Student Ambassador
+        location: KAIST, Daejeon
+        start_date: 2025-08
+        end_date: 2025-12
+        highlights:
+          - "🏆 Phase 1: 2nd Best Activity Team (Team KAIST-Include)"
+
+    Awards:
+      - title: Semifinalist, Top 3% — LG AI Research K-EXAONE4 LLM Compression Competition
+        date: 2026-03-01
+        awarder: LG AI Research
+
+      - title: "Phase 1: 2nd Best Activity Team — Google Gemini Student Ambassador"
+        date: 2025-12-01
+        awarder: Google
+
+      - title: Graduated top of the class, Top 0.7% — Soongmoon High School
+        date: 2024-02-01
+        awarder: Soongmoon High School
+
+    Certificates:
+      - name: SQL Developer (SQLD)
+        date: 2025-06-27
+        issuer: Korea Data Agency (K-DATA)
+        icon: fa-solid fa-certificate
+
+      - name: Neural Processing Unit (NPU) Design 2026 Beginner Course
+        date: 2026-05-01
+        issuer: KAIST PIM Semiconductor Design Research Center
+        icon: fa-solid fa-microchip
+
+      - name: LG AImers (8th)
+        date: 2026-03-01
+        issuer: LG AI Research
+        icon: fa-solid fa-award
+
+    Skills:
+      - name: Programming Languages
+        icon: fa-solid fa-code
+        keywords: "Python, C (systems programming), C++, Scala, Rust"
+
+      - name: Artificial Intelligence
+        icon: fa-solid fa-brain
+        keywords: "PyTorch, Scikit-learn"
+
+      - name: Database
+        icon: fa-solid fa-database
+        keywords: "MySQL (relational DB, SQL), Azure Cosmos DB (Graph DB, Gremlin)"
+
+      - name: Data Analysis
+        icon: fa-solid fa-chart-line
+        keywords: "NumPy, Pandas, Matplotlib"
+
+      - name: Web Development
+        icon: fa-solid fa-globe
+        keywords: "HTML5, CSS3"
+
+      - name: Cloud & Tools
+        icon: fa-solid fa-cloud
+        keywords: "Azure, Git"
+
+      - name: CAD Design
+        icon: fa-solid fa-pen-ruler
+        keywords: "Rhino (3D modeling), Autodesk Fusion 360 (3D modeling), KeyShot (3D rendering)"
+
+    Languages:
+      - name: Korean
+        summary: Native
+
+      - name: English
+        summary: "Advanced — TOEIC 935/990 (2026.02.28)"

@@ -1,0 +1,19 @@
+# this file contains the social media links and usernames of the author
+# the socials will be displayed in the order they are defined here
+# for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
+cv_pdf: /assets/pdf/CV_MinJaeChoi.pdf
+email: minjaechoi.cs@gmail.com
+github_username: minjaechoics
+linkedin_username: minjae-choi-7a9160346
+medium_username: minjaechoi.cs
+rss_icon: true
+
+custom_social:
+  logo: https://velog.io/favicon.ico
+  title: Velog
+  url: https://velog.io/@minjaechoics/
+
+custom_social_2:
+  logo: https://hashnode.com/favicon.ico
+  title: Hashnode
+  url: https://minjaechoics.hashnode.dev/
