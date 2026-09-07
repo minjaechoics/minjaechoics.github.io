@@ -6,6 +6,7 @@ img: assets/img/kb_financial_ai_challenge.png
 importance: 2
 category: competition
 github: https://github.com/minjaechoics/ZipJiGi
+video: https://www.youtube.com/watch?v=C0442eBrezA
 ---
 
 **Status:** Completed · **Year:** Jul 2026 – Aug 2026 · **With:** Yelim Lee · **Event:** 2026 KB Financial AI Challenge, hosted by KB Kookmin Bank
