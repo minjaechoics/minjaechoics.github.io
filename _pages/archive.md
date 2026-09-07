@@ -10,6 +10,9 @@ nav_order: 6
 <div class="card mt-3 p-3">
   <h3 class="card-title font-weight-medium">Artificial Intelligence</h3>
   <ul class="card-text font-weight-light list-group list-group-flush">
+    <li class="list-group-item"><strong>Introduction to Generative Models</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Fall 2026 · School of Computing</small></li>
+    <li class="list-group-item"><strong>Introduction to Computer Vision</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Fall 2026 · School of Computing</small></li>
+    <li class="list-group-item"><strong>Introduction to On-device AI</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Fall 2026 · Dept. of AI Systems</small></li>
     <li class="list-group-item"><strong>Introduction to Artificial Intelligence</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Spring 2026 · School of Computing</small></li>
     <li class="list-group-item"><strong>Machine Learning</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Spring 2026 · School of Computing</small></li>
     <li class="list-group-item"><strong>AI Foundation Models: Theory and Practice</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Spring 2026 · School of Electrical Engineering</small></li>
@@ -34,10 +37,19 @@ nav_order: 6
 <div class="card mt-3 p-3">
   <h3 class="card-title font-weight-medium">Computer Systems &amp; Security</h3>
   <ul class="card-text font-weight-light list-group list-group-flush">
+    <li class="list-group-item"><strong>Computer Organization</strong> <span class="badge badge-secondary">Major Required</span><br><small class="text-muted">Fall 2026 · School of Computing</small></li>
     <li class="list-group-item"><strong>Operating Systems and Lab</strong> <span class="badge badge-secondary">Major Required</span><br><small class="text-muted">Spring 2026 · School of Computing</small></li>
     <li class="list-group-item"><strong>Introduction to Information Security</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Spring 2026 · School of Computing</small></li>
     <li class="list-group-item"><strong>Introduction to Hacking</strong> <span class="badge badge-secondary">General Required</span><br><small class="text-muted">Fall 2025 · School of Digital Humanities and Computational Social Sciences</small><br><small class="text-muted">Linux, Cryptography, Web Hacking, SQL Injection, Buffer Overflow, PHP Exploitation</small></li>
     <li class="list-group-item"><strong>System Programming</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Spring 2025 · School of Computing</small><br><small class="text-muted">Data Representation, Machine Language, Processor Architecture, Code Optimization, Memory Hierarchy, Linking, Exceptional Control Flow, Performance Measurement, Virtual Memory, System-level I/O, Network Programming, Concurrent Programming</small></li>
+  </ul>
+</div>
+
+<div class="card mt-3 p-3">
+  <h3 class="card-title font-weight-medium">Electrical Engineering</h3>
+  <ul class="card-text font-weight-light list-group list-group-flush">
+    <li class="list-group-item"><strong>Introduction to Physical Electronics</strong> <span class="badge badge-secondary">Major Required</span><br><small class="text-muted">Fall 2026 · School of Electrical Engineering</small></li>
+    <li class="list-group-item"><strong>Introduction to Information Theory and Coding</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Fall 2026 · School of Electrical Engineering</small></li>
   </ul>
 </div>
 
@@ -58,6 +70,7 @@ nav_order: 6
 <div class="card mt-3 p-3">
   <h3 class="card-title font-weight-medium">Basic Courses</h3>
   <ul class="card-text font-weight-light list-group list-group-flush">
+    <li class="list-group-item"><strong>Mathematical Statistics</strong> <span class="badge badge-secondary">Major Elective</span><br><small class="text-muted">Fall 2026 · Dept. of Mathematical Sciences</small></li>
     <li class="list-group-item"><strong>General Chemistry Experiment I</strong> <span class="badge badge-secondary">Basic Required</span><br><small class="text-muted">Spring 2026 · Dept of Chemistry</small></li>
     <li class="list-group-item"><strong>Communication Training</strong> <span class="badge badge-secondary">General Required</span><br><small class="text-muted">Spring 2026 · School of Digital Humanities and Computational Social Sciences</small></li>
     <li class="list-group-item"><strong>Analysis of the Modern Economy</strong> <span class="badge badge-secondary">General Elective</span><br><small class="text-muted">Winter 2025 · School of Digital Humanities and Computational Social Sciences</small></li>
