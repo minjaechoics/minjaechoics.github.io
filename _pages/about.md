@@ -28,4 +28,6 @@ latest_posts:
   limit: 3
 ---
 
-I am MinJae Choi, an undergraduate at [KAIST](https://kaist.ac.kr) majoring in Computer Science and AI Systems, minoring in Mathematics. I work on **Efficient ML** for foundation models — quantization, efficient deployment, and inference kernels — as a researcher at the [Flexible Machine Learning Lab](https://flexml.kaist.ac.kr/), and I compete in AI/ML competitions and hackathons ([ZipJiGi](https://github.com/minjaechoics/ZipJiGi), LG AI Research EXAONE, NVIDIA Nemotron, Microsoft Imagine Cup).
+I am MinJae Choi, an undergraduate at [KAIST](https://kaist.ac.kr) majoring in Computer Science and AI Systems, minoring in Mathematics. I work on **Efficient ML** for foundation models — quantization, efficient deployment, and inference kernels — as a researcher at the [Flexible Machine Learning Lab](https://flexml.kaist.ac.kr/).
+
+I'm very open to and eager to take part in research internships and collaboration opportunities — feel free to contact me!
