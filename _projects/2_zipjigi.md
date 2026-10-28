@@ -9,7 +9,7 @@ github: https://github.com/minjaechoics/ZipJiGi
 video: https://www.youtube.com/watch?v=C0442eBrezA
 ---
 
-**Status:** Completed · **Year:** Jul 2026 – Aug 2026 · **With:** Yelim Lee · **Event:** 2026 KB Financial AI Challenge, hosted by KB Kookmin Bank
+**Status:** Completed · **Year:** Jul 2026 – Aug 2026 · **With:** [Yelim Lee](https://yelim8902.github.io/portfolio-website/) · **Event:** 2026 KB Financial AI Challenge, hosted by KB Kookmin Bank
 
 🏆 **Won the Excellence Award (KT Award)** — Top 1.33% of all entries, including a $2,207.86 cash
 prize and hiring perks.
