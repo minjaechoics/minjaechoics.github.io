@@ -1,289 +1,957 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> MinJae Choi </title> <meta name="author" content="MinJae Choi"> <meta name="description" content="KAIST undergraduate working on efficient AI systems, quantization, and graph algorithms. "> <meta name="keywords" content="MinJae Choi, KAIST, machine learning, quantization, graph algorithms, portfolio"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
-  :root {
-    --max-content-width: 930px;
-  }
-</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%A0&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://minjaechoics.github.io/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
-    initTheme();
-  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item active"> <a class="nav-link" href="/">about <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/archive/">archive </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title"> MinJae Choi </h1> <p class="desc">B.S. Computer Science · AI Systems (Double Major) · Mathematics (Minor), KAIST</p> </header> <article> <div class="profile float-right"> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/minjaechoi-480.webp 480w,/assets/img/minjaechoi-800.webp 800w,/assets/img/minjaechoi-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px) 30vw, 95vw"> <img src="/assets/img/minjaechoi.png?v=7e42884a3ef6cc94e5702a84147481b7" class="img-fluid z-depth-1 rounded" width="100%" height="auto" alt="minjaechoi.png" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </source></picture> </figure> <div class="more-info"> <p>KAIST School of Computing</p> <p>Daejeon, Republic of Korea</p> <p>minjaechoi.cs@gmail.com</p> <p>minjaechoi@kaist.ac.kr</p> </div> </div> <div class="clearfix"> <p>I am MinJae Choi, an undergraduate at <a href="https://kaist.ac.kr" rel="external nofollow noopener" target="_blank">KAIST</a> majoring in Computer Science and AI Systems, minoring in Mathematics. I work on <strong>Efficient ML</strong> for foundation models — quantization, efficient deployment, and inference kernels — as a researcher at the <a href="https://flexml.kaist.ac.kr/" rel="external nofollow noopener" target="_blank">Flexible Machine Learning Lab</a>.</p> <p>I’m very open to and eager to take part in research internships and collaboration opportunities — feel free to contact me!</p> </div> <h2> <a href="/news/" style="color: inherit">news</a> </h2> <div class="news"> <div class="table-responsive" style="max-height: 60vw"> <table class="table table-sm table-borderless"> <tr> <th scope="row" style="width: 20%">Aug 15, 2026</th> <td> 🏆 <a href="/projects/2_zipjigi/">ZipJiGi</a> (with <a href="https://yelim8902.github.io/portfolio-website/" rel="external nofollow noopener" target="_blank">Yelim Lee</a>) won the <strong>Excellence Award (KT Award)</strong>, Top 1.33%, at the 2026 KB Financial AI Challenge hosted by KB Kookmin Bank. </td> </tr> <tr> <th scope="row" style="width: 20%">Jul 01, 2026</th> <td> Started an industrial project with <strong>Samsung Electronics’ Device Solution Division</strong> on trillion-scale language model quantization. </td> </tr> <tr> <th scope="row" style="width: 20%">Jun 01, 2026</th> <td> Started undergraduate research at the <strong>Flexible Machine Learning Lab</strong>, KAIST — advised by Prof. Insu Han, co-advised by Prof. Sukmin Yun, in collaboration with Hanyang Univ. ERICA. </td> </tr> <tr> <th scope="row" style="width: 20%">May 16, 2026</th> <td> Completed the <strong>NPU Design 2026 Beginner Course</strong> at the KAIST PIM Semiconductor Design Research Center. </td> </tr> <tr> <th scope="row" style="width: 20%">Apr 01, 2026</th> <td> Started LoRA adapter development for the Nemotron 3 30B model (with Jiseok Son and Seungsu Lee) for the <strong>2026 NVIDIA Nemotron3 Reasoning Challenge</strong>. </td> </tr> </table> </div> </div> <h2> <a href="/blog/" style="color: inherit">latest posts</a> </h2> <div class="news"> <div class="table-responsive" style="max-height: 60vw"> <table class="table table-sm table-borderless"> <tr> <th scope="row" style="width: 20%">May 09, 2026</th> <td> <a class="news-title" href="/blog/2026/computer-vision-seminar/">KAIST Include 2026 Spring Computer Vision Seminar</a> </td> </tr> <tr> <th scope="row" style="width: 20%">Dec 29, 2025</th> <td> <a class="news-title" href="https://medium.com/@minjaechoi.cs/growing-a-language-3ba209b57f9b?source=rss-5226e1c0356d------2" target="_blank" rel="external nofollow noopener">Growing a Language</a> <svg width="2rem" height="2rem" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"> <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path> </svg> </td> </tr> <tr> <th scope="row" style="width: 20%">Oct 28, 2025</th> <td> <a class="news-title" href="https://medium.com/kaist-include-ai-club/dynamic-programming-in-rl-policy-iteration-vs-value-iteration-a004aa143d03?source=rss-5226e1c0356d------2" target="_blank" rel="external nofollow noopener">Dynamic Programming in RL: Policy Iteration vs. Value Iteration </a> <svg width="2rem" height="2rem" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"> <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path> </svg> </td> </tr> </table> </div> </div> <div class="social"> <div class="contact-icons"> <a href="/assets/pdf/CV_MinJaeChoi.pdf" title="Cv pdf"><i class="ai ai-cv"></i></a> <a href="mailto:minjaechoi.cs@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a> <a href="https://github.com/minjaechoics" title="Github username" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="https://www.linkedin.com/in/minjae-choi-7a9160346" title="Linkedin username" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-linkedin"></i></a> <a href="https://medium.com/@minjaechoi.cs" title="Medium username" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-medium"></i></a> <a href="/feed.xml" title="Rss icon"><i class="fa-solid fa-square-rss"></i></a> <a href="https://velog.io/@minjaechoics/" title="Velog" rel="external nofollow noopener" target="_blank"><i class="https://velog.io/favicon.ico"></i></a> <a href="https://minjaechoics.hashnode.dev/" title="Hashnode" rel="external nofollow noopener" target="_blank"><i class="https://hashnode.com/favicon.ico"></i></a> </div> <div class="contact-note">Email is the most reliable way to reach me. </div> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 MinJae Choi. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
-  window.alFolio = {
-    compatBootstrap: false
-  };
-</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFJMFV4JJE"></script> <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    window.dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", "G-MFJMFV4JJE");
-</script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
-    addBackToTop();
-  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
-// get the ninja-keys element
-const ninja = document.querySelector('ninja-keys');
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="MinJae Choi — KAIST undergraduate working on efficient AI systems, quantization, and graph algorithms."
+    />
+    <title>MinJae Choi</title>
+    <link rel="icon" href="icon.png" type="image/png" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --surface: #f6f7f9;
+        --text: #303640;
+        --heading: #151922;
+        --muted: #707887;
+        --line: #e4e7ec;
+        --accent: #3159b7;
+        --accent-soft: rgba(49, 89, 183, 0.09);
+        --award: #b64732;
+        --max-width: 880px;
+        --nav-height: 56px;
+      }
 
-// add the home and posts menu items
-ninja.data = [{
-    id: "nav-about",
-    title: "about",
-    section: "Navigation",
-    handler: () => {
-      window.location.href = "/";
-    },
-  },{id: "nav-blog",
-          title: "blog",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/blog/";
-          },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "Research, competitions, and software projects.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/projects/";
-          },
-        },{id: "nav-repositories",
-          title: "repositories",
-          description: "GitHub activity and repositories.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
-          },
-        },{id: "nav-cv",
-          title: "CV",
-          description: "Education, research, competitions, and skills.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/cv/";
-          },
-        },{id: "nav-archive",
-          title: "archive",
-          description: "KAIST coursework, organized by subject area.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/archive/";
-          },
-        },{id: "post-kaist-include-2026-spring-computer-vision-seminar",
-        
-          title: "KAIST Include 2026 Spring Computer Vision Seminar",
-        
-        description: "Slides for a seminar on Generative Adversarial Networks hosted by Include, KAIST&#39;s AI club.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/computer-vision-seminar/";
-          
-        },
-      },{id: "post-growing-a-language",
-        
-          title: 'Growing a Language <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/@minjaechoi.cs/growing-a-language-3ba209b57f9b?source=rss-5226e1c0356d------2", "_blank");
-          
-        },
-      },{id: "post-dynamic-programming-in-rl-policy-iteration-vs-value-iteration",
-        
-          title: 'Dynamic Programming in RL: Policy Iteration vs. Value Iteration <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/kaist-include-ai-club/dynamic-programming-in-rl-policy-iteration-vs-value-iteration-a004aa143d03?source=rss-5226e1c0356d------2", "_blank");
-          
-        },
-      },{id: "post-the-foundation-of-reinforcement-learning-mdps-and-the-bellman-equation",
-        
-          title: 'The Foundation of Reinforcement Learning: MDPs and the Bellman Equation <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/kaist-include-ai-club/the-foundation-of-reinforcement-learning-mdps-and-the-bellman-equation-3f657cb31e7f?source=rss-5226e1c0356d------2", "_blank");
-          
-        },
-      },{id: "post-unlocking-the-power-of-networks-expressiveness-link-prediction-and-generation-in-graph-ai",
-        
-          title: 'Unlocking the Power of Networks: Expressiveness, Link Prediction, and Generation in Graph AI... <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.open("https://medium.com/kaist-include-ai-club/unlocking-the-power-of-networks-expressiveness-link-prediction-and-generation-in-graph-ai-2c970686a8e3?source=rss-5226e1c0356d------2", "_blank");
-          
-        },
-      },{id: "post-kaist-include-2025-fall-graph-ai-seminar",
-        
-          title: "KAIST Include 2025 Fall Graph AI Seminar",
-        
-        description: "Slides on expressiveness, link prediction, and generation in graph AI.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/graph-ai-seminar/";
-          
-        },
-      },{id: "news-started-building-easy-coach-a-computer-vision-based-posture-correction-tool",
-          title: 'Started building Easy Coach, a computer-vision-based posture correction tool.',
-          description: "",
-          section: "News",},{id: "news-started-undergraduate-studies-at-kaist-school-of-computing",
-          title: 'Started undergraduate studies at KAIST, School of Computing.',
-          description: "",
-          section: "News",},{id: "news-certified-as-an-sql-developer-sqld-by-the-korea-data-agency-k-data",
-          title: 'Certified as an SQL Developer (SQLD) by the Korea Data Agency (K-DATA).',
-          description: "",
-          section: "News",},{id: "news-became-a-google-gemini-student-ambassador-team-kaist-include-won-2nd-best-activity-team-in-phase-1",
-          title: '🏆 Became a Google Gemini Student Ambassador — Team KAIST-Include won 2nd Best...',
-          description: "",
-          section: "News",},{id: "news-advanced-to-the-mvp-round-of-microsoft-imagine-cup-2026-with-amplify",
-          title: 'Advanced to the MVP round of Microsoft Imagine Cup 2026 with Amplify.',
-          description: "",
-          section: "News",},{id: "news-started-lg-aimers-8th-focused-on-large-language-models-and-llm-compression",
-          title: 'Started LG AImers (8th), focused on Large Language Models and LLM compression.',
-          description: "",
-          section: "News",},{id: "news-scored-935-990-on-the-toeic",
-          title: 'Scored 935/990 on the TOEIC.',
-          description: "",
-          section: "News",},{id: "news-started-serving-as-head-of-promotion-at-kaist-include",
-          title: 'Started serving as Head of Promotion at KAIST Include.',
-          description: "",
-          section: "News",},{id: "news-our-team-with-jiseok-son-seungsu-lee-and-chaewon-lee-won-the-semifinal-round-top-3-of-the-lg-ai-research-exaone-4-1-2b-model-compression-competition-and-advanced-to-the-final-round",
-          title: '🏆 Our team (with Jiseok Son, Seungsu Lee, and Chaewon Lee) won the...',
-          description: "",
-          section: "News",},{id: "news-started-lora-adapter-development-for-the-nemotron-3-30b-model-with-jiseok-son-and-seungsu-lee-for-the-2026-nvidia-nemotron3-reasoning-challenge",
-          title: 'Started LoRA adapter development for the Nemotron 3 30B model (with Jiseok Son...',
-          description: "",
-          section: "News",},{id: "news-completed-the-npu-design-2026-beginner-course-at-the-kaist-pim-semiconductor-design-research-center",
-          title: 'Completed the NPU Design 2026 Beginner Course at the KAIST PIM Semiconductor Design...',
-          description: "",
-          section: "News",},{id: "news-started-undergraduate-research-at-the-flexible-machine-learning-lab-kaist-advised-by-prof-insu-han-co-advised-by-prof-sukmin-yun-in-collaboration-with-hanyang-univ-erica",
-          title: 'Started undergraduate research at the Flexible Machine Learning Lab, KAIST — advised by...',
-          description: "",
-          section: "News",},{id: "news-started-an-industrial-project-with-samsung-electronics-device-solution-division-on-trillion-scale-language-model-quantization",
-          title: 'Started an industrial project with Samsung Electronics’ Device Solution Division on trillion-scale language...',
-          description: "",
-          section: "News",},{id: "news-zipjigi-with-yelim-lee-won-the-excellence-award-kt-award-top-1-33-at-the-2026-kb-financial-ai-challenge-hosted-by-kb-kookmin-bank",
-          title: '🏆 ZipJiGi (with Yelim Lee) won the Excellence Award (KT Award), Top 1.33%,...',
-          description: "",
-          section: "News",},{id: "projects-near-1-bit-ultra-low-bit-quantization-for-trillion-scale-llms",
-          title: 'Near 1-Bit Ultra-Low-Bit Quantization for Trillion-Scale LLMs',
-          description: "Research on efficient inference for trillion-scale language models at the Flexible Machine Learning Lab, with Samsung Electronics.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/1_near_1bit_quantization/";
-            },},{id: "projects-zipjigi",
-          title: 'ZipJiGi',
-          description: "Excellence Award (KT Award), Top 1.33% — 2026 KB Financial AI Challenge, hosted by KB Kookmin Bank.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/2_zipjigi/";
-            },},{id: "projects-nvidia-nemotron-3-30b-model-lora-adapter-development",
-          title: 'NVIDIA Nemotron 3 30B Model LoRA Adapter Development',
-          description: "LoRA adapter development for the 2026 NVIDIA Nemotron3 Reasoning Challenge.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/3_nvidia_nemotron/";
-            },},{id: "projects-lg-ai-research-exaone-4-1-2b-model-quantization",
-          title: 'LG AI Research EXAONE 4 1.2B Model Quantization',
-          description: "Top 3% in the semifinal round, advanced to the final round — 2026 LG AI Research EXAONE Compression Competition.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/4_lg_exaone_compression/";
-            },},{id: "projects-amplify",
-          title: 'Amplify',
-          description: "A question-driven collective learning platform that reconnects classrooms in the age of AI.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/5_amplify/";
-            },},{id: "projects-easy-coach",
-          title: 'Easy Coach',
-          description: "A computer-vision-based posture correction tool that analyzes and coaches exercise form.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/6_easy_coach/";
-            },},{
-        id: 'social-cv',
-        title: 'CV',
-        section: 'Socials',
-        handler: () => {
-          window.open("/assets/pdf/CV_MinJaeChoi.pdf", "_blank");
-        },
-      },{
-        id: 'social-email',
-        title: 'email',
-        section: 'Socials',
-        handler: () => {
-          window.open("mailto:%6D%69%6E%6A%61%65%63%68%6F%69.%63%73@%67%6D%61%69%6C.%63%6F%6D", "_blank");
-        },
-      },{
-        id: 'social-github',
-        title: 'GitHub',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://github.com/minjaechoics", "_blank");
-        },
-      },{
-        id: 'social-linkedin',
-        title: 'LinkedIn',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://www.linkedin.com/in/minjae-choi-7a9160346", "_blank");
-        },
-      },{
-        id: 'social-medium',
-        title: 'Medium',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://medium.com/@minjaechoi.cs", "_blank");
-        },
-      },{
-        id: 'social-rss',
-        title: 'RSS Feed',
-        section: 'Socials',
-        handler: () => {
-          window.open("/feed.xml", "_blank");
-        },
-      },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://velog.io/@minjaechoics/", "_blank");
-        },
-      },{
-        id: 'social-custom_social_2',
-        title: 'Custom_social_2',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://minjaechoics.hashnode.dev/", "_blank");
-        },
-      },{
-      id: 'light-theme',
-      title: 'Change theme to light',
-      description: 'Change the theme of the site to Light',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("light");
-      },
-    },
-    {
-      id: 'dark-theme',
-      title: 'Change theme to dark',
-      description: 'Change the theme of the site to Dark',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("dark");
-      },
-    },
-    {
-      id: 'system-theme',
-      title: 'Use system default theme',
-      description: 'Change the theme of the site to System Default',
-      section: 'Theme',
-      handler: () => {
-        setThemeSetting("system");
-      },
-    },];
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #1b1d21;
+        --surface: #24272c;
+        --text: #d7dce5;
+        --heading: #f3f5f8;
+        --muted: #9aa4b3;
+        --line: #34383f;
+        --accent: #83a1e8;
+        --accent-soft: rgba(131, 161, 232, 0.12);
+        --award: #e18a77;
+      }
 
-</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-height) + 14px);
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter,
+          Pretendard,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        font-size: 16px;
+        line-height: 1.62;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      strong {
+        color: var(--heading);
+        font-weight: 650;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: 8px;
+        left: 8px;
+        z-index: 100;
+        padding: 6px 10px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        transform: translateY(-160%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        min-height: var(--nav-height);
+        background: color-mix(in srgb, var(--bg) 92%, transparent);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(10px) saturate(160%);
+      }
+
+      .nav-inner {
+        width: min(100% - 32px, var(--max-width));
+        min-height: var(--nav-height);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-right: auto;
+        color: var(--heading);
+        font-size: 1.05rem;
+        white-space: nowrap;
+      }
+
+      .brand img {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        object-fit: contain;
+      }
+
+      .brand:hover,
+      .nav-link:hover,
+      .icon-button:hover {
+        text-decoration: none;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 19px;
+      }
+
+      .nav-link {
+        color: var(--text);
+        font-size: 0.92rem;
+        white-space: nowrap;
+      }
+
+      .nav-link:hover,
+      .nav-link[aria-current="page"] {
+        color: var(--accent);
+      }
+
+      .nav-actions {
+        display: flex;
+        gap: 3px;
+      }
+
+      .icon-button {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        display: inline-grid;
+        place-items: center;
+        border: 0;
+        border-radius: 7px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font: inherit;
+      }
+
+      .icon-button:hover {
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      main,
+      footer {
+        width: min(100% - 32px, var(--max-width));
+        margin-inline: auto;
+      }
+
+      main {
+        padding: 34px 0 18px;
+      }
+
+      section {
+        margin-bottom: 36px;
+      }
+
+      .about {
+        display: flow-root;
+        margin-bottom: 40px;
+      }
+
+      .profile {
+        float: right;
+        width: 205px;
+        margin: 2px 0 14px 34px;
+      }
+
+      .profile img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        object-position: 42% 42%;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+
+      .profile figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .reference-note {
+        display: block;
+        margin-top: 4px;
+        font-size: 0.72rem;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--heading);
+        font-size: clamp(2rem, 5vw, 2.5rem);
+        font-weight: 350;
+        letter-spacing: -0.035em;
+        line-height: 1.15;
+      }
+
+      h1 strong {
+        font-weight: 750;
+      }
+
+      .subtitle {
+        margin: 6px 0 21px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .about-copy p {
+        margin: 0 0 12px;
+      }
+
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 17px;
+        margin-top: 17px;
+        font-size: 0.9rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--muted);
+      }
+
+      .social-links a:hover {
+        color: var(--accent);
+      }
+
+      .social-links svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        margin: 0 0 12px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        color: var(--heading);
+        font-size: 1.38rem;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+
+      .section-heading a {
+        flex: none;
+        font-size: 0.84rem;
+      }
+
+      .news-list {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .news-list th,
+      .news-list td {
+        padding: 5px 0;
+        vertical-align: top;
+      }
+
+      .news-list th {
+        width: 88px;
+        padding-right: 15px;
+        color: var(--heading);
+        font-size: 0.84rem;
+        font-weight: 650;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .work-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .work-item {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 17px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .work-logo,
+      .education-logo {
+        display: block;
+        width: 92px;
+        height: 92px;
+        padding: 9px;
+        object-fit: contain;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: #fff;
+      }
+
+      .work-logo.logo-kb {
+        padding: 0;
+      }
+
+      .work-item:first-child {
+        padding-top: 2px;
+      }
+
+      .work-tag {
+        display: block;
+        margin-bottom: 2px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 650;
+        letter-spacing: 0.045em;
+        text-transform: uppercase;
+      }
+
+      .work-title {
+        color: var(--heading);
+        font-weight: 650;
+      }
+
+      .work-title:hover {
+        color: var(--accent);
+      }
+
+      .work-title,
+      .education-title .sweep-link {
+        position: relative;
+        display: inline-block;
+        color: var(--heading);
+        text-decoration: none;
+      }
+
+      .work-title::after,
+      .education-title .sweep-link::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        color: var(--accent);
+        clip-path: inset(0 50% 0 50%);
+        transition: clip-path 320ms cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+      }
+
+      .work-title:hover,
+      .work-title:focus-visible,
+      .education-title .sweep-link:hover,
+      .education-title .sweep-link:focus-visible {
+        color: var(--heading);
+        text-decoration: none;
+      }
+
+      .work-title:hover::after,
+      .work-title:focus-visible::after,
+      .education-title .sweep-link:hover::after,
+      .education-title .sweep-link:focus-visible::after {
+        clip-path: inset(0);
+      }
+
+      .work-description {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 0.91rem;
+        line-height: 1.5;
+      }
+
+      .award {
+        color: var(--award);
+        font-weight: 650;
+      }
+
+      .publication-status {
+        margin: 0;
+        padding: 4px 0;
+        color: var(--muted);
+      }
+
+      .education-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .education-item {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 17px;
+        padding: 4px 0;
+      }
+
+      .education-date {
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 650;
+        white-space: nowrap;
+      }
+
+      .education-title {
+        color: var(--heading);
+        font-weight: 650;
+      }
+
+      .education-detail {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 0.91rem;
+      }
+
+      footer {
+        padding: 18px 0 28px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.79rem;
+        text-align: center;
+      }
+
+      @media (max-width: 720px) {
+        .menu-toggle {
+          display: inline-grid;
+        }
+
+        .nav-menu {
+          position: absolute;
+          top: var(--nav-height);
+          left: 0;
+          right: 0;
+          display: none;
+          align-items: stretch;
+          gap: 0;
+          padding: 6px max(16px, calc((100vw - var(--max-width)) / 2));
+          background: var(--bg);
+          border-bottom: 1px solid var(--line);
+        }
+
+        .nav-menu.open {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .nav-link {
+          padding: 9px 0;
+        }
+
+        main {
+          padding-top: 25px;
+        }
+
+        .profile {
+          float: none;
+          width: min(185px, 58vw);
+          margin: 0 auto 20px;
+        }
+
+        .about header {
+          text-align: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        .work-item {
+          grid-template-columns: 88px 1fr;
+          gap: 13px;
+        }
+
+        .education-item {
+          grid-template-columns: 88px 1fr;
+          gap: 13px;
+        }
+
+        .work-logo,
+        .education-logo {
+          width: 88px;
+          height: 88px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .news-list,
+        .news-list tbody,
+        .news-list tr,
+        .news-list th,
+        .news-list td {
+          display: block;
+        }
+
+        .news-list tr {
+          padding: 6px 0;
+        }
+
+        .news-list th,
+        .news-list td {
+          width: auto;
+          padding: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .work-title::after,
+        .education-title .sweep-link::after {
+          transition: none;
+        }
+      }
+    </style>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="#about" aria-label="MinJae Choi home">
+          <img src="icon.png" alt="" />
+          <span><strong>MinJae Choi</strong></span>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation">
+          <a class="nav-link" href="#publications">Publications</a>
+          <a class="nav-link" href="projects/index.html">Projects</a>
+          <a class="nav-link" href="blog/index.html">Blog</a>
+          <a
+            class="nav-link"
+            href="assets/CV_MinJaeChoi.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Toggle theme"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm8-6a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2h1ZM5 11a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2h1Zm12.66-5.66a1 1 0 0 1 0 1.42l-.7.7a1 1 0 0 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0ZM7.46 15.54a1 1 0 0 1 0 1.42l-.7.7a1 1 0 0 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0Zm9.5 0 .7.7a1 1 0 1 1-1.42 1.42l-.7-.7a1 1 0 0 1 1.42-1.42Zm-10.2-10.2.7.7a1 1 0 0 1-1.42 1.42l-.7-.7a1 1 0 1 1 1.42-1.42ZM13 19v1a1 1 0 1 1-2 0v-1a1 1 0 1 1 2 0Z"
+              />
+            </svg>
+          </button>
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 6h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2Zm0 5h16a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2Zm0 5h16a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="about" id="about">
+        <figure class="profile">
+          <img src="profile_image.jpg" alt="MinJae Choi working on a laptop" />
+          <figcaption>
+            KAIST School of Computing<br />Daejeon, Republic of Korea
+          </figcaption>
+        </figure>
+
+        <header>
+          <h1><strong>MinJae Choi</strong></h1>
+          <p class="subtitle">
+            B.S. Computer Science · AI Systems (Double Major) · Mathematics
+            (Minor), KAIST
+          </p>
+        </header>
+
+        <div class="about-copy">
+          <p>
+            I am an undergraduate at
+            <a href="https://kaist.ac.kr" rel="noopener">KAIST</a>, majoring in
+            <strong>Computer Science</strong>, pursuing
+            <strong>AI Systems</strong> as a double major and Mathematics as a
+            minor.
+          </p>
+          <p>
+            I work on <strong>efficient machine learning</strong> for foundation
+            models—quantization, efficient deployment, and inference kernels—as
+            a researcher at the
+            <a href="https://flexml.kaist.ac.kr/" rel="noopener"
+              >Flexible Machine Learning Lab</a
+            >.
+          </p>
+          <p>
+            I am open to research internships and collaborations. Feel free to
+            get in touch.
+          </p>
+        </div>
+
+        <div class="social-links" aria-label="Contact links">
+          <a href="mailto:minjaechoi.cs@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm9 7.25L20.15 7H3.85L12 12.25ZM3 17h18V8.85l-8.46 5.45a1 1 0 0 1-1.08 0L3 8.85V17Z"
+              />
+            </svg>
+            Email
+          </a>
+          <a href="https://github.com/minjaechoics" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .7A11.5 11.5 0 0 0 8.36 23.1c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.75.41-1.27.74-1.56-2.57-.29-5.27-1.29-5.27-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.16 1.18a10.9 10.9 0 0 1 5.76 0c2.19-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.41-2.71 5.39-5.29 5.68.42.36.79 1.06.79 2.14v3.27c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/minjae-choi-7a9160346"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M5.34 7.93H1.45V20h3.89V7.93ZM3.4 2A2.26 2.26 0 1 0 3.4 6.5 2.26 2.26 0 0 0 3.4 2ZM20 7.65c-2.06 0-3.44 1.13-4 2.2V7.93h-3.89V20H16v-5.97c0-1.57.3-3.09 2.25-3.09 1.92 0 1.95 1.8 1.95 3.2V20H24v-6.6c0-3.24-.7-5.75-4-5.75ZM9.42 7.93H5.54V20h3.88V7.93Z"
+              />
+            </svg>
+            LinkedIn
+          </a>
+          <a href="assets/CV_MinJaeChoi.pdf" target="_blank" rel="noopener"
+            >CV (PDF)</a
+          >
+        </div>
+      </section>
+
+      <section id="news">
+        <div class="section-heading">
+          <h2>News</h2>
+          <a href="news/index.html">All news</a>
+        </div>
+        <table class="news-list">
+          <tbody>
+            <tr>
+              <th scope="row">Aug 2026</th>
+              <td>
+                <a href="projects/detail.html?project=zipjigi"
+                  ><strong>ZipJiGi</strong></a
+                >
+                (with
+                <a
+                  href="https://yelim8902.github.io/portfolio-website/"
+                  rel="noopener"
+                  >Yelim Lee</a
+                >) won the <span class="award">Excellence Award</span> at the
+                2026 KB Financial AI Challenge (Top 1.33%).
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Jul 2026</th>
+              <td>
+                Started an industrial project with
+                <strong>Samsung Electronics</strong> on trillion-scale language
+                model quantization.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Jun 2026</th>
+              <td>
+                Joined the <strong>Flexible Machine Learning Lab</strong> at
+                KAIST as an undergraduate researcher.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">May 2026</th>
+              <td>
+                Completed the <strong>NPU Design Beginner Course</strong> at the
+                KAIST PIM Semiconductor Design Research Center.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Mar 2026</th>
+              <td>
+                Advanced to the LG AI Research EXAONE Compression Competition
+                final round after placing in the <strong>Top 3%</strong>.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="publications">
+        <div class="section-heading">
+          <h2>Publications</h2>
+        </div>
+        <p class="publication-status"><strong>Research on progress</strong></p>
+      </section>
+
+      <section id="selected-work">
+        <div class="section-heading">
+          <h2>Projects / Research</h2>
+          <a href="projects/index.html">All projects</a>
+        </div>
+        <ol class="work-list">
+          <li class="work-item">
+            <img
+              class="work-logo"
+              src="assets/projects/samsungds.png"
+              alt="Samsung Electronics Device Solutions logo"
+            />
+            <div>
+              <span class="work-tag">Industrial Project</span>
+              <a
+                class="work-title"
+                href="projects/detail.html?project=near-1bit"
+                >Near 1-Bit Ultra-Low-Bit Quantization for Trillion-Scale
+                LLMs</a
+              >
+              <p class="work-description">
+                Efficient inference research at the Flexible Machine Learning
+                Lab in collaboration with Samsung Electronics.
+              </p>
+            </div>
+          </li>
+          <li class="work-item">
+            <img
+              class="work-logo"
+              src="assets/projects/enveda.png"
+              alt="Enveda logo"
+            />
+            <div>
+              <span class="work-tag">Personal Project</span>
+              <a class="work-title" href="projects/detail.html?project=enveda"
+                >Enveda CASMI 2026 - Molecule ID From Mass Spectra</a
+              >
+              <p class="work-description">
+                Predict 2D chemical structures of small molecules detected in
+                complex biological extracts. <strong>ONGOING</strong>
+              </p>
+            </div>
+          </li>
+          <li class="work-item">
+            <img
+              class="work-logo logo-kb"
+              src="assets/projects/kb_financial_ai_challenge.png"
+              alt="KB Kookmin Bank logo"
+            />
+            <div>
+              <span class="work-tag">Personal Project</span>
+              <a class="work-title" href="projects/detail.html?project=zipjigi"
+                >ZipJiGi</a
+              >
+              <p class="work-description">
+                <span class="award">Excellence Award · Top 1.33%</span> at the
+                2026 KB Financial AI Challenge, with
+                <a href="https://yelim8902.github.io/portfolio-website/"
+                  >Yelim Lee</a
+                >.
+              </p>
+            </div>
+          </li>
+          <li class="work-item">
+            <img
+              class="work-logo"
+              src="assets/projects/nvidia_logo.webp"
+              alt="NVIDIA logo"
+            />
+            <div>
+              <span class="work-tag">Personal Project</span>
+              <a class="work-title" href="projects/detail.html?project=nemotron"
+                >NVIDIA Nemotron 3 30B LoRA Adapter Development</a
+              >
+              <p class="work-description">
+                LoRA adapter development for the 2026 NVIDIA Nemotron3 Reasoning
+                Challenge, with Jiseok Son and Seungsu Lee.
+              </p>
+            </div>
+          </li>
+          <li class="work-item">
+            <img
+              class="work-logo"
+              src="assets/projects/lg_ai_research.png"
+              alt="LG AI Research logo"
+            />
+            <div>
+              <span class="work-tag">Personal Project</span>
+              <a class="work-title" href="projects/detail.html?project=exaone"
+                >LG EXAONE 4 1.2B Model Quantization</a
+              >
+              <p class="work-description">
+                Top 3% in the semifinal round and advancement to the final
+                round, with Jiseok Son, Seungsu Lee, and Chaewon Lee.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="education">
+        <div class="section-heading">
+          <h2>Education</h2>
+        </div>
+        <ul class="education-list">
+          <li class="education-item">
+            <img
+              class="education-logo"
+              src="assets/kaist.svg"
+              alt="KAIST logo"
+            />
+            <div>
+              <div class="education-title">
+                <a class="sweep-link" href="https://kaist.ac.kr/"
+                  >Korea Advanced Institute of Science and Technology (KAIST)</a
+                >
+              </div>
+              <div class="education-date">Mar 2025–Present</div>
+              <p class="education-detail">
+                B.S. in Computer Science · AI Systems (Double Major) ·
+                Mathematics (Minor)
+              </p>
+              <p class="education-detail">
+                Advisor: Prof. Sungeui Yoon, School of Computing
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 <strong>MinJae Choi</strong> · Built as a compact academic
+      portfolio.
+      <small class="reference-note">
+        I referred to
+        <a href="https://github.com/yelim8902/yelim8902.github.io"
+          >Yelim Lee's portfolio site</a
+        >.
+      </small>
+    </footer>
+
+    <script>
+      const root = document.documentElement;
+      const themeButton = document.querySelector("#theme-toggle");
+      const menuButton = document.querySelector("#menu-toggle");
+      const menu = document.querySelector("#nav-menu");
+
+      document
+        .querySelectorAll(".work-title, .education-title .sweep-link")
+        .forEach((link) => {
+          link.dataset.label = link.textContent.trim().replace(/\s+/g, " ");
+        });
+
+      function updateThemeLabel() {
+        const dark = root.dataset.theme === "dark";
+        themeButton.setAttribute(
+          "aria-label",
+          dark ? "Switch to light mode" : "Switch to dark mode",
+        );
+      }
+
+      themeButton.addEventListener("click", () => {
+        const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = nextTheme;
+        try {
+          localStorage.setItem("theme", nextTheme);
+        } catch (_) {}
+        updateThemeLabel();
+      });
+
+      menuButton.addEventListener("click", () => {
+        const open = menu.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close menu" : "Open menu",
+        );
+      });
+
+      menu.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          menu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open menu");
+        }
+      });
+
+      updateThemeLabel();
+    </script>
+    <script src="assets/js/external-links.js"></script>
+  </body>
+</html>

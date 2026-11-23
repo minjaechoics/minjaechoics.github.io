@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://minjaechoics.github.io/sitemap.xml

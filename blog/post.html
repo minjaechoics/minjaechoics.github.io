@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Technical seminar post by MinJae Choi." />
+    <title>Blog Post · MinJae Choi</title>
+    <link rel="icon" href="../icon.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/inner.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="../index.html"
+          ><img src="../icon.png" alt="" /><strong>MinJae Choi</strong></a
+        >
+        <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation">
+          <a class="nav-link" href="../index.html#publications">Publications</a>
+          <a class="nav-link" href="../projects/index.html">Projects</a>
+          <a class="nav-link" href="index.html" aria-current="page">Blog</a>
+          <a
+            class="nav-link"
+            href="../assets/CV_MinJaeChoi.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Toggle theme"
+          >
+            <span aria-hidden="true">☀</span>
+          </button>
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="content">
+      <a class="back-link" href="index.html">Back to Blog</a>
+      <article class="article" id="post-detail" aria-live="polite"></article>
+    </main>
+    <footer>
+      © 2026 <strong>MinJae Choi</strong> · Technical note.
+      <small class="reference-note">
+        I referred to
+        <a href="https://github.com/yelim8902/yelim8902.github.io"
+          >Yelim Lee's portfolio site</a
+        >.
+      </small>
+    </footer>
+    <script src="../assets/js/inner.js"></script>
+    <script>
+      const posts = {
+        "computer-vision-seminar": {
+          title: "KAIST Include 2026 Spring Computer Vision Seminar",
+          date: "May 10, 2026 · Seminar",
+          description:
+            "Presentation material on Generative Adversarial Networks, delivered for Include, KAIST's AI club, as part of the 2026 Spring Computer Vision Seminar.",
+          image: "../assets/blog/gan_first_slide.png",
+          alt: "Computer vision seminar first slide",
+          pdf: "../assets/pdf/GAN_seminar_260510.pdf",
+          tags: ["GAN", "Computer Vision", "Slides"],
+        },
+        "graph-ai-seminar": {
+          title: "KAIST Include 2025 Fall Graph AI Seminar",
+          date: "October 29, 2025 · Seminar",
+          description:
+            "Presentation material on expressiveness, link prediction, and generation in Graph AI, delivered for Include, KAIST's AI club.",
+          image: "../assets/blog/graphai_first_slide.png",
+          alt: "Graph AI seminar first slide",
+          pdf: "../assets/pdf/graphai_seminar_251029.pdf",
+          tags: ["Graph AI", "GNN", "Slides"],
+        },
+      };
+      const key =
+        new URLSearchParams(location.search).get("post") ||
+        "computer-vision-seminar";
+      const post = posts[key] || posts["computer-vision-seminar"];
+      document.title = `${post.title} · MinJae Choi`;
+      document.querySelector("#post-detail").innerHTML = `
+        <header class="page-header">
+          <h1 class="page-title">${post.title}</h1>
+          <p class="article-meta">${post.date}</p>
+        </header>
+        <p>${post.description}</p>
+        <img class="hero-image" src="${post.image}" alt="${post.alt}">
+        <div class="button-row"><a class="button" href="${post.pdf}">Open slide deck (PDF)</a></div>
+        <ul class="tag-list">${post.tags.map((tag) => `<li>${tag}</li>`).join("")}</ul>
+      `;
+    </script>
+    <script src="../assets/js/external-links.js"></script>
+  </body>
+</html>
