@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Project detail by MinJae Choi." />
+    <title>Project · MinJae Choi</title>
+    <link rel="icon" href="../icon.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/inner.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="../index.html"
+          ><img src="../icon.png" alt="" /><strong>MinJae Choi</strong></a
+        >
+        <nav class="nav-menu" id="nav-menu" aria-label="Primary navigation">
+          <a class="nav-link" href="../index.html#publications">Publications</a>
+          <a class="nav-link" href="index.html" aria-current="page">Projects</a>
+          <a class="nav-link" href="../blog/index.html">Blog</a>
+          <a
+            class="nav-link"
+            href="../assets/CV_MinJaeChoi.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Toggle theme"
+          >
+            <span aria-hidden="true">☀</span>
+          </button>
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <a class="back-link" href="index.html">Back to Projects</a>
+      <article class="article" id="project-detail" aria-live="polite"></article>
+    </main>
+    <footer>
+      © 2026 <strong>MinJae Choi</strong> · Project detail.
+      <small class="reference-note">
+        I referred to
+        <a href="https://github.com/yelim8902/yelim8902.github.io"
+          >Yelim Lee's portfolio site</a
+        >.
+      </small>
+    </footer>
+    <script src="../assets/js/inner.js"></script>
+    <script>
+      const projects = {
+        "near-1bit": {
+          title:
+            "Near 1-Bit Ultra-Low-Bit Quantization for Trillion-Scale LLMs",
+          meta: "Industrial Project · Ongoing · Since Jul 2026",
+          image: "../assets/projects/samsungds.png",
+          alt: "Samsung Electronics Device Solutions logo",
+          description:
+            "Research on efficient inference for trillion-scale language models at the Flexible Machine Learning Lab, with Samsung Electronics.",
+          body: `<p>An industrial collaboration with <strong>Samsung Electronics' Device Solution Division</strong> on near-1-bit quantization schemes that keep trillion-scale foundation models usable under tight memory and latency budgets without collapsing model quality.</p><p><strong>Lab:</strong> <a href="https://flexml.kaist.ac.kr/">Flexible Machine Learning Lab</a>, KAIST · Advised by Prof. Insu Han · Co-advised by Prof. Sukmin Yun.</p>`,
+          tags: ["Quantization", "1-bit", "Fast Inference"],
+        },
+        enveda: {
+          title: "Enveda CASMI 2026 - Molecule ID From Mass Spectra",
+          meta: "Personal Project · ONGOING · Enveda CASMI 2026",
+          image: "../assets/projects/enveda.png",
+          alt: "Enveda logo",
+          description:
+            "Predict 2D chemical structures of small molecules detected in complex biological extracts.",
+          body: `<p>This ongoing project focuses on molecular structure elucidation from mass spectra for small molecules found in complex biological extracts.</p>`,
+          tags: ["Mass Spectrometry", "Molecule ID", "Chemical Structure"],
+        },
+        zipjigi: {
+          title: "ZipJiGi",
+          meta: "Personal Project · Jul–Aug 2026 · KB Financial AI Challenge",
+          image: "../assets/projects/kb_financial_ai_challenge.png",
+          alt: "KB Financial AI Challenge",
+          description:
+            "An AI agent for young adults' housing decisions with Text-to-SQL RDB-RAG and prior-lien deposit estimation.",
+          body: `<p><span class="award">Excellence Award (KT Award) · Top 1.33%</span> of all entries, including a cash prize and hiring perks.</p><p>Built with <a href="https://yelim8902.github.io/portfolio-website/">Yelim Lee</a> for the 2026 KB Financial AI Challenge hosted by KB Kookmin Bank.</p><iframe class="video" src="https://www.youtube.com/embed/C0442eBrezA" title="ZipJiGi demo video" allowfullscreen></iframe>`,
+          tags: ["Fintech", "AI Challenge", "RDB-RAG"],
+          links: [
+            ["Code", "https://github.com/minjaechoics/ZipJiGi"],
+            ["Video", "https://www.youtube.com/watch?v=C0442eBrezA"],
+          ],
+        },
+        nemotron: {
+          title: "NVIDIA Nemotron 3 30B Model LoRA Adapter Development",
+          meta: "Personal Project · Apr–Jun 2026 · NVIDIA Nemotron3 Reasoning Challenge",
+          image: "../assets/projects/nvidia_logo.webp",
+          alt: "NVIDIA logo",
+          description:
+            "LoRA adapter development for the Nemotron 3 30B reasoning model.",
+          body: `<p>Developed a LoRA adapter for the NVIDIA Nemotron 3 30B reasoning model as part of the 2026 challenge, with Jiseok Son and Seungsu Lee.</p>`,
+          tags: ["Reasoning", "LoRA", "Fine-Tuning"],
+        },
+        exaone: {
+          title: "LG AI Research EXAONE 4 1.2B Model Quantization",
+          meta: "Personal Project · Jan–Apr 2026 · LG AI Research",
+          image: "../assets/projects/lg_ai_research.png",
+          alt: "LG AI Research logo",
+          description:
+            "Post-training quantization of EXAONE 4 1.2B for efficient on-device deployment.",
+          body: `<p><span class="award">Top 3% in the semifinal round</span> and advanced to the final round of the 2026 LG AI Research EXAONE Compression Competition.</p><p>Completed with Jiseok Son, Seungsu Lee, and Chaewon Lee.</p>`,
+          tags: ["LLM", "PTQ", "On-device"],
+        },
+        amplify: {
+          title: "Amplify",
+          meta: "Personal Project · Dec 2025–Jan 2026 · Microsoft Imagine Cup",
+          image: "../assets/projects/amplify_thumbnail.png",
+          alt: "Amplify platform",
+          description:
+            "A question-driven collective learning platform that reconnects classrooms in the age of AI.",
+          body: `<p>Amplify centers on a graph-based Agentic QA system that traces logic and verifies facts against lecture materials, then turns student interactions into real-time comprehension analytics for instructors.</p><p>Accessibility was a core design goal, including Azure Immersive Reader and interaction patterns intended to reduce cognitive load.</p>`,
+          tags: ["AI Agent", "RAG", "Graph DB", "Education"],
+        },
+        "easy-coach": {
+          title: "Easy Coach",
+          meta: "Personal Project · Mar 2022–Sep 2023 · Published",
+          image: "../assets/projects/promotionvideo_easycoach.gif",
+          alt: "Easy Coach demo",
+          description:
+            "A computer-vision posture correction tool that analyzes and coaches exercise form in real time.",
+          body: `<p>Easy Coach uses OpenPose keypoints and joint-angle signals to recognize movement phases, count repetitions, estimate speed, and provide webcam-only coaching.</p><h2>Main coaching algorithm</h2><p>Three detected joints form a triangle; the law of cosines converts side lengths into joint angles. Online extrema detection then identifies repetitive movement phases without storing every frame.</p><h2>Error handling</h2><p>Missing keypoints are discarded. Implausible angles and sudden frame-to-frame changes are flagged using exercise-specific bounds and derivative thresholds, then replaced with smoothed valid observations.</p>`,
+          tags: ["OpenPose", "Python", "Computer Vision"],
+        },
+      };
+
+      const key =
+        new URLSearchParams(location.search).get("project") || "near-1bit";
+      const project = projects[key] || projects["near-1bit"];
+      document.title = `${project.title} · MinJae Choi`;
+      const links = (project.links || [])
+        .map(([label, href]) => `<a class="button" href="${href}">${label}</a>`)
+        .join("");
+      const tags = project.tags.map((tag) => `<li>${tag}</li>`).join("");
+      document.querySelector("#project-detail").innerHTML = `
+        <header class="page-header">
+          <h1 class="page-title">${project.title}</h1>
+          <p class="page-description">${project.description}</p>
+          <p class="article-meta">${project.meta}</p>
+        </header>
+        <img class="hero-image" src="${project.image}" alt="${project.alt}">
+        ${project.body}
+        ${links ? `<div class="button-row">${links}</div>` : ""}
+        <ul class="tag-list">${tags}</ul>
+      `;
+    </script>
+    <script src="../assets/js/external-links.js"></script>
+  </body>
+</html>
