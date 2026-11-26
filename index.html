@@ -434,6 +434,9 @@
       }
 
       .publication-item {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 17px;
         padding: 4px 0;
       }
 
@@ -550,7 +553,8 @@
           gap: 13px;
         }
 
-        .education-item {
+        .education-item,
+        .publication-item {
           grid-template-columns: 88px 1fr;
           gap: 13px;
         }
@@ -789,23 +793,30 @@
         </div>
         <ol class="publication-list">
           <li class="publication-item">
-            <a
-              class="work-title"
-              href="https://minjaechoics.github.io/rtaq-project/"
-              >RTAQ: Reasoning Termination-Aware Quantization for
-              Mixture-of-Experts Architecture</a
-            >
-            <p class="work-description">
-              <strong>MinJae Choi</strong>, Seung-gyeom Kim, Sukmin Yun, Insu
-              Han
-            </p>
-            <p class="work-description"><em>arXiv preprint</em>, 2026</p>
-            <div class="project-links">
+            <img
+              class="work-logo"
+              src="assets/projects/rtaq_icon.svg"
+              alt="RTAQ logo"
+            />
+            <div>
               <a
-                class="project-link"
+                class="work-title"
                 href="https://minjaechoics.github.io/rtaq-project/"
-                >Project Page</a
+                >RTAQ: Reasoning Termination-Aware Quantization for
+                Mixture-of-Experts Architecture</a
               >
+              <p class="work-description">
+                <strong>MinJae Choi</strong>, Seung-gyeom Kim, Sukmin Yun, Insu
+                Han
+              </p>
+              <p class="work-description"><em>arXiv preprint</em>, 2026</p>
+              <div class="project-links">
+                <a
+                  class="project-link"
+                  href="https://minjaechoics.github.io/rtaq-project/"
+                  >Project Page</a
+                >
+              </div>
             </div>
           </li>
         </ol>
