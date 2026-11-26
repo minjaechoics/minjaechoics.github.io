@@ -437,6 +437,30 @@
         padding: 4px 0;
       }
 
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 9px;
+      }
+
+      .project-link {
+        padding: 2px 9px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        color: var(--text);
+        font-size: 0.72rem;
+        font-weight: 650;
+        letter-spacing: 0.035em;
+        text-transform: uppercase;
+      }
+
+      .project-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        text-decoration: none;
+      }
+
       .education-list {
         margin: 0;
         padding: 0;
@@ -776,6 +800,13 @@
               Han
             </p>
             <p class="work-description"><em>arXiv preprint</em>, 2026</p>
+            <div class="project-links">
+              <a
+                class="project-link"
+                href="https://minjaechoics.github.io/rtaq-project/"
+                >Project Page</a
+              >
+            </div>
           </li>
         </ol>
       </section>
