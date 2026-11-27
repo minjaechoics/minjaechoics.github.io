@@ -293,6 +293,16 @@
         color: var(--accent);
       }
 
+      .project-item.text-only {
+        grid-template-columns: 1fr;
+      }
+
+      span.project-title,
+      span.project-title:hover {
+        display: block;
+        color: var(--heading);
+      }
+
       .project-description {
         margin: 4px 0 0;
         color: var(--text);
@@ -471,7 +481,7 @@
       <header class="page-header">
         <h1>Projects</h1>
         <p class="lede">
-          Industrial and personal projects from the CV, spanning efficient
+          Industrial, personal, and in-class projects, spanning efficient
           machine learning, model compression, competitions, and practical AI
           systems.
         </p>
@@ -702,6 +712,41 @@
                   >Details</a
                 >
               </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="project-section" aria-labelledby="in-class-heading">
+        <h2 class="section-title" id="in-class-heading">In-class Projects</h2>
+        <ol class="project-list">
+          <li class="project-item text-only">
+            <div>
+              <span class="project-kicker"
+                >Introduction to On-device AI · Fall 2026</span
+              >
+              <span class="project-title"
+                >Continuous Learning on Rubik Pi 3 Board (NPU)</span
+              >
+            </div>
+          </li>
+          <li class="project-item text-only">
+            <div>
+              <span class="project-kicker"
+                >Introduction to Generative AI · Fall 2026</span
+              >
+              <span class="project-title">FastGen Challenge</span>
+              <p class="project-meta">
+                <span class="award">Selected as Outstanding Report</span>
+              </p>
+            </div>
+          </li>
+          <li class="project-item text-only">
+            <div>
+              <span class="project-kicker"
+                >Introduction to Generative AI · Fall 2026</span
+              >
+              <span class="project-title">Creative Gen Challenge</span>
             </div>
           </li>
         </ol>
